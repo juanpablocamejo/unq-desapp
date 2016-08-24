@@ -21,6 +21,13 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>1.1.1</version>
+			</plugin>
+		</plugins>
 		<finalName>desapp-grupoe-backend</finalName>
 	</build>
 </project>
