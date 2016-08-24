@@ -1,2 +1,2 @@
 language: java
-script: mvn clean verify
+script: cd desapp-grupoe-backend && mvn clean verify
