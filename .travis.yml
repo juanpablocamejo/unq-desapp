@@ -5,4 +5,4 @@ deploy:
   api_key: d75c7509-1a26-4283-ba25-3e59df710b8f
   app: adondevamos
   run:
-    -java $JAVA_OPTS -jar target/dependency/jetty-runner.jar --port $PORT desapp-grupoe-backend/target/*.war
+    - java $JAVA_OPTS -jar target/dependency/jetty-runner.jar --port $PORT desapp-grupoe-backend/target/*.war
