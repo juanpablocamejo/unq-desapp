@@ -1,2 +1,2 @@
 language: java
-script: HEROKU_API_KEY="d75c7509-1a26-4283-ba25-3e59df710b8f" mvn clean heroku:deploy-war
+script: cd desapp-grupoe-backend && HEROKU_API_KEY="d75c7509-1a26-4283-ba25-3e59df710b8f" mvn clean heroku:deploy-war
