@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>A Donde Vamos?</h2>
+	<h2>A donde vamos?</h2>
 </body>
 </html>
