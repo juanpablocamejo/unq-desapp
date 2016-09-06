@@ -2,28 +2,14 @@ package model;
 
 public class Outing {
 
-	private ConcretOuting concret_outing;
-	private Suggestions suggestions;
+	protected double price;
 
-	public Outing(ConcretOuting concret_outing, Suggestions suggestions) {
-		this.concret_outing = concret_outing;
-		this.suggestions = suggestions;
+	public double getPrice() {
+		return price;
 	}
 
-	public ConcretOuting getConcret_outing() {
-		return concret_outing;
-	}
-
-	public void setConcret_outing(ConcretOuting concret_outing) {
-		this.concret_outing = concret_outing;
-	}
-
-	public Suggestions getSuggestions() {
-		return suggestions;
-	}
-
-	public void setSuggestions(Suggestions suggestions) {
-		this.suggestions = suggestions;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 }

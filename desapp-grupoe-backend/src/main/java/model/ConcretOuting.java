@@ -1,41 +1,58 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 
-public class ConcretOuting {
+public class ConcretOuting extends Outing {
 
-	private Date date;
-	private OutingType type;
-	private double price;
+	private String name;
+	private LocalDate date;
+	private LocalTime time;
+	private ArrayList<OutingType> type;
 
-	public ConcretOuting(Date date, OutingType type, double price) {
+	public ConcretOuting(String name, LocalDate date, LocalTime time, ArrayList<OutingType> type) {
+		super();
+		this.name = name;
 		this.date = date;
+		this.time = time;
 		this.type = type;
-		this.price = price;
 	}
 
-	public Date getDate() {
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
-	public OutingType getType() {
+	public LocalTime getTime() {
+		return time;
+	}
+
+	public void setTime(LocalTime time) {
+		this.time = time;
+	}
+
+	public ArrayList<OutingType> getType() {
 		return type;
 	}
 
-	public void setType(OutingType type) {
+	public void setType(ArrayList<OutingType> type) {
 		this.type = type;
 	}
 
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
+	public Boolean isType(OutingType type) {
+		return getType().contains(type);
 	}
 
 }
