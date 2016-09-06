@@ -1,5 +1,8 @@
 language: java
-script: cd desapp-grupoe-backend && mvn clean verify -q
+sudo: required
+jdk:
+  - oraclejdk8
+script: cd desapp-grupoe-backend && mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
 deploy:
   provider: heroku
   api_key: d75c7509-1a26-4283-ba25-3e59df710b8f
