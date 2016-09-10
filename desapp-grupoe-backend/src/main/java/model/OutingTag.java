@@ -5,6 +5,10 @@ public class OutingTag {
     private String name;
     private OutingTag parent;
 
+    public OutingTag() {
+
+    }
+
     public OutingTag(long id, String name, OutingTag parent) {
         this.id = id;
         this.name = name;
