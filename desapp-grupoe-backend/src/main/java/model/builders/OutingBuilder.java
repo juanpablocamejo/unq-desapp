@@ -1,16 +1,8 @@
 package model.builders;
 
-import model.Outing;
-import model.OutingTag;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-
 public class OutingBuilder {
 
-    public static OutingBuilder anyOuting() {
+ /*   public static OutingBuilder anyOuting() {
         return new OutingBuilder();
     }
 
@@ -21,8 +13,8 @@ public class OutingBuilder {
     private double price = 1.0;
 
     public Outing build() {
-        Outing outing = new Outing(name, tags, date, time, price);
-        return outing;
+
+        return new Outing(name, tags, date, time, price);
     }
 
     public OutingBuilder withName(String aName) {
@@ -49,6 +41,6 @@ public class OutingBuilder {
         price = p;
         return this;
     }
-
+*/
 
 }

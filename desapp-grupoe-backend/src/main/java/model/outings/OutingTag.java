@@ -1,4 +1,4 @@
-package model;
+package model.outings;
 
 public class OutingTag {
     private long id;
@@ -7,6 +7,22 @@ public class OutingTag {
 
     public OutingTag() {
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        OutingTag outingTag = (OutingTag) o;
+
+        return id == outingTag.id;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
     }
 
     public OutingTag(long id, String name, OutingTag parent) {
@@ -37,19 +53,6 @@ public class OutingTag {
 
     public void setParent(OutingTag parent) {
         this.parent = parent;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        OutingTag outingTag = (OutingTag) o;
-        return id == outingTag.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return (int) (id ^ (id >>> 32));
     }
 
 

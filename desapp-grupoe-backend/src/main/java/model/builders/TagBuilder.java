@@ -1,6 +1,6 @@
 package model.builders;
 
-import model.OutingTag;
+import model.outings.OutingTag;
 
 
 public class TagBuilder {
@@ -14,8 +14,7 @@ public class TagBuilder {
     private OutingTag parent = new OutingTag();
 
     public OutingTag build() {
-        OutingTag outingTag = new OutingTag(id, name, parent);
-        return outingTag;
+        return new OutingTag(id, name, parent);
     }
 
     public TagBuilder withId(long i) {

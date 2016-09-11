@@ -1,7 +1,7 @@
 package model.builders;
 
-import model.OutingTag;
-import model.Profile;
+import model.outings.OutingTag;
+import model.users.Profile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +12,11 @@ public class ProfileBuilder {
         return new ProfileBuilder();
     }
 
-    private List<OutingTag> tags = new ArrayList<OutingTag>();
+    private List<OutingTag> tags = new ArrayList<>();
     private double inexpensiveOutingLimit = 100;
 
     public Profile build() {
-        Profile profile = new Profile(tags, inexpensiveOutingLimit);
-        return profile;
+        return new Profile(tags, inexpensiveOutingLimit);
     }
 
     public ProfileBuilder withTags(ArrayList<OutingTag> t) {

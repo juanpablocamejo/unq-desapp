@@ -1,6 +1,8 @@
 package model;
 
 import junit.framework.TestCase;
+import model.outings.OutingTag;
+import model.users.Profile;
 import org.junit.Test;
 
 import static model.builders.TagBuilder.anyTag;
