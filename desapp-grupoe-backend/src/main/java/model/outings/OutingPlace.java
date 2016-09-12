@@ -1,16 +1,16 @@
 package model.outings;
 
 import model.planning.IPlanningResult;
-import model.time.AttentionSchedule;
+import model.time.WeekTimeSchedule;
 
 import java.util.List;
 
 public class OutingPlace extends Outing implements IPlanningResult {
-    private AttentionSchedule attentionSchedule;
+    private WeekTimeSchedule weekTimeSchedule;
 
-    protected OutingPlace(String name, String description, List<OutingTag> tags, double price, AttentionSchedule attentionSchedule) {
+    protected OutingPlace(String name, String description, List<OutingTag> tags, double price, WeekTimeSchedule weekTimeSchedule) {
         super(name, description, tags, price);
-        this.attentionSchedule = attentionSchedule;
+        this.weekTimeSchedule = weekTimeSchedule;
     }
 
     @Override

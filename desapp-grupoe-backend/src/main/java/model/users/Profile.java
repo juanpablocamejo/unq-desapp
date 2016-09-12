@@ -19,12 +19,10 @@ public class Profile {
     }
 
     public static Profile mergeProfiles(List<Profile> profiles) {
-        Profile mergedProfile;
         int quorum = profiles.size() / 2;
         Hashtable<OutingTag, Integer> tagsOccurrence = getTagsOccurrence(profiles);
         double inexpensiveLimitAvg = profiles.parallelStream().mapToDouble(Profile::getInexpensiveOutingLimit).average().getAsDouble();
-        mergedProfile = new Profile(getQuorumTags(quorum, tagsOccurrence), inexpensiveLimitAvg);
-        return mergedProfile;
+        return new Profile(getQuorumTags(quorum, tagsOccurrence), inexpensiveLimitAvg);
     }
 
     private static List<OutingTag> getQuorumTags(int quorum, Hashtable<OutingTag, Integer> tagsOccurrence) {
