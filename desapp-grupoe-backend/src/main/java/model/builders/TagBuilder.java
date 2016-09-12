@@ -5,13 +5,13 @@ import model.outings.OutingTag;
 
 public class TagBuilder {
 
-    public static TagBuilder anyTag() {
-        return new TagBuilder();
-    }
-
     private long id = 1;
     private String name = "Tag x";
     private OutingTag parent = new OutingTag();
+
+    public static TagBuilder anyTag() {
+        return new TagBuilder();
+    }
 
     public OutingTag build() {
         return new OutingTag(id, name, parent);

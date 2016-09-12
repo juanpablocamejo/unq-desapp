@@ -8,12 +8,12 @@ import java.util.List;
 
 public class ProfileBuilder {
 
+    private List<OutingTag> tags = new ArrayList<>();
+    private double inexpensiveOutingLimit = 100;
+
     public static ProfileBuilder anyProfile() {
         return new ProfileBuilder();
     }
-
-    private List<OutingTag> tags = new ArrayList<>();
-    private double inexpensiveOutingLimit = 100;
 
     public Profile build() {
         return new Profile(tags, inexpensiveOutingLimit);

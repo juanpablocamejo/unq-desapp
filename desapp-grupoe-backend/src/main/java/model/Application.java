@@ -9,6 +9,8 @@ import java.util.List;
 
 public class Application {
     private List<User> users;
+    private List<OutingPlace> places = new ArrayList<>();
+    private List<OutingEvent> events = new ArrayList<>();
 
     public List<User> getUsers() {
         return users;
@@ -33,7 +35,4 @@ public class Application {
     public void setEvents(List<OutingEvent> events) {
         this.events = events;
     }
-
-    private List<OutingPlace> places = new ArrayList<>();
-    private List<OutingEvent> events = new ArrayList<>();
 }

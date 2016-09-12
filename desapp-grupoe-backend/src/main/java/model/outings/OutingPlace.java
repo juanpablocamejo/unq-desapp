@@ -27,4 +27,12 @@ public class OutingPlace extends Outing implements IPlanningResult {
     public boolean isPlace() {
         return true;
     }
+
+    public WeekTimeSchedule getWeekTimeSchedule() {
+        return weekTimeSchedule;
+    }
+
+    public void setWeekTimeSchedule(WeekTimeSchedule weekTimeSchedule) {
+        this.weekTimeSchedule = weekTimeSchedule;
+    }
 }
