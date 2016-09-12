@@ -1,16 +1,17 @@
 package model.time;
 
-import junit.framework.TestCase;
 import org.joda.time.LocalTime;
 import org.junit.Test;
 
-public class WeekTimeScheduleTest extends TestCase {
+import static junit.framework.TestCase.assertEquals;
+
+public class WeekTimeScheduleTest {
     private LocalTime anyLocalTime() {
         return LocalTime.now();
     }
 
     @Test
-    public void testAddTimeSlotPassingStartAndEndLocalTimes() throws Exception {
+    public void addTimeSlotPassingStartAndEndLocalTimes() throws Exception {
         WeekTimeSchedule schedule = new WeekTimeSchedule();
         LocalTime time1 = anyLocalTime();
         assertEquals(schedule.getDaysCount(), 0);
@@ -20,7 +21,7 @@ public class WeekTimeScheduleTest extends TestCase {
     }
 
     @Test
-    public void testAddTimeSlotPassingStartLocalTimesAndHours() throws Exception {
+    public void addTimeSlotPassingStartLocalTimesAndHours() throws Exception {
         WeekTimeSchedule schedule = new WeekTimeSchedule();
         LocalTime time1 = anyLocalTime();
         assertEquals(schedule.getDaysCount(), 0);
@@ -29,7 +30,7 @@ public class WeekTimeScheduleTest extends TestCase {
     }
 
     @Test
-    public void testAddTimeSlotPassingStartLocalTimesHoursAndMinutes() throws Exception {
+    public void addTimeSlotPassingStartLocalTimesHoursAndMinutes() throws Exception {
         WeekTimeSchedule schedule = new WeekTimeSchedule();
         LocalTime time1 = anyLocalTime();
 

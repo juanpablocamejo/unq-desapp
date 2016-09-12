@@ -1,11 +1,13 @@
 package model.time;
 
-import junit.framework.TestCase;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 import org.junit.Test;
 
-public class DayTimeScheduleTest extends TestCase {
+import static org.junit.Assert.*;
+
+public class DayTimeScheduleTest {
+
     private TimeSlot anyTimeSlot() {
         return new TimeSlot(LocalTime.parse("9:00"), LocalTime.parse("10:00"));
     }
@@ -15,7 +17,7 @@ public class DayTimeScheduleTest extends TestCase {
     }
 
     @Test
-    public void testAScheduleShouldHaveSlotsAfterAddATimeSlot() throws Exception {
+    public void aScheduleShouldHaveSlotsAfterAddATimeSlot() throws Exception {
         DayTimeSchedule schedule = new DayTimeSchedule();
         assertTrue(schedule.getTimeSlots().isEmpty());
         schedule.addTimeSlot(this.anyTimeSlot());
@@ -23,19 +25,19 @@ public class DayTimeScheduleTest extends TestCase {
     }
 
     @Test
-    public void testAddATimeSlotShouldRaiseExceptionWhenAddAnExistingSlot() throws Exception {
+    public void addATimeSlotShouldRaiseExceptionWhenAddAnExistingSlot() throws DuplicatedTimeSlotException {
         DayTimeSchedule schedule = new DayTimeSchedule();
         TimeSlot timeSlot1 = anyTimeSlot();
         schedule.addTimeSlot(timeSlot1);
         try {
             schedule.addTimeSlot(timeSlot1);
-        } catch (RuntimeException e) {
-            assertEquals(e.getMessage(), "Error: existing timeslot includes especified time");
+        } catch (DuplicatedTimeSlotException e) {
+            assertEquals(e.getMessage(), "Error: existing timeSlot includes especified time");
         }
     }
 
     @Test
-    public void testIncludesShouldReturnTrueWhenPassADateWithAnIncludedWeekDayAndSlot() {
+    public void includesShouldReturnTrueWhenPassADateWithAnIncludedWeekDayAndSlot() throws Exception {
         DayTimeSchedule schedule = new DayTimeSchedule();
         TimeSlot timeSlot1 = anyTimeSlot();
         LocalDate date1 = anyLocalDate();

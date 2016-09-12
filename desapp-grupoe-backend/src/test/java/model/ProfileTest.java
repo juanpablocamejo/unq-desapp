@@ -1,16 +1,17 @@
 package model;
 
-import junit.framework.TestCase;
 import model.outings.OutingTag;
 import model.users.Profile;
 import org.junit.Test;
 
 import static model.builders.TagBuilder.anyTag;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-public class ProfileTest extends TestCase {
+public class ProfileTest {
 
     @Test
-    public void testAddANewTagToTheListWorksOK() {
+    public void addANewTagToTheListWorksOK() {
 
         OutingTag tagMusic = anyTag().withId(1).withName("Music").build();
         OutingTag tagMovie = anyTag().withId(2).withName("Movie").build();
@@ -22,8 +23,9 @@ public class ProfileTest extends TestCase {
         assertFalse((profile.getTags().contains(tagMovie)));
     }
 
+
     @Test
-    public void testRemoveAnExistingTagRemovesFromTheListOK() {
+    public void removeAnExistingTagRemovesFromTheListOK() {
 
         OutingTag tagMusic = anyTag().withId(1).withName("Music").build();
         OutingTag tagMovie = anyTag().withId(2).withName("Movie").build();

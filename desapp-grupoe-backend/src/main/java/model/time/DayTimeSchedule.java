@@ -27,19 +27,19 @@ public class DayTimeSchedule {
         return timeSlots;
     }
 
-    public void addTimeSlot(LocalTime start, LocalTime end) {
+    public void addTimeSlot(LocalTime start, LocalTime end) throws DuplicatedTimeSlotException {
         checkConflicts(start, end);
         timeSlots.add(new TimeSlot(start, end));
     }
 
-    public void addTimeSlot(TimeSlot timeSlot) {
+    public void addTimeSlot(TimeSlot timeSlot) throws DuplicatedTimeSlotException {
         addTimeSlot(timeSlot.getStart(), timeSlot.getEnd());
     }
 
-    private void checkConflicts(LocalTime start, LocalTime end) {
+    private void checkConflicts(LocalTime start, LocalTime end) throws DuplicatedTimeSlotException {
         for (TimeSlot slot : timeSlots) {
             if (slot.includes(start) || slot.includes(end)) {
-                throw new RuntimeException("Error: existing timeslot includes especified time");
+                throw new DuplicatedTimeSlotException("Error: existing timeSlot includes especified time");
             }
         }
     }
