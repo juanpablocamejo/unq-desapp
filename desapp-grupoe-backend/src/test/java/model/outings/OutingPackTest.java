@@ -1,4 +1,4 @@
-package model;
+package model.outings;
 
 import model.outings.Outing;
 import model.outings.OutingPack;

@@ -9,14 +9,14 @@ import java.util.List;
 
 public class OutingBuilder {
 
-    public static OutingBuilder anyOuting() {
-        return new OutingBuilder();
-    }
-
     private String name = "Name";
     private String description = "Description";
     private List<OutingTag> tags = new ArrayList<>();
     private double price = 1;
+
+    public static OutingBuilder anyOuting() {
+        return new OutingBuilder();
+    }
 
     public Outing build() {
         return new OutingEvent(name, description, tags, price);
