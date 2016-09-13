@@ -54,7 +54,7 @@ public class ProfileTest {
 
         Profile toTest = Profile.mergeProfiles(listProfiles);
 
-        assertEquals(toTest.getInexpensiveOutingLimit(), 40.0);
+        assertEquals(toTest.getInexpensiveOutingLimit(), 40.0, 0);
 
     }
 

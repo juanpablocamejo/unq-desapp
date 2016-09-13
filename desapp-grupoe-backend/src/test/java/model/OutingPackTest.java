@@ -12,8 +12,7 @@ public class OutingPackTest {
     @Test
     public void testGetPriceReturnsZeroOnAEmptyOutingPack() {
         OutingPack packOfOutings = new OutingPack();
-
-        assertEquals(packOfOutings.getPrice(), 0.0);
+        assertEquals(packOfOutings.getPrice(), 0.0, 0);
     }
 
     @Test
@@ -28,7 +27,7 @@ public class OutingPackTest {
         packOfOutings.getOutings().add(outing2);
         packOfOutings.getOutings().add(outing3);
 
-        assertEquals(packOfOutings.getPrice(), 19.0);
+        assertEquals(packOfOutings.getPrice(), 19.0, 0);
     }
 
     @Test
