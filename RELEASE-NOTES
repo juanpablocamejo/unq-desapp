@@ -9,7 +9,7 @@ Grupo E
 	- Esteban Schafir
 	
 ---------------------------------------------------------------------
-TAG 1.0
+TAG ENTREGA 1.0
 ---------------------------------------------------------------------
 NEW FEATURES:
 * Configuration of tools for continous integration, continous deploy, etc (travis, heroku, codacy).
