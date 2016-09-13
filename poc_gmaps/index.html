@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Pruebas con GMaps - angular + ngMap </title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="/js/ng-map.min.js"></script>
+  <script type="text/javascript" src="/js/controllers/mapController.js"></script>
+  <style type="text/css">
+    .map {
+      width: 60%;
+      height: 300px;
+      margin:auto;
+    }
+    #instructions{
+      width:60%;
+      margin:auto;
+    }
+    
+    body {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body ng-app="gmaps" ng-cloak ng-controller="MapController as vm">
+  <h3>Pruebas con GMaps - angular + ngMap</h3>
+  <div map-lazy-load map-lazy-load-params="{{vm.urlGmaps}}">
+    <ng-map zoom="{{vm.config.zoom}}" class="map" center="{{vm.config.center}}">
+      
+      <directions travel-mode="DRIVING" origin="Retiro, Buenos Aires" destination="Puerto Madero, Buenos Aires" panel="instructions">
+      </directions>
+      <marker ng-repeat='mk in vm.markers' id='mk{{$index}}' position="{{mk.address}}" icon="/img/pizzeria.png" title="{{mk.text}}">
+      </marker>
+
+    </ng-map>
+    
+  </div>
+  <div id="instructions"></div>
+
+
+</body>
+
+</html>
