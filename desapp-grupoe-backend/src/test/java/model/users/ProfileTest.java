@@ -1,12 +1,9 @@
 package model.users;
 
 import model.outings.OutingTag;
-import model.users.Profile;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
 
 import static model.builders.ProfileBuilder.anyProfile;
 import static model.builders.TagBuilder.anyTag;
@@ -93,7 +90,5 @@ public class ProfileTest {
         assertTrue(profileToTest.getTags().contains(tag1));
         assertFalse(profileToTest.getTags().contains(tag2));
         assertFalse(profileToTest.getTags().contains(tag3));
-
     }
-
 }

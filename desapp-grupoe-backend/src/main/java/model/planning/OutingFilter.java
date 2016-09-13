@@ -11,7 +11,15 @@ public class OutingFilter {
     private TimeSlot timeSlot;
     private OutingTag searchTag;
     private List<OutingTag> profileTags;
-    private int maxPrice;
+    private double maxPrice;
+
+    public OutingFilter(LocalDate date, TimeSlot timeSlot, OutingTag searchTag, List<OutingTag> profileTags, double maxPrice) {
+        this.date = date;
+        this.timeSlot = timeSlot;
+        this.searchTag = searchTag;
+        this.profileTags = profileTags;
+        this.maxPrice = maxPrice;
+    }
 
     public LocalDate getDate() {
         return date;
@@ -45,7 +53,7 @@ public class OutingFilter {
         this.profileTags = profileTags;
     }
 
-    public int getMaxPrice() {
+    public double getMaxPrice() {
         return maxPrice;
     }
 
