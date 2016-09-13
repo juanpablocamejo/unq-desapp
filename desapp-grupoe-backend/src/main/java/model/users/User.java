@@ -12,6 +12,14 @@ public class User {
     private Profile profile;
     private List<User> friends = new ArrayList<>();
 
+    public User(String name, String surname, Address location, Profile profile, List<User> friends) {
+        this.name = name;
+        this.surname = surname;
+        this.location = location;
+        this.profile = profile;
+        this.friends = friends;
+    }
+
     public String getName() {
         return name;
     }
@@ -53,11 +61,15 @@ public class User {
     }
 
     public void addFriend(User friend) {
-        this.friends.add(friend);
+        if (!getFriends().contains(friend)) {
+            getFriends().add(friend);
+        }
     }
 
     public void removeFriend(User friend) {
-        this.friends.remove(friend);
+        if (getFriends().contains(friend)) {
+            getFriends().remove(friend);
+        }
     }
 
     public Profile getFriendsProfile() {

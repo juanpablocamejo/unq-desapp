@@ -4,9 +4,11 @@ import model.outings.OutingTag;
 import model.users.Profile;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
+import static model.builders.ProfileBuilder.anyProfile;
 import static model.builders.TagBuilder.anyTag;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ProfileTest {
 
@@ -40,5 +42,21 @@ public class ProfileTest {
         assertTrue(profile.getTags().contains(tagMusic));
 
     }
+
+    @Test
+    public void testMergeProfilesInexpensiveLimitAverageIsOK() {
+
+        Profile p1 = anyProfile().withInexpensiveOutingLimit(20).build();
+        Profile p2 = anyProfile().withInexpensiveOutingLimit(60).build();
+        ArrayList<Profile> listProfiles = new ArrayList<>();
+        listProfiles.add(p1);
+        listProfiles.add(p2);
+
+        Profile toTest = Profile.mergeProfiles(listProfiles);
+
+        assertEquals(toTest.getInexpensiveOutingLimit(), 40.0);
+
+    }
+
 
 }

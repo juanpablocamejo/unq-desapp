@@ -8,6 +8,10 @@ public class OutingEvent extends Outing {
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
 
+    public OutingEvent(String name, String description, List<OutingTag> tags, double price) {
+        super(name, description, tags, price);
+    }
+
     protected OutingEvent(String name, String description, List<OutingTag> tags, double price, LocalDateTime startDateTime, LocalDateTime endDateTime) {
         super(name, description, tags, price);
         this.startDateTime = startDateTime;
