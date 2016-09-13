@@ -1,0 +1,27 @@
+====== RELEASE NOTES  ==========
+
+Universidad Nacional de Quilmes
+Desarrollo de Aplicaciones
+A Donde Vamos
+
+Grupo E 
+	- Juan Pablo Camejo
+	- Esteban Schafir
+	
+---------------------------------------------------------------------
+TAG ENTREGA 1.0
+---------------------------------------------------------------------
+NEW FEATURES:
+* Configuration of tools for continous integration, continous deploy, etc (travis, heroku, codacy).
+* POC of Google Maps API allows to show a route, and few markers.
+* Structure of the model.
+* UML
+* Mockups: Home, Profile, Search.
+
+NOTES:
+* Implementation of search Strategy on next Release.
+* User attendance on outings not implemented yet.
+* Suggestions of other outings not implemented yet.
+
+KNOWN ISSUES:
+-
