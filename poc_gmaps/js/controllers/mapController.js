@@ -1,8 +1,9 @@
+/*global angular*/
 (function() {
-    'use strict';
+    "use strict";
     angular
-        .module('gmaps', ['ngMap'])
-        .controller('MapController', function(NgMap) {
+        .module("gmaps", ["ngMap"])
+        .controller("MapController", function(NgMap) {
             var vm = this;
             NgMap.getMap().then(function(map) {
                 vm.map = map;
@@ -13,9 +14,9 @@
                 center: "buenos aires"
             };
             vm.markers = [
-                {address: '[-34.60375,-58.3807633]', color: 'red', text: 'Las Cuartetas', animation:'Animation.BOUNCE'},
-                {address: '[-34.6033243,-58.377882]', color: 'green', text: 'El Palacio de la pizza'},
-                {address: '[-34.6040792,-58.3880116]', color: 'yellow', text: 'Güerrin'}
+                {address: "[-34.60375,-58.3807633]", color: "red", text: "Las Cuartetas", animation:"Animation.BOUNCE"},
+                {address: "[-34.6033243,-58.377882]", color: "green", text: "El Palacio de la pizza"},
+                {address: "[-34.6040792,-58.3880116]", color: "yellow", text: "Güerrin"}
                 ];
         });
 

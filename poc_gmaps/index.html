@@ -32,7 +32,7 @@
       
       <directions travel-mode="DRIVING" origin="Retiro, Buenos Aires" destination="Puerto Madero, Buenos Aires" panel="instructions">
       </directions>
-      <marker ng-repeat='mk in vm.markers' id='mk{{$index}}' position="{{mk.address}}" icon="/img/pizzeria.png" title="{{mk.text}}">
+      <marker ng-repeat="mk in vm.markers" id="mk{{$index}}" position="{{mk.address}}" icon="/img/pizzeria.png" title="{{mk.text}}">
       </marker>
 
     </ng-map>
