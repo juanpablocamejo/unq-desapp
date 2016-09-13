@@ -5,7 +5,7 @@ import org.joda.time.LocalDate;
 
 import java.util.List;
 
-public class SaturdayNightFeverStrategy implements IPlanningStrategy {
+public class SurpriseStrategy implements IPlanningStrategy {
 
     @Override
     public List<IPlanningResult> search(Profile profile) {

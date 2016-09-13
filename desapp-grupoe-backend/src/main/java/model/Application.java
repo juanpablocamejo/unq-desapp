@@ -2,6 +2,8 @@ package model;
 
 import model.outings.OutingEvent;
 import model.outings.OutingPlace;
+import model.planning.IPlanningResult;
+import model.planning.OutingFilter;
 import model.users.User;
 
 import java.util.ArrayList;
@@ -11,6 +13,10 @@ public class Application {
     private List<User> users;
     private List<OutingPlace> places = new ArrayList<>();
     private List<OutingEvent> events = new ArrayList<>();
+
+    public static List<IPlanningResult> findOutings(OutingFilter filter) {
+        return null;
+    }
 
     public List<User> getUsers() {
         return users;
@@ -35,5 +41,4 @@ public class Application {
     public void setEvents(List<OutingEvent> events) {
         this.events = events;
     }
-
 }

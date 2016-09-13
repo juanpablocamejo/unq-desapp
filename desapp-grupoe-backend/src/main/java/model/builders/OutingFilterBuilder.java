@@ -16,7 +16,7 @@ public class OutingFilterBuilder {
     private double maxPrice = 0;
 
 
-    public static OutingFilterBuilder anyOutingFilter() {
+    public static OutingFilterBuilder anOutingFilter() {
         return new OutingFilterBuilder();
     }
 
