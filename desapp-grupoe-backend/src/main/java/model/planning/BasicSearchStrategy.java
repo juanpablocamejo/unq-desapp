@@ -15,4 +15,10 @@ public class BasicSearchStrategy {
                 .withProfileTags(profile.getTags());
     }
 
+    protected OutingFilterBuilder searchFilter(Profile profile, double price) {
+        return OutingFilterBuilder.anyOutingFilter()
+                .withMaxPrice(price)
+                .withProfileTags(profile.getTags());
+    }
+
 }
