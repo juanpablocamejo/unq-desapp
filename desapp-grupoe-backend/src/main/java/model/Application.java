@@ -11,11 +11,26 @@ import java.util.List;
 
 public class Application {
     private List<User> users;
-    private List<OutingPlace> places = new ArrayList<>();
-    private List<OutingEvent> events = new ArrayList<>();
+    private static List<OutingPlace> places = new ArrayList<>();
+    private static List<OutingEvent> events = new ArrayList<>();
 
     public static List<IPlanningResult> findOutings(OutingFilter filter) {
-        return null;
+
+        List<IPlanningResult> outings = new ArrayList<>();
+        for (OutingPlace op : places) {
+            if (op.getTags().contains(filter.getSearchTag())) {
+                outings.add(op);
+            }
+        }
+
+        for (OutingEvent oe : events) {
+            if (oe.getTags().contains(filter.getSearchTag())) {
+                outings.add(oe);
+            }
+        }
+
+        return outings;
+
     }
 
     public List<User> getUsers() {
