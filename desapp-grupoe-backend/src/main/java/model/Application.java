@@ -16,20 +16,28 @@ public class Application {
 
     public static List<IPlanningResult> findOutings(OutingFilter filter) {
 
-        List<IPlanningResult> outings = new ArrayList<>();
+        List<IPlanningResult> outingsByTag = new ArrayList<>();
         for (OutingPlace op : places) {
             if (op.getTags().contains(filter.getSearchTag())) {
-                outings.add(op);
+                outingsByTag.add(op);
             }
         }
 
-        for (OutingEvent oe : events) {
-            if (oe.getTags().contains(filter.getSearchTag())) {
-                outings.add(oe);
+        List<IPlanningResult> outingsByPrice = new ArrayList<>();
+        for (OutingPlace op : places) {
+            if (op.getPrice() <= filter.getMaxPrice()) {
+                outingsByPrice.add(op);
             }
         }
 
-        return outings;
+        List<IPlanningResult> outingsByDate = new ArrayList<>();
+        for (OutingPlace op : places) {
+            if (op.getWeekTimeSchedule().includes(filter.getDate(), filter.getTimeSlot())) {
+                outingsByDate.add(op);
+            }
+        }
+
+        return matchOutings(matchOutings(outingsByTag, outingsByPrice), outingsByDate);
 
     }
 
@@ -55,5 +63,15 @@ public class Application {
 
     public void setEvents(List<OutingEvent> events) {
         this.events = events;
+    }
+
+    public static List<IPlanningResult> matchOutings(List<IPlanningResult> listA, List<IPlanningResult> listB) {
+        List<IPlanningResult> finalOutings = new ArrayList<>();
+        for (IPlanningResult outing : listA) {
+            if (listB.contains(outing)) {
+                finalOutings.add(outing);
+            }
+        }
+        return finalOutings;
     }
 }

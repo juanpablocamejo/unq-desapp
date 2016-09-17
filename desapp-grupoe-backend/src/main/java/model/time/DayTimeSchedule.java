@@ -23,6 +23,14 @@ public class DayTimeSchedule {
         this.timeSlots.add(timeSlot);
     }
 
+    public int getWeekDay() {
+        return weekDay;
+    }
+
+    public void setWeekDay(int weekDay) {
+        this.weekDay = weekDay;
+    }
+
     public List<TimeSlot> getTimeSlots() {
         return timeSlots;
     }
@@ -48,19 +56,13 @@ public class DayTimeSchedule {
         return weekDay == date.getDayOfWeek() && includes(timeSlot);
     }
 
-    private boolean includes(TimeSlot timeSlot) {
+    public boolean includes(TimeSlot timeSlot) {
         for (TimeSlot slot : timeSlots) {
-            if (slot.includes(timeSlot)) return true;
+            if (slot.includes(timeSlot)) {
+                return true;
+            }
         }
         return false;
-    }
-
-    public int getWeekDay() {
-        return weekDay;
-    }
-
-    public void setWeekDay(int weekDay) {
-        this.weekDay = weekDay;
     }
 
 

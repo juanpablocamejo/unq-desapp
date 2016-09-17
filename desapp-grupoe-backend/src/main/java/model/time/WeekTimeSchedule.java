@@ -1,5 +1,6 @@
 package model.time;
 
+import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
 import java.util.ArrayList;
@@ -7,6 +8,14 @@ import java.util.List;
 
 public class WeekTimeSchedule {
     private List<DayTimeSchedule> schedules = new ArrayList<>();
+
+    public List<DayTimeSchedule> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(List<DayTimeSchedule> schedules) {
+        this.schedules = schedules;
+    }
 
     public void addTimeSlot(int weekDay, LocalTime start, LocalTime end) throws DuplicatedTimeSlotException {
         for (DayTimeSchedule schedule : schedules) {
@@ -43,5 +52,14 @@ public class WeekTimeSchedule {
 
     public int getDaysCount() {
         return schedules.size();
+    }
+
+    public boolean includes(LocalDate date, TimeSlot time) {
+        for (DayTimeSchedule dts : schedules) {
+            if (dts.includes(date, time)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
