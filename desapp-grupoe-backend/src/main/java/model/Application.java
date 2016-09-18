@@ -6,13 +6,19 @@ import model.planning.IPlanningResult;
 import model.planning.OutingFilter;
 import model.users.User;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Application {
-    private List<User> users;
     private static List<OutingPlace> places;
     private static List<OutingEvent> events;
+    private List<User> users;
+
+    public static List<IPlanningResult> findOutings(OutingFilter filter) {
+        List<IPlanningResult> filteredOutings = places.stream().filter(x -> filter.match(x)).collect(Collectors.toList());
+        filteredOutings.addAll(events.stream().filter(x -> filter.match(x)).collect(Collectors.toList()));
+        return filteredOutings;
+    }
 
     public List<User> getUsers() {
         return users;
@@ -27,7 +33,7 @@ public class Application {
     }
 
     public void setPlaces(List<OutingPlace> places) {
-        this.places = places;
+        Application.places = places;
     }
 
     public List<OutingEvent> getEvents() {
@@ -35,67 +41,7 @@ public class Application {
     }
 
     public void setEvents(List<OutingEvent> events) {
-        this.events = events;
+        Application.events = events;
     }
-
-    public static List<IPlanningResult> findOutings(OutingFilter filter) {
-
-        List<IPlanningResult> outingsByTag = findOutingsByTag(filter);
-        List<IPlanningResult> outingsByPrice = findOutingsByPrice(filter);
-        List<IPlanningResult> outingsByDate = findOutingsByDate(filter);
-
-        return matchOutings(matchOutings(outingsByTag, outingsByPrice), outingsByDate);
-
-    }
-
-    private static List<IPlanningResult> findOutingsByDate(OutingFilter filter) {
-        List<IPlanningResult> outingsByDate = new ArrayList<>();
-        for (OutingPlace op : places) {
-            if (op.getWeekTimeSchedule().includes(filter.getDate(), filter.getTimeSlot())) {
-                outingsByDate.add(op);
-            }
-        }
-        return outingsByDate;
-    }
-
-    private static List<IPlanningResult> findOutingsByPrice(OutingFilter filter) {
-        List<IPlanningResult> outingsByPrice = new ArrayList<>();
-        for (OutingPlace op : places) {
-            if (op.getPrice() <= filter.getMaxPrice()) {
-                outingsByPrice.add(op);
-            }
-        }
-        return outingsByPrice;
-    }
-
-    private static List<IPlanningResult> findOutingsByTag(OutingFilter filter) {
-
-        List<IPlanningResult> outingsByTag = new ArrayList<>();
-
-        if (filter.getSearchTag() == null) {
-            /**
-             * TODO
-             */
-            ;
-        }
-
-        for (OutingPlace op : places) {
-            if (op.getTags().contains(filter.getSearchTag())) {
-                outingsByTag.add(op);
-            }
-        }
-        return outingsByTag;
-    }
-
-    public static List<IPlanningResult> matchOutings(List<IPlanningResult> listA, List<IPlanningResult> listB) {
-        List<IPlanningResult> finalOutings = new ArrayList<>();
-        for (IPlanningResult outing : listA) {
-            if (listB.contains(outing)) {
-                finalOutings.add(outing);
-            }
-        }
-        return finalOutings;
-    }
-
 
 }

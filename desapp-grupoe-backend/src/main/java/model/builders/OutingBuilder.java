@@ -37,6 +37,11 @@ public class OutingBuilder {
         return this;
     }
 
+    public OutingBuilder withTag(OutingTag t) {
+        tags.add(t);
+        return this;
+    }
+
     public OutingBuilder withPrice(double p) {
         price = p;
         return this;

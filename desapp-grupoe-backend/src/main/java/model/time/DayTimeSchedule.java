@@ -66,4 +66,7 @@ public class DayTimeSchedule {
     }
 
 
+    public boolean includes(LocalDate date) {
+        return weekDay == date.getDayOfWeek();
+    }
 }

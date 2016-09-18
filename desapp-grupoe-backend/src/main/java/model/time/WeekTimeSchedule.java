@@ -62,4 +62,13 @@ public class WeekTimeSchedule {
         }
         return false;
     }
+
+    public boolean includes(LocalDate date) {
+        for (DayTimeSchedule dts : schedules) {
+            if (dts.includes(date)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

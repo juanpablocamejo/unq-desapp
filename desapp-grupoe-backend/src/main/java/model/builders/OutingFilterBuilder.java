@@ -5,23 +5,20 @@ import model.planning.OutingFilter;
 import model.time.TimeSlot;
 import org.joda.time.LocalDate;
 
-import java.util.List;
-
 public class OutingFilterBuilder {
 
     private LocalDate date = null;
     private TimeSlot timeSlot = null;
     private OutingTag searchTag = null;
-    private List<OutingTag> profileTags = null;
     private double maxPrice = 0;
 
 
-    public static OutingFilterBuilder anyOutingFilter() {
+    public static OutingFilterBuilder anOutingFilter() {
         return new OutingFilterBuilder();
     }
 
     public OutingFilter build() {
-        return new OutingFilter(date, timeSlot, searchTag, profileTags, maxPrice);
+        return new OutingFilter(date, timeSlot, searchTag, maxPrice);
     }
 
     public OutingFilterBuilder withDate(LocalDate d) {
@@ -29,18 +26,14 @@ public class OutingFilterBuilder {
         return this;
     }
 
-    public OutingFilterBuilder withTimeSlot(TimeSlot ts) {
+    public OutingFilterBuilder withDateTime(LocalDate d, TimeSlot ts) {
+        date = d;
         timeSlot = ts;
         return this;
     }
 
     public OutingFilterBuilder withSearchTag(OutingTag tag) {
         searchTag = tag;
-        return this;
-    }
-
-    public OutingFilterBuilder withProfileTags(List<OutingTag> tags) {
-        profileTags = tags;
         return this;
     }
 

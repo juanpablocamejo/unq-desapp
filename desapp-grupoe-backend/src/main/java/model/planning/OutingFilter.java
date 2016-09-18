@@ -1,23 +1,20 @@
 package model.planning;
 
+import model.outings.Outing;
 import model.outings.OutingTag;
 import model.time.TimeSlot;
 import org.joda.time.LocalDate;
-
-import java.util.List;
 
 public class OutingFilter {
     private LocalDate date;
     private TimeSlot timeSlot;
     private OutingTag searchTag;
-    private List<OutingTag> profileTags;
     private double maxPrice;
 
-    public OutingFilter(LocalDate date, TimeSlot timeSlot, OutingTag searchTag, List<OutingTag> profileTags, double maxPrice) {
+    public OutingFilter(LocalDate date, TimeSlot timeSlot, OutingTag searchTag, double maxPrice) {
         this.date = date;
         this.timeSlot = timeSlot;
         this.searchTag = searchTag;
-        this.profileTags = profileTags;
         this.maxPrice = maxPrice;
     }
 
@@ -45,14 +42,6 @@ public class OutingFilter {
         this.searchTag = searchTag;
     }
 
-    public List<OutingTag> getProfileTags() {
-        return profileTags;
-    }
-
-    public void setProfileTags(List<OutingTag> profileTags) {
-        this.profileTags = profileTags;
-    }
-
     public double getMaxPrice() {
         return maxPrice;
     }
@@ -60,4 +49,27 @@ public class OutingFilter {
     public void setMaxPrice(int maxPrice) {
         this.maxPrice = maxPrice;
     }
+
+    public boolean match(Outing outing) {
+        return matchPrice(outing)
+                && matchDateTime(outing)
+                && matchSearchTag(outing);
+
+    }
+
+    private boolean matchDateTime(Outing outing) {
+        if (timeSlot != null)
+            return date == null || outing.matchWith(date, timeSlot);
+        else
+            return date == null || outing.matchWith(date);
+    }
+
+    private boolean matchPrice(Outing outing) {
+        return maxPrice == 0.0 || outing.matchWith(maxPrice);
+    }
+
+    private boolean matchSearchTag(Outing outing) {
+        return searchTag == null || outing.matchWith(searchTag);
+    }
+
 }

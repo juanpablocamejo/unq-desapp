@@ -1,5 +1,7 @@
 package model.outings;
 
+import model.time.TimeSlot;
+import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 
 import java.util.List;
@@ -33,6 +35,18 @@ public class OutingEvent extends Outing {
         return false;
     }
 
+    @Override
+    public boolean matchWith(LocalDate date) {
+        return date.compareTo(startDateTime.toLocalDate()) == 0;
+    }
+
+    @Override
+    public boolean matchWith(LocalDate date, TimeSlot time) {
+        return matchWith(date)
+                && time.includes(startDateTime.toLocalTime())
+                && time.includes(endDateTime.toLocalTime());
+    }
+
     public LocalDateTime getStartDateTime() {
         return startDateTime;
     }
@@ -48,4 +62,5 @@ public class OutingEvent extends Outing {
     public void setEndDateTime(LocalDateTime endDateTime) {
         this.endDateTime = endDateTime;
     }
+
 }
