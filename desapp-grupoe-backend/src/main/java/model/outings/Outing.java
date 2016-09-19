@@ -63,7 +63,7 @@ public abstract class Outing implements IPlanningResult {
     public abstract boolean matchWith(LocalDate date, TimeSlot timeSlot);
 
     public boolean matchWith(double maxPrice) {
-        return maxPrice <= price;
+        return maxPrice >= price;
     }
 
     public boolean matchWith(OutingTag tag) {

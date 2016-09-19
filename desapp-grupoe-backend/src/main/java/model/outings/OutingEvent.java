@@ -14,7 +14,7 @@ public class OutingEvent extends Outing {
         super(name, description, tags, price);
     }
 
-    protected OutingEvent(String name, String description, List<OutingTag> tags, double price, LocalDateTime startDateTime, LocalDateTime endDateTime) {
+    public OutingEvent(String name, String description, List<OutingTag> tags, double price, LocalDateTime startDateTime, LocalDateTime endDateTime) {
         super(name, description, tags, price);
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
@@ -37,14 +37,14 @@ public class OutingEvent extends Outing {
 
     @Override
     public boolean matchWith(LocalDate date) {
-        return date.compareTo(startDateTime.toLocalDate()) == 0;
+        return startDateTime == null || date.compareTo(startDateTime.toLocalDate()) == 0;
     }
 
     @Override
     public boolean matchWith(LocalDate date, TimeSlot time) {
         return matchWith(date)
-                && time.includes(startDateTime.toLocalTime())
-                && time.includes(endDateTime.toLocalTime());
+                && (startDateTime == null || time.includes(startDateTime.toLocalTime()))
+                && (endDateTime == null || time.includes(endDateTime.toLocalTime()));
     }
 
     public LocalDateTime getStartDateTime() {

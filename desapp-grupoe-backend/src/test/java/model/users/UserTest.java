@@ -53,9 +53,9 @@ public class UserTest {
         assertTrue(user.getFriends().contains(friend2));
     }
 
-    @Test
+/*    @Test
     public void getFriendsProfile() throws Exception {
 
-    }
+    }*/
 
 }
