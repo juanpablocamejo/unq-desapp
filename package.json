@@ -1,4 +1,5 @@
-{"scripts": {
-    "postinstall": "grunt build"
+{
+  "scripts": {
+	"postinstall": "cd desapp-grupoe-backend && npm install"
   }
-  }
+}
