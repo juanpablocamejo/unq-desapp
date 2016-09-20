@@ -34,9 +34,6 @@
     "phantomjs-prebuilt": "^2.1.12",
     "time-grunt": "^1.0.0"
   },
-  "engines": {
-    "node": ">=0.10.0"
-  },
   "scripts": {
 	"postinstall": "grunt build"
   }
