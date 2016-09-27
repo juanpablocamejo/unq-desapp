@@ -1,5 +1,6 @@
 {
   "root": "desapp-grupoe-frontend/dist",
+  "clean_urls": true,
   "headers": {
     "/**": {
       "Access-Control-Allow-Origin": "*"
