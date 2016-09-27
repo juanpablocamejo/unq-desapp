@@ -4,9 +4,9 @@
     "/**": {
       "Access-Control-Allow-Origin": "*"
     }
-  }
+  },
   "proxies": {
-    "/services/": {
+    "/api/": {
       "origin": "https://adondevamos.herokuapp.com/"
     }
   }
