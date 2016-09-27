@@ -3,7 +3,7 @@
   "clean_urls": true,
   "proxies": {
     "/api/": {
-      "origin": "https://adondevamos.herokuapp.com/"
+      "origin": "https://adondevamos.herokuapp.com"
     }
   },
     "headers": {
