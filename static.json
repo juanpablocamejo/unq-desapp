@@ -1,7 +1,12 @@
 {
   "root": "desapp-grupoe-frontend/dist",
+  "headers": {
+    "/**": {
+      "Access-Control-Allow-Origin": "*"
+    }
+  }
   "proxies": {
-    "/api/": {
+    "/services/": {
       "origin": "https://adondevamos.herokuapp.com/"
     }
   }
