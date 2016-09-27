@@ -3,28 +3,14 @@ sudo: required
 cache: 
   directories:
     - $HOME/.m2
-    - node_modules 
-    - bower_components
 jdk:
   - oraclejdk8
 script: 
   - cd desapp-grupoe-backend 
   - mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
-  - cd ../desapp-grupoe-frontend
-  - curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - && sudo apt-get install -y nodejs
-  - sudo npm install -g grunt-cli
-  - sudo npm install -g bower
-  - npm install
-  - bower install
-  - sudo grunt test
-  - cd ../desapp-grupoe-backend
   
 deploy:
   - provider: heroku
     skip_cleanup: true
     api_key: d75c7509-1a26-4283-ba25-3e59df710b8f
     app: adondevamos
-  - provider: heroku
-    skip_cleanup: true
-    api_key: d75c7509-1a26-4283-ba25-3e59df710b8f
-    app: adondevamos-front
