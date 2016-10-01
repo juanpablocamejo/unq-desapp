@@ -54,7 +54,6 @@ public class OutingFilter {
         return matchPrice(outing)
                 && matchDateTime(outing)
                 && matchSearchTag(outing);
-
     }
 
     private boolean matchDateTime(Outing outing) {
