@@ -12,9 +12,8 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     <!-- =========================== -->
     <!-- =========JAXB / CXF ========= -->
     <!-- =========================== -->
-
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
-    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
+    <!--<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>-->
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
     <bean id="jaxbProvider" class="org.apache.cxf.jaxrs.provider.JAXBElementProvider"/>
@@ -32,7 +31,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json"/>
-            <entry key="xml" value="application/xml"/>
+            <!--<entry key="xml" value="application/xml"/>-->
         </jaxrs:extensionMappings>
         <jaxrs:providers>
             <ref bean="jaxbProvider"/>
