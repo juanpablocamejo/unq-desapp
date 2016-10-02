@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
-
+@Path("outings")
 public class OutingServiceController {
 
     private IOutingRepository outingRepository;
@@ -18,7 +18,7 @@ public class OutingServiceController {
     }
 
     @GET
-    @Path("/outings")
+    @Path("/")
     @Produces("application/json")
     public List<IPlanningResult> allOutings() {
         List<IPlanningResult> outings = outingRepository.getOutings();
