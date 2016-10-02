@@ -12,17 +12,17 @@ public class OutingDAO implements IOutingRepository {
     private static OutingDAO instance;
     private List<IPlanningResult> outings;
 
+    private OutingDAO() {
+
+        outings = initializeOutings();
+
+    }
+
     public static OutingDAO getInstance() {
         if (instance == null) {
             instance = new OutingDAO();
         }
         return instance;
-    }
-
-    private OutingDAO() {
-
-        outings = initializeOutings();
-
     }
 
     private List<IPlanningResult> initializeOutings() {
