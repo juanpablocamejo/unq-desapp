@@ -14,3 +14,4 @@ public interface IOutingRepository {
 
     IPlanningResult getOutingsById(int id);
 }
+
