@@ -7,14 +7,23 @@ import java.util.List;
 
 public class OutingPack implements IPlanningResult {
 
+    private int id;
     private List<Outing> outings = new ArrayList<>();
-
 
     public OutingPack() {
     }
 
+
     public OutingPack(List<Outing> outings) {
         this.outings = outings;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public List<Outing> getOutings() {

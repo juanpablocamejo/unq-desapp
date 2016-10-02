@@ -30,7 +30,6 @@
 
     <servlet-mapping>
         <servlet-name>CXFServlet</servlet-name>
-        <!--CAMBIAR -->
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 </web-app>
