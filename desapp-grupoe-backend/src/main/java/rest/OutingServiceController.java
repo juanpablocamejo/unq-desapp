@@ -1,5 +1,6 @@
 package rest;
 
+import model.outings.Outing;
 import model.planning.IPlanningResult;
 import repository.IOutingRepository;
 
@@ -34,6 +35,13 @@ public class OutingServiceController {
         return outing;
     }
 
+    @GET
+    @Path("/byTag/{tag}")
+    @Produces("application/json")
+    public List<Outing> findOutingsByTag(@PathParam("tag") String tag) {
+        List<Outing> outing = outingRepository.getOutingsByTag(tag);
+        return outing;
+    }
 
     @GET
     @Path("/{id}")

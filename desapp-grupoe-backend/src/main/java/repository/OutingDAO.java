@@ -1,6 +1,7 @@
 package repository;
 
 import model.builders.OutingEventBuilder;
+import model.builders.TagBuilder;
 import model.outings.Outing;
 import model.planning.IPlanningResult;
 
@@ -28,9 +29,9 @@ public class OutingDAO implements IOutingRepository {
     private List<IPlanningResult> initializeOutings() {
 
         List<IPlanningResult> outings = new ArrayList<>();
-        outings.add(OutingEventBuilder.anOutingEvent().withId(10).withName("salida").build());
+        outings.add(OutingEventBuilder.anOutingEvent().withId(10).withName("salida").withTag(TagBuilder.anyTag().withName("Cena").build()).build());
         outings.add(OutingEventBuilder.anOutingEvent().withId(11).withName("boliche").build());
-        outings.add(OutingEventBuilder.anOutingEvent().withId(12).build());
+        outings.add(OutingEventBuilder.anOutingEvent().withId(12).withTag(TagBuilder.anyTag().withName("Cena").build()).build());
         outings.add(OutingEventBuilder.anOutingEvent().withId(13).build());
         outings.add(OutingEventBuilder.anOutingEvent().withId(14).build());
 
@@ -67,6 +68,22 @@ public class OutingDAO implements IOutingRepository {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Outing> getOutingsByTag(String tag) {
+
+        List<Outing> result = new ArrayList<>();
+
+        for (IPlanningResult ipr : outings) {
+            if (ipr.isEvent() || ipr.isPlace()) {
+                if (((Outing) ipr).hasTagName(tag)) {
+                    result.add(((Outing) ipr));
+                }
+            }
+        }
+
+        return result;
     }
 
 }
