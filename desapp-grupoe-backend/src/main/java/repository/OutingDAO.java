@@ -1,6 +1,5 @@
 package repository;
 
-import model.builders.OutingBuilder;
 import model.builders.OutingEventBuilder;
 import model.outings.Outing;
 import model.planning.IPlanningResult;
@@ -10,16 +9,27 @@ import java.util.List;
 
 public class OutingDAO implements IOutingRepository {
 
-    private static List<IPlanningResult> outings;
+    private static OutingDAO instance;
+    private List<IPlanningResult> outings;
 
-    public OutingDAO() {
-        outings = createOutings();
+    public static OutingDAO getInstance() {
+        if (instance == null) {
+            instance = new OutingDAO();
+        }
+        return instance;
     }
 
-    private List<IPlanningResult> createOutings() {
+    private OutingDAO() {
+
+        outings = initializeOutings();
+
+    }
+
+    private List<IPlanningResult> initializeOutings() {
+
         List<IPlanningResult> outings = new ArrayList<>();
-        outings.add(OutingEventBuilder.anOutingEvent().withId(10).withName("Salida1").build());
-        outings.add(OutingEventBuilder.anOutingEvent().withId(11).build());
+        outings.add(OutingEventBuilder.anOutingEvent().withId(10).withName("salida").build());
+        outings.add(OutingEventBuilder.anOutingEvent().withId(11).withName("boliche").build());
         outings.add(OutingEventBuilder.anOutingEvent().withId(12).build());
         outings.add(OutingEventBuilder.anOutingEvent().withId(13).build());
         outings.add(OutingEventBuilder.anOutingEvent().withId(14).build());
@@ -40,13 +50,13 @@ public class OutingDAO implements IOutingRepository {
     @Override
     public IPlanningResult getOutingsByName(String name) {
         for (IPlanningResult ipr : outings) {
-            if (!ipr.isPack()) {
-                if (((Outing) ipr).getName() == name) {
+            if (ipr.isEvent() || ipr.isPlace()) {
+                if (((Outing) ipr).getName().equals(name)) {
                     return ipr;
                 }
             }
         }
-        return OutingBuilder.anyOuting().build();
+        return null;
     }
 
     @Override

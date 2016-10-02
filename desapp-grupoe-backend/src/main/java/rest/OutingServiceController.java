@@ -28,7 +28,7 @@ public class OutingServiceController {
     @GET
     @Path("/byName/{name}")
     @Produces("application/json")
-    public IPlanningResult findOutingsByTag(@PathParam("name") final String name) {
+    public IPlanningResult findOutingsByName(@PathParam("name") String name) {
         IPlanningResult outing = outingRepository.getOutingsByName(name);
         return outing;
     }
