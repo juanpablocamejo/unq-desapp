@@ -25,8 +25,8 @@ public class OutingFilterTest {
 
     @Test
     public void outingFilterShouldMatchOkByTag() {
-        OutingTag tag1 = anyTag().withId(1).build();
-        OutingTag tag2 = anyTag().withId(2).build();
+        OutingTag tag1 = anyTag().withName("Tag 1").build();
+        OutingTag tag2 = anyTag().withName("Tag 2").build();
         Outing outing1 = anyOuting().withTag(tag1).build();
         Outing outing2 = anyOuting().withTag(tag2).build();
 

@@ -1,17 +1,20 @@
 package model.users;
 
+import model.Entity;
 import model.locations.Address;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class User extends Entity {
     private String name;
     private String surname;
     private Address location;
     private Profile profile;
     private List<User> friends = new ArrayList<>();
 
+    private User() {
+    }
     public User(String name, String surname, Address location, Profile profile, List<User> friends) {
         this.name = name;
         this.surname = surname;
@@ -19,6 +22,7 @@ public class User {
         this.profile = profile;
         this.friends = friends;
     }
+
 
     public String getName() {
         return name;
@@ -72,12 +76,12 @@ public class User {
         }
     }
 
-    public Profile getFriendsProfile() {
+/*    public Profile getFriendsProfile() {
         List<Profile> friendsProfiles = new ArrayList<>();
         for (User friend : this.friends) {
             friendsProfiles.add(friend.getProfile());
         }
         return Profile.mergeProfiles(friendsProfiles);
-    }
+    }*/
 }
 

@@ -87,13 +87,4 @@ public abstract class Outing implements IPlanningResult {
     public boolean matchWith(OutingTag tag) {
         return tags.contains(tag);
     }
-
-    public boolean hasTagName(String tag) {
-        for (OutingTag ot : tags) {
-            if (ot.getName().equals(tag)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

@@ -3,7 +3,7 @@
        xmlns:cxf="http://cxf.apache.org/core"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
 http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
@@ -25,7 +25,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
     <jaxrs:server id="restServices" address="/">
         <jaxrs:serviceBeans>
-            <ref bean="controller"/>
+            <ref bean="userRest"/>
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json"/>
@@ -39,10 +39,13 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         </jaxrs:features>
     </jaxrs:server>
 
-    <bean id="dao.outing" class="repository.OutingDAO"/>
+    <bean id="userService" class="services.UserService" init-method="initialize">
+        <property name="repository" ref="userDAO"/>
+    </bean>
 
-    <bean id="controller" class="rest.OutingServiceController">
-        <property name="outingRepository" ref="dao.outing"/>
+    <bean id="userRest" class="rest.UserRestService">
+
+        <property name="service" ref="userService"/>
     </bean>
 
 

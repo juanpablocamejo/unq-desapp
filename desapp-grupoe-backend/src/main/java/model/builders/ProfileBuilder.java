@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ProfileBuilder {
 
-    private List<OutingTag> tags = new ArrayList<>();
+    private List<OutingTag> tags = anyTagList();
     private double inexpensiveOutingLimit = 100;
 
     public static ProfileBuilder anyProfile() {
@@ -27,5 +27,11 @@ public class ProfileBuilder {
     public ProfileBuilder withInexpensiveOutingLimit(double d) {
         inexpensiveOutingLimit = d;
         return this;
+    }
+
+    public List<OutingTag> anyTagList() {
+        List<OutingTag> list = new ArrayList<>();
+        list.add(TagBuilder.anyTag().withName("Tag1").build());
+        return list;
     }
 }

@@ -1,4 +1,4 @@
-package repository;
+package persistence;
 
 import java.io.Serializable;
 import java.util.List;

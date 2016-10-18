@@ -1,4 +1,7 @@
 package services;
 
-public class OutingService {
+
+import model.outings.Outing;
+
+public class OutingService extends GenericService<Outing> {
 }

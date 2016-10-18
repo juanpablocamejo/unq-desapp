@@ -1,7 +1,8 @@
 package model.outings;
 
-public class OutingTag {
-    private long id;
+import model.Entity;
+
+public class OutingTag extends Entity {
     private String name;
     private OutingTag parent;
 
@@ -16,27 +17,18 @@ public class OutingTag {
 
         OutingTag outingTag = (OutingTag) o;
 
-        return id == outingTag.id;
+        return getName() == outingTag.getName();
 
     }
 
     @Override
     public int hashCode() {
-        return (int) (id ^ (id >>> 32));
+        return (int) (getId() ^ (getId() >>> 32));
     }
 
-    public OutingTag(long id, String name, OutingTag parent) {
-        this.id = id;
+    public OutingTag(String name, OutingTag parent) {
         this.name = name;
         this.parent = parent;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {

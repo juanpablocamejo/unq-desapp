@@ -1,10 +1,12 @@
 package services;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+import model.users.User;
 import org.springframework.transaction.annotation.Transactional;
-import repository.GenericRepository;
+import persistence.GenericRepository;
 
 
 public class GenericService<T> implements Serializable {
@@ -39,6 +41,11 @@ public class GenericService<T> implements Serializable {
     @Transactional
     public void update(final T object) {
         this.getRepository().update(object);
+    }
+
+    @Transactional
+    public T findById(final int id) {
+        return this.getRepository().findById(id);
     }
 
 }

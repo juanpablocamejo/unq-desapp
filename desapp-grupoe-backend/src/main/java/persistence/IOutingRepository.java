@@ -1,6 +1,5 @@
-package repository;
+package persistence;
 
-import model.outings.Outing;
 import model.planning.IPlanningResult;
 
 import java.util.List;
@@ -14,7 +13,5 @@ public interface IOutingRepository {
     IPlanningResult getOutingsByName(String name);
 
     IPlanningResult getOutingsById(int id);
-
-    List<Outing> getOutingsByTag(String tag);
 }
 

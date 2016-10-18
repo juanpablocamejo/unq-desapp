@@ -14,8 +14,8 @@ public class ProfileTest {
     @Test
     public void addANewTagToTheListWorksOK() {
 
-        OutingTag tagMusic = anyTag().withId(1).withName("Music").build();
-        OutingTag tagMovie = anyTag().withId(2).withName("Movie").build();
+        OutingTag tagMusic = anyTag().withName("Music").build();
+        OutingTag tagMovie = anyTag().withName("Movie").build();
 
         Profile profile = new Profile();
         profile.addTag(tagMusic);
@@ -28,8 +28,8 @@ public class ProfileTest {
     @Test
     public void removeAnExistingTagRemovesFromTheListOK() {
 
-        OutingTag tagMusic = anyTag().withId(1).withName("Music").build();
-        OutingTag tagMovie = anyTag().withId(2).withName("Movie").build();
+        OutingTag tagMusic = anyTag().withName("Music").build();
+        OutingTag tagMovie = anyTag().withName("Movie").build();
 
         Profile profile = new Profile();
         profile.addTag(tagMusic);
@@ -60,9 +60,9 @@ public class ProfileTest {
     @Test
     public void testMergeProfilesResultingProfileTagsIsCalculatedCorrectly() {
 
-        OutingTag tag1 = anyTag().withId(1).withName("Musica").build();
-        OutingTag tag2 = anyTag().withId(2).withName("Pelicula").build();
-        OutingTag tag3 = anyTag().withId(3).withName("Comida").build();
+        OutingTag tag1 = anyTag().withName("Musica").build();
+        OutingTag tag2 = anyTag().withName("Pelicula").build();
+        OutingTag tag3 = anyTag().withName("Comida").build();
 
         ArrayList<OutingTag> tagsP1 = new ArrayList<>();
         tagsP1.add(tag1);

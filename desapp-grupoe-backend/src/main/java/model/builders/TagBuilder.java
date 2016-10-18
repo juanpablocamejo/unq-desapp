@@ -5,7 +5,6 @@ import model.outings.OutingTag;
 
 public class TagBuilder {
 
-    private long id = 1;
     private String name = "Tag x";
     private OutingTag parent = new OutingTag();
 
@@ -14,12 +13,7 @@ public class TagBuilder {
     }
 
     public OutingTag build() {
-        return new OutingTag(id, name, parent);
-    }
-
-    public TagBuilder withId(long i) {
-        id = i;
-        return this;
+        return new OutingTag(name, parent);
     }
 
     public TagBuilder withName(String n) {

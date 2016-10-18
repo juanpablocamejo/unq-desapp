@@ -1,12 +1,13 @@
 package model.users;
 
+import model.Entity;
 import model.outings.OutingTag;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-public class Profile {
+public class Profile extends Entity {
     private List<OutingTag> tags = new ArrayList<>();
     private double inexpensiveOutingLimit;
 
