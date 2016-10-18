@@ -27,6 +27,12 @@
             <artifactId>joda-time</artifactId>
             <version>2.9.4</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jadira.usertype/usertype.jodatime -->
+        <dependency>
+            <groupId>org.jadira.usertype</groupId>
+            <artifactId>usertype.jodatime</artifactId>
+            <version>2.0.1</version>
+        </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>

@@ -1,5 +1,6 @@
 package model.outings;
 
+import model.Entity;
 import model.planning.IPlanningResult;
 import model.time.TimeSlot;
 import org.joda.time.LocalDate;
@@ -7,9 +8,8 @@ import org.joda.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Outing implements IPlanningResult {
+public abstract class Outing extends Entity implements IPlanningResult {
 
-    private int id;
     private String name;
     private String description;
     private List<OutingTag> tags = new ArrayList<>();
@@ -22,20 +22,8 @@ public abstract class Outing implements IPlanningResult {
         this.price = price;
     }
 
-    protected Outing(int id, String name, String description, List<OutingTag> tags, double price) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.tags = tags;
-        this.price = price;
-    }
+    public Outing() {
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

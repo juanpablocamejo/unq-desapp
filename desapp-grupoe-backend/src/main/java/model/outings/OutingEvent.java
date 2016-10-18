@@ -10,12 +10,17 @@ public class OutingEvent extends Outing {
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
 
-    public OutingEvent(int id, String name, String description, List<OutingTag> tags, double price) {
-        super(id, name, description, tags, price);
+    private OutingEvent() {
+        super();
+
     }
 
-    public OutingEvent(int id, String name, String description, List<OutingTag> tags, double price, LocalDateTime startDateTime, LocalDateTime endDateTime) {
-        super(id, name, description, tags, price);
+    public OutingEvent(String name, String description, List<OutingTag> tags, double price) {
+        super(name, description, tags, price);
+    }
+
+    public OutingEvent(String name, String description, List<OutingTag> tags, double price, LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        super(name, description, tags, price);
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
     }
