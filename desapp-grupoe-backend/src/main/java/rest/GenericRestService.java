@@ -14,18 +14,18 @@ public class GenericRestService<T> {
     }
 
     public ResponseEntity<T> findById(int id) {
-        T object = service.findById(id);
-        if (object == null) {
-            return new ResponseEntity("No existe " + object.getClass().getName() + " con id " + id, HttpStatus.NOT_FOUND);
+        T obj = service.findById(id);
+        if (obj == null) {
+            return new ResponseEntity("No existe la entidad con id " + id, HttpStatus.NOT_FOUND);
         } else {
-            return new ResponseEntity<>(object, HttpStatus.FOUND);
+            return new ResponseEntity<>(obj, HttpStatus.FOUND);
         }
     }
 
     public ResponseEntity deleteById(int id) {
-        T object = findById(id).getBody();
-        if (null == object) {
-            return new ResponseEntity("No se encontro " + object.getClass().getName() + " con id " + id, HttpStatus.NOT_FOUND);
+        T object = service.findById(id);
+        if (object == null) {
+            return new ResponseEntity("No se encontro la entidad con id " + id, HttpStatus.NOT_FOUND);
         }
         service.delete(object);
         return new ResponseEntity(object.getClass().getSimpleName() + " eliminado correctamente", HttpStatus.OK);

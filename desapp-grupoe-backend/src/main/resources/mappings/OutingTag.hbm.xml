@@ -7,9 +7,7 @@
         <id column="ID" name="id">
             <generator class="native"/>
         </id>
-
         <property name="name"/>
         <!--<one-to-one name="parent" class="model.outings.OutingTag"/>-->
-
     </class>
 </hibernate-mapping>
