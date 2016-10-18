@@ -7,14 +7,11 @@
         <id column="ID" name="id">
             <generator class="native"/>
         </id>
-
         <property name="inexpensiveOutingLimit"/>
-
         <list name="tags" lazy="false">
             <key column="id"/>
             <list-index column="type"></list-index>
             <many-to-many class="model.outings.OutingTag"/>
         </list>
-
     </class>
 </hibernate-mapping>
