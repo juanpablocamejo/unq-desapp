@@ -1,9 +1,10 @@
 package rest;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.eclipse.jetty.http.HttpStatus;
 import services.GenericService;
 
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 public class GenericRestService<T> {
@@ -13,22 +14,22 @@ public class GenericRestService<T> {
         return service.retriveAll();
     }
 
-    public ResponseEntity<T> findById(int id) {
+    public Response findById(int id) {
         T obj = service.findById(id);
         if (obj == null) {
-            return new ResponseEntity("No existe la entidad con id " + id, HttpStatus.NOT_FOUND);
+            return Response.ok("No se encontro la entidad con el id: " + id).status(HttpStatus.NOT_FOUND_404).build();
         } else {
-            return new ResponseEntity<>(obj, HttpStatus.FOUND);
+            return Response.ok(obj).status(HttpStatus.FOUND_302).build();
         }
     }
 
-    public ResponseEntity deleteById(int id) {
+    public Response deleteById(int id) {
         T object = service.findById(id);
         if (object == null) {
-            return new ResponseEntity("No se encontro la entidad con id " + id, HttpStatus.NOT_FOUND);
+            return Response.ok("No se encontro la entidad con el id: " + id).status(HttpStatus.NOT_FOUND_404).build();
         }
         service.delete(object);
-        return new ResponseEntity(object.getClass().getSimpleName() + " eliminado correctamente", HttpStatus.OK);
+        return Response.ok("Se elimino correctamente").build();
     }
 
     public GenericService<T> getService() {

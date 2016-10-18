@@ -3,12 +3,10 @@ package rest;
 import model.builders.UserBuilder;
 import model.users.Profile;
 import model.users.User;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.web.header.Header;
+import org.eclipse.jetty.http.HttpStatus;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("users")
@@ -24,54 +22,53 @@ public class UserRestService extends GenericRestService<User> {
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public ResponseEntity<User> findById(@PathParam("id") int id) {
+    public Response findById(@PathParam("id") int id) {
         return super.findById(id);
     }
 
     @GET
     @Path("/profile/{id}")
     @Produces("application/json")
-    public ResponseEntity<Profile> findUserProfile(@PathParam("id") int id) {
+    public Response findUserProfile(@PathParam("id") int id) {
         User user = service.findById(id);
         if (user == null) {
-            return new ResponseEntity("No existe un usuario con id " + id, HttpStatus.NOT_FOUND);
+            return Response.ok("No se encontro el usuario con id: " + id).status(HttpStatus.NOT_FOUND_404).build();
         }
         Profile profile = user.getProfile();
-        return new ResponseEntity<>(profile, HttpStatus.FOUND);
+        return Response.ok(profile).status(HttpStatus.FOUND_302).build();
     }
 
     @POST
     @Path("/")
     @Consumes("application/x-www-form-urlencoded")
     @Produces("application/json")
-    public ResponseEntity createUser(@FormParam("name") String name, @FormParam("surname") String surname, @FormParam("profile") int idProfile) {
-/*        Profile ps = new ProfileService();
-        Profile prof = ps.findProfileByID(idProfile);*/
-
+    public Response createUser(@FormParam("name") String name, @FormParam("surname") String surname, @FormParam("profile") int idProfile) {
+//        Profile ps = new ProfileService();
+//        Profile prof = ps.findProfileByID(idProfile);
         service.save(UserBuilder.anyUser().withName(name).withSurname(surname).build());
-        return new ResponseEntity("El usuario " + name + " fué creado exitosamente.", HttpStatus.OK);
+        return Response.ok("El usuario " + name + " fue creado correctamente").build();
     }
 
     @PUT
     @Path("/{id}")
     @Consumes("application/x-www-form-urlencoded")
     @Produces("application/json")
-    public ResponseEntity updateUser(@PathParam("id") int id, @FormParam("name") String name, @FormParam("surname") String surname, @FormParam("profile") int idProfile) {
-        User user = findById(id).getBody();
+    public Response updateUser(@PathParam("id") int id, @FormParam("name") String name, @FormParam("surname") String surname, @FormParam("profile") int idProfile) {
+        User user = service.findById(id);
         if (user == null) {
-            return new ResponseEntity("No se puede actualizar el usuario. Motivo: Usuario inexistente", HttpStatus.NOT_FOUND);
+            return Response.ok("No se encontro el usuario con id " + id).status(HttpStatus.NOT_FOUND_404).build();
         }
         user.setName(name);
         user.setSurname(surname);
         //user.setProfile(profile);
         service.update(user);
-        return new ResponseEntity("El usuario fue actualizado exitosamente", HttpStatus.OK);
+        return Response.ok("Se actualizo correctamente el usuario").build();
     }
 
     @DELETE
     @Path("/{id}")
     @Produces("application/json")
-    public ResponseEntity deleteById(@PathParam("id") int id) {
+    public Response deleteById(@PathParam("id") int id) {
         return super.deleteById(id);
     }
 }

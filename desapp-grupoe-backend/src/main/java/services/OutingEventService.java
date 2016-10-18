@@ -16,6 +16,5 @@ public class OutingEventService extends GenericService<OutingEvent> {
         save(oe2);
         save(oe3);
         save(oe4);
-
     }
 }

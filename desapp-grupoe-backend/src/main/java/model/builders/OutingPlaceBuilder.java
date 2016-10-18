@@ -22,7 +22,7 @@ public class OutingPlaceBuilder {
         return new OutingPlaceBuilder();
     }
 
-    public Outing build() {
+    public OutingPlace build() {
         return new OutingPlace(name, description, tags, price, weekTimeSchedule);
     }
 
