@@ -3,13 +3,16 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field"
                    default-cascade="save-update">
-    <class name="model.users.Profile">
+    <class name="model.outings.OutingEvent">
         <id column="ID" name="id">
             <generator class="native"/>
         </id>
 
-        <property name="inexpensiveOutingLimit"/>
-
+        <property name="name"/>
+        <property name="description"/>
+        <property name="price"/>
+        <property name="startDateTime" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime"/>
+        <property name="endDateTime" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime"/>
         <list name="tags" lazy="false">
             <key column="id"/>
             <list-index column="type"></list-index>

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
+
 public class Profile extends Entity {
     private List<OutingTag> tags = new ArrayList<>();
     private double inexpensiveOutingLimit;

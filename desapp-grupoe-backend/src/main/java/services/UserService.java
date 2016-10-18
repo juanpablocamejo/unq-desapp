@@ -1,8 +1,6 @@
 package services;
 
-import model.builders.ProfileBuilder;
 import model.builders.UserBuilder;
-import model.users.Profile;
 import model.users.User;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,8 +14,4 @@ public class UserService extends GenericService<User> {
         save(diego);
     }
 
-    @Transactional
-    public Profile getProfile(int id) {
-        return getRepository().findById(id).getProfile();
-    }
 }

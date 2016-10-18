@@ -109,5 +109,9 @@
         <property name="sessionFactory" ref="persistence.sessionFactory"/>
     </bean>
 
+    <bean id="outingEventDAO" class="persistence.OutingEventDAO">
+        <property name="sessionFactory" ref="persistence.sessionFactory"/>
+    </bean>
+
 
 </beans>

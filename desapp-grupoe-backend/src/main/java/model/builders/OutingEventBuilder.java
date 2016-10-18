@@ -10,7 +10,6 @@ import java.util.List;
 
 public class OutingEventBuilder {
 
-    private int id = 1;
     private String name = "Name";
     private String description = "Description";
     private List<OutingTag> tags = new ArrayList<>();
@@ -22,13 +21,8 @@ public class OutingEventBuilder {
         return new OutingEventBuilder();
     }
 
-    public Outing build() {
-        return new OutingEvent(id, name, description, tags, price, startDateTime, endDateTime);
-    }
-
-    public OutingEventBuilder withId(int i) {
-        id = i;
-        return this;
+    public OutingEvent build() {
+        return new OutingEvent(name, description, tags, price, startDateTime, endDateTime);
     }
 
     public OutingEventBuilder withName(String n) {
