@@ -9,12 +9,14 @@
         </id>
 
         <property name="inexpensiveOutingLimit"/>
+        <!--
 
-        <!--        <list name="tags" lazy="false">
-                    <key column="tagID"/>
-                    <list-index column="id"/>
+                <list name="tags" lazy="false">
+                    <key column="id"/>
+                    <list-index column="type"></list-index>
                     <one-to-many class="model.outings.OutingTag"/>
-                </list>-->
+                </list>
+        -->
 
     </class>
 </hibernate-mapping>

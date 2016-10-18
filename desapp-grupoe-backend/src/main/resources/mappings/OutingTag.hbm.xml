@@ -9,6 +9,7 @@
         </id>
 
         <property name="name"/>
+        <one-to-one name="parent" class="model.outings.OutingTag"/>
 
     </class>
 </hibernate-mapping>
