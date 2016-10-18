@@ -32,12 +32,12 @@ public class UserRestService extends GenericRestService<User> {
     @Path("/profile/{id}")
     @Produces("application/json")
     public ResponseEntity<Profile> findUserProfile(@PathParam("id") int id) {
-        User user = findById(id).getBody();
+        User user = service.findById(id);
         if (user == null) {
             return new ResponseEntity("No existe un usuario con id " + id, HttpStatus.NOT_FOUND);
         }
         Profile profile = user.getProfile();
-        return new ResponseEntity(profile, HttpStatus.FOUND);
+        return new ResponseEntity<>(profile, HttpStatus.FOUND);
     }
 
     @POST
