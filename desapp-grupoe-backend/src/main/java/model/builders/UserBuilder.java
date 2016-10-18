@@ -8,13 +8,14 @@ import model.users.User;
 import java.util.ArrayList;
 import java.util.List;
 
+import static model.builders.AddressBuilder.anyAddress;
 import static model.builders.ProfileBuilder.anyProfile;
 
 public class UserBuilder {
 
     private String name = "username";
     private String surname = "surname";
-    private Address location = new Address(new Coord(1000, 2000));
+    private Address location = anyAddress().build();
     private Profile profile = anyProfile().build();
     private List<User> friends = new ArrayList<>();
 

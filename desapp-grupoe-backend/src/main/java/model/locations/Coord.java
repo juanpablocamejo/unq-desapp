@@ -1,8 +1,14 @@
 package model.locations;
 
-public class Coord {
+import model.Entity;
+
+public class Coord extends Entity {
     private int latitude;
     private int longitude;
+
+    private Coord() {
+
+    }
 
     public Coord(int latitude, int longitude) {
         this.latitude = latitude;

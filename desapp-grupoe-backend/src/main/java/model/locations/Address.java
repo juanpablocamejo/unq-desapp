@@ -1,27 +1,33 @@
 package model.locations;
 
-public class Address {
+import model.Entity;
 
-	private Coord coord;
-	private String location;
+public class Address extends Entity {
 
-	public Address(Coord coord) {
-		this.coord = coord;
-	}
+    private Coord coord;
+    private String location;
 
-	public Coord getCoord() {
-		return coord;
-	}
+    private Address() {
+    }
 
-	public void setCoord(Coord coord) {
-		this.coord = coord;
-	}
+    public Address(Coord coord, String location) {
+        this.coord = coord;
+        this.location = location;
+    }
 
-	public String getLocation() {
-		return location;
-	}
+    public Coord getCoord() {
+        return coord;
+    }
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
+    public void setCoord(Coord coord) {
+        this.coord = coord;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 }

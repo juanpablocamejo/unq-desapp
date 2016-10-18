@@ -10,11 +10,12 @@
 
         <property name="name"/>
         <property name="surname"/>
-        <!--        <list name="friends" lazy="false">
-                    <key column="id"/>
-                    <list-index column="type"></list-index>
-                    <one-to-many class="model.users.User"/>
-                </list>-->
+        <one-to-one name="location" class="model.locations.Address"/>
+        <!--<list name="friends" lazy="false">
+            <key column="id"/>
+            <list-index column="type"></list-index>
+            <one-to-many class="model.users.User"/>
+        </list>-->
         <one-to-one name="profile" class="model.users.Profile"/>
 
     </class>
