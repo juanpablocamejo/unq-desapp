@@ -25,3 +25,31 @@ NOTES:
 
 KNOWN ISSUES:
 -
+
+---------------------------------------------------------------------
+TAG ENTREGA 2.0
+---------------------------------------------------------------------
+NEW FEATURES:
+
+BACKEND
+* Search Strategyes implemented.
+* Spring integration.
+* Hibernate integration.
+* Hibernate Mappings: Address, Coord, OutingEvents, OutingTags, Profile, Users
+* DAO: Users and Events
+* Rest Services: Users & Events. CRUD and LIST.
+* Services: Users & Events
+
+FRONTEND:
+* Grunt  integration.
+
+
+NOTES:
+* Implementation of SaturdayNightFeverStrategy on next Release.
+* User attendance on outings not implemented yet.
+* Suggestions of other outings not implemented yet.
+* Mappings do not incluides all properties of the objects.
+*
+
+KNOWN ISSUES:
+* Getting, Updating, Removing an object that is not in the BD not hangled yet.
