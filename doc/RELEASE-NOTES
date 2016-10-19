@@ -42,6 +42,7 @@ BACKEND
 
 FRONTEND:
 * Grunt  integration.
+* Home Page
 
 
 NOTES:
@@ -49,7 +50,6 @@ NOTES:
 * User attendance on outings not implemented yet.
 * Suggestions of other outings not implemented yet.
 * Mappings do not incluides all properties of the objects.
-*
 
 KNOWN ISSUES:
 *
