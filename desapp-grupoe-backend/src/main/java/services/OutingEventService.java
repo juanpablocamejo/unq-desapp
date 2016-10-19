@@ -1,6 +1,6 @@
 package services;
 
-import model.builders.OutingEventBuilder;
+import model.builders.outings.OutingEventBuilder;
 import model.outings.OutingEvent;
 import org.springframework.transaction.annotation.Transactional;
 

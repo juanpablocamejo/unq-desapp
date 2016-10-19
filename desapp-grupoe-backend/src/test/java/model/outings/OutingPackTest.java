@@ -1,11 +1,9 @@
 package model.outings;
 
-import model.outings.Outing;
-import model.outings.OutingPack;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static model.builders.OutingBuilder.anyOuting;
+import static model.builders.outings.OutingBuilder.anyOuting;
 
 public class OutingPackTest {
 

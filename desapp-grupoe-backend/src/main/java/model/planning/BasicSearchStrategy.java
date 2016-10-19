@@ -1,7 +1,7 @@
 package model.planning;
 
 
-import model.builders.OutingFilterBuilder;
+import model.builders.outings.OutingFilterBuilder;
 import model.outings.OutingTag;
 import model.users.Profile;
 

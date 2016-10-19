@@ -1,8 +1,9 @@
 package model.time;
 
+import model.Entity;
 import org.joda.time.LocalTime;
 
-public class TimeSlot {
+public class TimeSlot extends Entity {
     private LocalTime start;
     private LocalTime end;
 

@@ -1,4 +1,4 @@
-package model.builders;
+package model.builders.time;
 
 import model.time.TimeSlot;
 import org.joda.time.LocalTime;

@@ -35,7 +35,7 @@ public class UserRestService extends GenericRestService<User> {
             return Response.ok("No se encontro el usuario con id: " + id).status(HttpStatus.NOT_FOUND_404).build();
         }
         Profile profile = user.getProfile();
-        return Response.ok(profile).status(HttpStatus.FOUND_302).build();
+        return Response.ok(profile).status(HttpStatus.OK_200).build();
     }
 
     @POST

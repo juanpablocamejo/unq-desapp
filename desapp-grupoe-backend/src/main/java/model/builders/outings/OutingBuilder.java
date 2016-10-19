@@ -1,4 +1,4 @@
-package model.builders;
+package model.builders.outings;
 
 import model.outings.Outing;
 import model.outings.OutingEvent;
