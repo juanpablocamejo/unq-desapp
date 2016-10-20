@@ -1,10 +1,11 @@
 <div class="row">
-    <div class="col s12 m6 l6" ng-repeat="btn in main.searchButtons">
-      <div style="height:150px" class="waves-effect waves-light card hoverable {{btn.class}}" ng-click="main.goto(btn.name, btn.href)">
-        <div class="card-content white-text">
-          <span class="card-title">{{btn.name}}</span>
+    <div class="col s12 m12 l6 center-align" ng-repeat="btn in main.searchButtons">
+      <div style="height:170px; width:100%;" class="waves-effect waves-light card-panel hoverable
+           {{btn.class}}" ng-click="main.goto(btn.name, btn.href)">
+        <span class="white-text">
+          <h5>{{btn.name}}</h5>
           <p>{{btn.description}}</p>
-        </div>
+        </span>
       </div>
     </div>
 </div>

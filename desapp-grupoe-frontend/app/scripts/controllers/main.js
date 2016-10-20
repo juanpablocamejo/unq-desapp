@@ -4,7 +4,7 @@ angular.module('advApp')
   .controller('MainCtrl', function() {
     // Create the factory that share the Fact
 
-    this.goto = function(strategy, path){setTimeout(function(){window.location.replace(path)},250);};
+    this.goto = function(strategy, path){setTimeout(function(){window.location.replace(path);},150);};
     this.searchButtons = [{
       'name': 'Gasolera',
       'href': '#/search?strategy=inexpensive',
@@ -14,17 +14,17 @@ angular.module('advApp')
       'name': 'Con Amigos',
       'href': '#/search?strategy=friends',
       'description': '¿Planificando el fin de semana con amigos? hacé click acá para encontrar las mejores opciones.',
-      'class':'card purple'
+      'class':'purple'
     }, {
       'name': 'Saturday Night Fever',
       'href': '#/search?strategy=saturdaynightfever',
-      'description': 'Para los que quieren arrancar temprano, y terminar temprano (pero del día siguiente) ;)',
-      'class':'card blue'
+      'description': 'Si para vos el horario no es un problema, acá te damos opciones para una salida de sol a sol.',
+      'class':'blue'
     }, {
       'name': 'Media Naranja',
       'href': '#/search?strategy=couples',
       'description': 'Siempre es un buen momento para disfrutar de una salida con tu pareja. Encontrá el lugar ideal.',
-      'class':'card orange'
+      'class':'orange'
     }, {
       'name': 'Sorprendeme',
       'href': '#/search?strategy=surpriseme',

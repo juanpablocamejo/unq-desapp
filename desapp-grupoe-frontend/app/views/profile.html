@@ -1,1 +1,39 @@
-<p><h3>Configuración del perfil</h3></p>
+<h5>Tu perfil</h5>
+<div class="row">
+  <div input-field class="col s12 m6 l5">
+    <label>Nombre</label>
+    <input type="text" ng-model="user.name"/>
+  </div>
+  <div input-field class="col s12 m6 l5">
+    <label>Apellido</label>
+    <input type="text" ng-model="user.surname"/>
+  </div>
+  <div input-field class="col s12 m6 l5">
+    <label>Email</label>
+    <input type="text"/>
+  </div>
+
+</div>
+<h5>Preferencias</h5>
+<div class="row">
+  <div input-field class="col s12 m6 l5">
+    <label>Limite para salidas baratas</label>
+    <input type="number"/>
+  </div>
+  <div>
+    <input type="checkbox" id="chk1" checked="checked" />
+    <label for="chk1">Rock</label>
+  </div>
+  <div>
+    <input type="checkbox" id="chk2" checked="checked" />
+    <label for="chk2">Cumbia</label>
+  </div>
+  <div>
+    <input type="checkbox" id="chk3" checked="checked" />
+    <label for="chk3">Jazz</label>
+  </div>
+  <div>
+    <input type="checkbox" id="chk4" checked="checked" />
+    <label for="chk4">Pop</label>
+  </div>
+</div>

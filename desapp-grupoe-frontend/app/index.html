@@ -8,13 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
+
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="bower_components/roboto-fontface/css/roboto/roboto-fontface.css" />
+  <link rel="stylesheet" href="bower_components/roboto-fontface/css/roboto-condensed/roboto-condensed-fontface.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 </head>
 
 <body ng-app="advApp">
@@ -27,10 +31,17 @@
 <header>
   <nav>
     <div class="nav-wrapper grey darken-3">
-      <a href="/#/" class="brand-logo">¿A donde vamos?</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#/profile">Perfil</a></li>
-        <li><a href="/#/">Salir</a></li>
+      <a href="#!" class="brand-logo">¿A donde vamos?</a>
+      <div class="container">
+      <a href="#" data-activates="mobile-nav" class="button-collapse right hide-on-med-and-up"><i class="material-icons">menu</i></a>
+      </div>
+      <ul class="right hide-on-small-only">
+        <li><a href="#/profile" class="waves-effect waves-light">Perfil</a></li>
+        <li><a href="/#!/" class="waves-effect waves-light">Salir</a></li>
+      </ul>
+      <ul class="side-nav right" id="mobile-nav">
+        <li><a href="#/profile" class="waves-effect waves-light">Perfil</a></li>
+        <li><a href="/#!/" class="waves-effect waves-light">Salir</a></li>
       </ul>
     </div>
   </nav>
@@ -41,7 +52,7 @@
 
 <div class="footer">
   <div class="container">
-    <p><a href="http://www.unq.edu.ar/carreras/32-tecnicatura-universitaria-en-programaci%C3%B3n-inform%C3%A1tica.php" target="_blank">TPI
+    <p class="center-align"><a href="http://www.unq.edu.ar/carreras/32-tecnicatura-universitaria-en-programaci%C3%B3n-inform%C3%A1tica.php" target="_blank">TPI
       - UNQ</a> | Desarrollo de Aplicaciones | Esteban Schafir y Juan Pablo Camejo</p>
   </div>
 </div>
@@ -70,6 +81,7 @@
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/materialize/bin/materialize.js"></script>
+<script src="bower_components/angular-materialize/src/angular-materialize.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
