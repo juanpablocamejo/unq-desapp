@@ -19,7 +19,7 @@ public class GenericRestService<T> {
         if (obj == null) {
             return Response.ok("No se encontro la entidad con el id: " + id).status(HttpStatus.NOT_FOUND_404).build();
         } else {
-            return Response.ok(obj).status(HttpStatus.FOUND_302).build();
+            return Response.ok(obj).status(HttpStatus.OK_200).build();
         }
     }
 

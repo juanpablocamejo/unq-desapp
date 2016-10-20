@@ -1,6 +1,5 @@
-package model.builders;
+package model.builders.outings;
 
-import model.outings.Outing;
 import model.outings.OutingPlace;
 import model.outings.OutingTag;
 import model.time.DuplicatedTimeSlotException;

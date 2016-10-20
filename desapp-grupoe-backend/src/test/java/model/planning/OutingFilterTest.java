@@ -7,9 +7,9 @@ import org.joda.time.LocalTime;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertFalse;
-import static model.builders.OutingBuilder.anyOuting;
-import static model.builders.OutingEventBuilder.anOutingEvent;
-import static model.builders.OutingFilterBuilder.anOutingFilter;
+import static model.builders.outings.OutingBuilder.anyOuting;
+import static model.builders.outings.OutingEventBuilder.anOutingEvent;
+import static model.builders.outings.OutingFilterBuilder.anOutingFilter;
 import static model.builders.TagBuilder.anyTag;
 import static org.junit.Assert.assertTrue;
 

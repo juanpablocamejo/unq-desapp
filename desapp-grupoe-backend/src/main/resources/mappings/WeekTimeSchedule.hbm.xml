@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field"
+                   default-cascade="save-update">
+    <class name="model.time.WeekTimeSchedule">
+        <id column="ID" name="id">
+            <generator class="native"/>
+        </id>
+        <list name="schedules" lazy="false">
+            <key column="id"/>
+            <list-index column="type"></list-index>
+            <one-to-many class="model.time.DayTimeSchedule"/>
+        </list>
+    </class>
+</hibernate-mapping>

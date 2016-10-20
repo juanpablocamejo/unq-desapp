@@ -1,6 +1,5 @@
-package model.builders;
+package model.builders.outings;
 
-import model.outings.Outing;
 import model.outings.OutingEvent;
 import model.outings.OutingTag;
 import org.joda.time.LocalDateTime;

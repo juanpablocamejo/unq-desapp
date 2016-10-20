@@ -46,7 +46,6 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </bean>
 
     <bean id="userRest" class="rest.UserRestService">
-
         <property name="service" ref="userService"/>
     </bean>
 
@@ -56,7 +55,6 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </bean>
 
     <bean id="outingEventRest" class="rest.OutingEventRestService">
-
         <property name="service" ref="outingEventService"/>
     </bean>
 

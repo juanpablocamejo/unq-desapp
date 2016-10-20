@@ -1,12 +1,13 @@
 package model.time;
 
+import model.Entity;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DayTimeSchedule {
+public class DayTimeSchedule extends Entity {
     private int weekDay;
     private List<TimeSlot> timeSlots = new ArrayList<>();
 
