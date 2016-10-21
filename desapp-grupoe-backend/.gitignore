@@ -5,4 +5,4 @@
 /src/main/generated-sources
 /bin/
 /.idea/
-!/.idea/runConfigurations/
+!/.idea/runConfigurations/*
