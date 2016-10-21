@@ -4,5 +4,3 @@
 .classpath
 /src/main/generated-sources
 /bin/
-/.idea/
-!/.idea/runConfigurations/*
