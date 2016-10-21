@@ -41,7 +41,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </jaxrs:server>
 
     <!-- ======== User Services ========= -->
-    <bean id="userService" class="services.UserService" init-method="initialize">
+    <bean id="userService" class="services.UserService">
         <property name="repository" ref="userDAO"/>
     </bean>
 
@@ -50,7 +50,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </bean>
 
     <!-- ======== Outing Event Services ========= -->
-    <bean id="outingEventService" class="services.OutingEventService" init-method="initialize">
+    <bean id="outingEventService" class="services.OutingEventService">
         <property name="repository" ref="outingEventDAO"/>
     </bean>
 
@@ -58,5 +58,14 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         <property name="service" ref="outingEventService"/>
     </bean>
 
+    <bean id="initialize" class="services.initialization.ServiceInitializer">
+        <constructor-arg>
+            <list>
+                <ref bean="userService"></ref>
+                <ref bean="outingEventService"></ref>
+            </list>
+        </constructor-arg>
+
+    </bean>
 
 </beans>

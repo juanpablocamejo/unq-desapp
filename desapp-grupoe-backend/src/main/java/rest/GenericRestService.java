@@ -3,7 +3,6 @@ package rest;
 import org.eclipse.jetty.http.HttpStatus;
 import services.GenericService;
 
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.util.List;
 

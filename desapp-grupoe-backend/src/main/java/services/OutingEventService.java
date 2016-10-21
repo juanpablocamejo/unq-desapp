@@ -3,8 +3,9 @@ package services;
 import model.builders.outings.OutingEventBuilder;
 import model.outings.OutingEvent;
 import org.springframework.transaction.annotation.Transactional;
+import services.initialization.Initializable;
 
-public class OutingEventService extends GenericService<OutingEvent> {
+public class OutingEventService extends GenericService<OutingEvent> implements Initializable {
 
     @Transactional
     public void initialize() {
