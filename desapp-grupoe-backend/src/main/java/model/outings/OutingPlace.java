@@ -10,6 +10,9 @@ import java.util.List;
 public class OutingPlace extends Outing implements IPlanningResult {
     private WeekTimeSchedule weekTimeSchedule;
 
+    public OutingPlace() {
+    }
+
     public OutingPlace(String name, String description, List<OutingTag> tags, double price, WeekTimeSchedule weekTimeSchedule) {
         super(name, description, tags, price);
         this.weekTimeSchedule = weekTimeSchedule;

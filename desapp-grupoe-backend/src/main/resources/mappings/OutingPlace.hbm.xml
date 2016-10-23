@@ -7,6 +7,14 @@
         <id column="ID" name="id">
             <generator class="native"/>
         </id>
+        <property name="name"/>
+        <property name="description"/>
+        <list name="tags" lazy="false">
+            <key column="id"/>
+            <list-index column="type"></list-index>
+            <many-to-many class="model.outings.OutingTag"/>
+        </list>
+        <property name="price"/>
         <one-to-one name="weekTimeSchedule" class="model.time.WeekTimeSchedule"/>
     </class>
 </hibernate-mapping>
