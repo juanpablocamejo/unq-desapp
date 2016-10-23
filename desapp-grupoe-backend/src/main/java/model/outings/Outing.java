@@ -75,4 +75,8 @@ public abstract class Outing extends Entity implements IPlanningResult {
     public boolean matchWith(OutingTag tag) {
         return tags.contains(tag);
     }
+
+    public void addTag(OutingTag tag) {
+        getTags().add(tag);
+    }
 }
