@@ -27,6 +27,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         <jaxrs:serviceBeans>
             <ref bean="userRest"/>
             <ref bean="outingEventRest"/>
+            <ref bean="outingPlaceRest"/>
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json"/>
@@ -58,11 +59,22 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         <property name="service" ref="outingEventService"/>
     </bean>
 
+    <!-- ======== Outing Place Services ========= -->
+    <bean id="outingPlaceService" class="services.OutingPlaceService">
+        <property name="repository" ref="outingPlaceDAO"/>
+
+    </bean>
+
+    <bean id="outingPlaceRest" class="rest.OutingPlaceRestService">
+        <property name="service" ref="outingEventService"/>
+    </bean>
+
     <bean id="initialize" class="services.initialization.ServiceInitializer">
         <constructor-arg>
             <list>
                 <ref bean="userService"></ref>
                 <ref bean="outingEventService"></ref>
+                <ref bean="outingPlaceService"></ref>
             </list>
         </constructor-arg>
 
