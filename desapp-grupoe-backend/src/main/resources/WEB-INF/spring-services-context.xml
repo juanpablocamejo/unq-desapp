@@ -66,7 +66,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </bean>
 
     <bean id="outingPlaceRest" class="rest.OutingPlaceRestService">
-        <property name="service" ref="outingEventService"/>
+        <property name="service" ref="outingPlaceService"/>
     </bean>
 
     <bean id="initialize" class="services.initialization.ServiceInitializer">
