@@ -1,6 +1,7 @@
 package model.time;
 
 import model.Entity;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
@@ -59,6 +60,7 @@ public class WeekTimeSchedule extends Entity {
             addTimeSlot(i, start, hours, minutes);
     }
 
+    @JsonIgnore
     public int getDaysCount() {
         return schedules.size();
     }

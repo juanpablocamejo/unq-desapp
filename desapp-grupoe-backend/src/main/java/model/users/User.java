@@ -9,16 +9,17 @@ import java.util.List;
 public class User extends Entity {
     private String name;
     private String surname;
-    private Address location;
+    private Address address;
     private Profile profile;
     private List<User> friends = new ArrayList<>();
 
     private User() {
     }
-    public User(String name, String surname, Address location, Profile profile, List<User> friends) {
+
+    public User(String name, String surname, Address address, Profile profile, List<User> friends) {
         this.name = name;
         this.surname = surname;
-        this.location = location;
+        this.address = address;
         this.profile = profile;
         this.friends = friends;
     }
@@ -40,12 +41,12 @@ public class User extends Entity {
         this.surname = surname;
     }
 
-    public Address getLocation() {
-        return location;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setLocation(Address location) {
-        this.location = location;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public Profile getProfile() {

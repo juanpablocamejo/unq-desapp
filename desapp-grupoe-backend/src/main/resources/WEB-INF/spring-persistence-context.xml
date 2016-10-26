@@ -116,4 +116,12 @@
     <bean id="outingPlaceDAO" class="persistence.OutingPlaceDAO">
         <property name="sessionFactory" ref="persistence.sessionFactory"/>
     </bean>
+
+    <bean id="addressDAO" class="persistence.AddressDAO">
+        <property name="sessionFactory" ref="persistence.sessionFactory"/>
+    </bean>
+
+    <bean id="profileDAO" class="persistence.ProfileDAO">
+        <property name="sessionFactory" ref="persistence.sessionFactory"/>
+    </bean>
 </beans>

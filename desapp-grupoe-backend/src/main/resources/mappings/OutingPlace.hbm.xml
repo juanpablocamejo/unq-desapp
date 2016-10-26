@@ -9,10 +9,16 @@
         </id>
         <property name="name"/>
         <property name="description"/>
+        <property name="address" type="model.locations.Address"/>
         <list name="tags" lazy="false">
             <key column="id"/>
             <list-index column="type"></list-index>
             <many-to-many class="model.outings.OutingTag"/>
+        </list>
+        <list name="assistants" lazy="false">
+            <key column="id"/>
+            <list-index column="type"></list-index>
+            <many-to-many class="model.users.User"/>
         </list>
         <property name="price"/>
         <one-to-one name="weekTimeSchedule" class="model.time.WeekTimeSchedule"/>

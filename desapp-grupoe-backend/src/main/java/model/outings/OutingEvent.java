@@ -1,6 +1,8 @@
 package model.outings;
 
+import model.locations.Address;
 import model.time.TimeSlot;
+import model.users.User;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 
@@ -15,12 +17,12 @@ public class OutingEvent extends Outing {
 
     }
 
-    public OutingEvent(String name, String description, List<OutingTag> tags, double price) {
-        super(name, description, tags, price);
+    public OutingEvent(String name, String description, Address address, List<OutingTag> tags, List<User> assistants, double price) {
+        super(name, description, address, tags, assistants, price);
     }
 
-    public OutingEvent(String name, String description, List<OutingTag> tags, double price, LocalDateTime startDateTime, LocalDateTime endDateTime) {
-        super(name, description, tags, price);
+    public OutingEvent(String name, String description, Address address, List<OutingTag> tags, List<User> assistants, double price, LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        super(name, description, address, tags, assistants, price);
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
     }

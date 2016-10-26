@@ -10,6 +10,7 @@
 
         <property name="name"/>
         <property name="description"/>
+        <property name="address" type="model.locations.Address"/>
         <property name="price"/>
         <property name="startDateTime" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime"/>
         <property name="endDateTime" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime"/>
@@ -17,6 +18,11 @@
             <key column="id"/>
             <list-index column="type"></list-index>
             <many-to-many class="model.outings.OutingTag"/>
+        </list>
+        <list name="assistants" lazy="false">
+            <key column="id"/>
+            <list-index column="type"></list-index>
+            <many-to-many class="model.users.User"/>
         </list>
 
     </class>

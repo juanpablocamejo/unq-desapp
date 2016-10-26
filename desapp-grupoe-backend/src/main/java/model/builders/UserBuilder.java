@@ -1,7 +1,6 @@
 package model.builders;
 
 import model.locations.Address;
-import model.locations.Coord;
 import model.users.Profile;
 import model.users.User;
 
@@ -15,7 +14,7 @@ public class UserBuilder {
 
     private String name = "username";
     private String surname = "surname";
-    private Address location = anyAddress().build();
+    private Address address = anyAddress().build();
     private Profile profile = anyProfile().build();
     private List<User> friends = new ArrayList<>();
 
@@ -24,7 +23,7 @@ public class UserBuilder {
     }
 
     public User build() {
-        return new User(name, surname, location, profile, friends);
+        return new User(name, surname, address, profile, friends);
     }
 
     public UserBuilder withName(String n) {
@@ -37,8 +36,8 @@ public class UserBuilder {
         return this;
     }
 
-    public UserBuilder withLocation(Address a) {
-        location = a;
+    public UserBuilder withAddress(Address a) {
+        address = a;
         return this;
     }
 

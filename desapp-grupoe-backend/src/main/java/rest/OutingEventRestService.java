@@ -1,6 +1,5 @@
 package rest;
 
-import model.builders.outings.OutingEventBuilder;
 import model.outings.OutingEvent;
 import org.eclipse.jetty.http.HttpStatus;
 
@@ -33,11 +32,10 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
 
     @POST
     @Path("/")
-    @Consumes("application/x-www-form-urlencoded")
+    @Consumes("application/json")
     @Produces("application/json")
-    public Response createEvent(@FormParam("name") String name, @FormParam("description") String description, @FormParam("price") double price) {
-        service.save(OutingEventBuilder.anOutingEvent().withName(name).withDescription(description).withPrice(price).build());
-        return Response.ok("El evento " + name + " fue creado exitosamente").status(HttpStatus.OK_200).build();
+    public Response createEvent(OutingEvent event) {
+        return super.create(event);
     }
 
     @PUT
@@ -52,6 +50,26 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
         event.setName(name);
         event.setDescription(description);
         event.setPrice(price);
+        service.update(event);
+        return Response.ok("El evento fue actualizado exitosamente").status(HttpStatus.OK_200).build();
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes("application/x-www-form-urlencoded")
+    @Produces("application/json")
+    public Response updateEvent(OutingEvent ev) {
+        OutingEvent event = service.findById(ev.getId());
+        if (event == null) {
+            return Response.ok("No se puede actualizar el evento. Motivo: Evento inexistente").status(HttpStatus.NOT_FOUND_404).build();
+        }
+        event.setName(ev.getName());
+        event.setDescription(ev.getDescription());
+        event.setAddress(ev.getAddress());
+        event.setPrice(ev.getPrice());
+        event.setTags(ev.getTags());
+        event.setStartDateTime(ev.getStartDateTime());
+        event.setEndDateTime(ev.getEndDateTime());
         service.update(event);
         return Response.ok("El evento fue actualizado exitosamente").status(HttpStatus.OK_200).build();
     }

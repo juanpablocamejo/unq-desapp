@@ -9,6 +9,14 @@ import java.util.List;
 public class GenericRestService<T> {
     GenericService<T> service;
 
+    public GenericService<T> getService() {
+        return service;
+    }
+
+    public void setService(GenericService<T> service) {
+        this.service = service;
+    }
+
     public List<T> getAll() {
         return service.retriveAll();
     }
@@ -31,11 +39,8 @@ public class GenericRestService<T> {
         return Response.ok("Se elimino correctamente").build();
     }
 
-    public GenericService<T> getService() {
-        return service;
-    }
-
-    public void setService(GenericService<T> service) {
-        this.service = service;
+    public Response create(T object) {
+        service.save(object);
+        return Response.ok(object).status(HttpStatus.OK_200).build();
     }
 }
