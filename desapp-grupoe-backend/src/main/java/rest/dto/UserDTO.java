@@ -1,6 +1,5 @@
 package rest.dto;
 
-import javafx.util.Pair;
 import model.Entity;
 
 import java.util.List;
