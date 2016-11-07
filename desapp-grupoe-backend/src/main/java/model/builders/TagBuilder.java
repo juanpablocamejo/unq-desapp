@@ -1,29 +1,28 @@
 package model.builders;
 
-import model.outings.OutingTag;
+import model.tags.Tag;
+import model.tags.TagCategory;
 
 
 public class TagBuilder {
 
     private String name = "Tag x";
-    private OutingTag parent = new OutingTag();
+    private TagCategory category = new TagCategory("category");
 
     public static TagBuilder anyTag() {
         return new TagBuilder();
     }
 
-    public OutingTag build() {
-        return new OutingTag(name, parent);
+    public Tag build() {
+        return new Tag(name,category);
     }
 
     public TagBuilder withName(String n) {
         name = n;
         return this;
     }
-
-    public TagBuilder withParent(OutingTag p) {
-        parent = p;
+    public TagBuilder withCategory(TagCategory c) {
+        category = c;
         return this;
     }
-
 }

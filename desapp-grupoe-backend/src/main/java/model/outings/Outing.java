@@ -3,6 +3,7 @@ package model.outings;
 import model.Entity;
 import model.locations.Address;
 import model.planning.IPlanningResult;
+import model.tags.Tag;
 import model.time.TimeSlot;
 import model.users.User;
 import org.joda.time.LocalDate;
@@ -15,11 +16,11 @@ public abstract class Outing extends Entity implements IPlanningResult {
     private String name;
     private String description;
     private Address address;
-    private List<OutingTag> tags = new ArrayList<>();
+    private List<Tag> tags = new ArrayList<>();
     private List<User> assistants = new ArrayList<>();
     private double price;
 
-    protected Outing(String name, String description, Address address, List<OutingTag> tags, List<User> assistants, double price) {
+    protected Outing(String name, String description, Address address, List<Tag> tags, List<User> assistants, double price) {
         this.name = name;
         this.description = description;
         this.address = address;
@@ -56,11 +57,11 @@ public abstract class Outing extends Entity implements IPlanningResult {
         this.address = address;
     }
 
-    public List<OutingTag> getTags() {
+    public List<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(List<OutingTag> tags) {
+    public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
 
@@ -95,11 +96,11 @@ public abstract class Outing extends Entity implements IPlanningResult {
         return maxPrice >= price;
     }
 
-    public boolean matchWith(OutingTag tag) {
+    public boolean matchWith(Tag tag) {
         return tags.contains(tag);
     }
 
-    public void addTag(OutingTag tag) {
+    public void addTag(Tag tag) {
         if (!getTags().contains(tag)) {
             getTags().add(tag);
         }

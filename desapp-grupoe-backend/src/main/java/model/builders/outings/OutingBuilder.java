@@ -4,7 +4,7 @@ import model.builders.AddressBuilder;
 import model.locations.Address;
 import model.outings.Outing;
 import model.outings.OutingEvent;
-import model.outings.OutingTag;
+import model.tags.Tag;
 import model.users.User;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class OutingBuilder {
     private String name = "Name";
     private String description = "Description";
     private Address address = AddressBuilder.anyAddress().build();
-    private List<OutingTag> tags = new ArrayList<>();
+    private List<Tag> tags = new ArrayList<>();
     private List<User> assistants = new ArrayList<>();
     private double price = 1;
 
@@ -42,12 +42,12 @@ public class OutingBuilder {
         return this;
     }
 
-    public OutingBuilder withTags(ArrayList<OutingTag> t) {
+    public OutingBuilder withTags(ArrayList<Tag> t) {
         tags = t;
         return this;
     }
 
-    public OutingBuilder withTag(OutingTag t) {
+    public OutingBuilder withTag(Tag t) {
         tags.add(t);
         return this;
     }

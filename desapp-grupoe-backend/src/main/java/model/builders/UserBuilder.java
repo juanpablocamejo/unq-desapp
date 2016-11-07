@@ -7,15 +7,13 @@ import model.users.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import static model.builders.AddressBuilder.anyAddress;
-import static model.builders.ProfileBuilder.anyProfile;
 
 public class UserBuilder {
 
     private String name = "username";
     private String surname = "surname";
-    private Address address = anyAddress().build();
-    private Profile profile = anyProfile().build();
+    private Address address = AddressBuilder.anyAddress().build();
+    private Profile profile = ProfileBuilder.anyProfile().build();
     private List<User> friends = new ArrayList<>();
 
     public static UserBuilder anyUser() {

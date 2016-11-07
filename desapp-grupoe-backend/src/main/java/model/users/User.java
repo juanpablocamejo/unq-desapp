@@ -1,6 +1,7 @@
 package model.users;
 
 import model.Entity;
+import model.builders.ProfileBuilder;
 import model.locations.Address;
 
 import java.util.ArrayList;
@@ -13,7 +14,8 @@ public class User extends Entity {
     private Profile profile;
     private List<User> friends = new ArrayList<>();
 
-    private User() {
+    public User() {
+        this.profile = ProfileBuilder.anyProfile().build();
     }
 
     public User(String name, String surname, Address address, Profile profile, List<User> friends) {
@@ -77,7 +79,13 @@ public class User extends Entity {
         }
     }
 
-/*    public Profile getFriendsProfile() {
+    @Override
+    public String toString() {
+        return getId() + "," + getName();
+    }
+
+
+    /*    public Profile getFriendsProfile() {
         List<Profile> friendsProfiles = new ArrayList<>();
         for (User friend : this.friends) {
             friendsProfiles.add(friend.getProfile());

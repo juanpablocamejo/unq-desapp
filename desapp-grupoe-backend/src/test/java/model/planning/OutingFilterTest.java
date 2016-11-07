@@ -1,7 +1,7 @@
 package model.planning;
 
 import model.outings.Outing;
-import model.outings.OutingTag;
+import model.tags.Tag;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 import org.junit.Test;
@@ -25,8 +25,8 @@ public class OutingFilterTest {
 
     @Test
     public void outingFilterShouldMatchOkByTag() {
-        OutingTag tag1 = anyTag().withName("Tag 1").build();
-        OutingTag tag2 = anyTag().withName("Tag 2").build();
+        Tag tag1 = anyTag().withName("Tag 1").build();
+        Tag tag2 = anyTag().withName("Tag 2").build();
         Outing outing1 = anyOuting().withTag(tag1).build();
         Outing outing2 = anyOuting().withTag(tag2).build();
 

@@ -1,17 +1,17 @@
 package model.planning;
 
 import model.outings.Outing;
-import model.outings.OutingTag;
+import model.tags.Tag;
 import model.time.TimeSlot;
 import org.joda.time.LocalDate;
 
 public class OutingFilter {
     private LocalDate date;
     private TimeSlot timeSlot;
-    private OutingTag searchTag;
+    private Tag searchTag;
     private double maxPrice;
 
-    public OutingFilter(LocalDate date, TimeSlot timeSlot, OutingTag searchTag, double maxPrice) {
+    public OutingFilter(LocalDate date, TimeSlot timeSlot, Tag searchTag, double maxPrice) {
         this.date = date;
         this.timeSlot = timeSlot;
         this.searchTag = searchTag;
@@ -34,11 +34,11 @@ public class OutingFilter {
         this.timeSlot = timeSlot;
     }
 
-    public OutingTag getSearchTag() {
+    public Tag getSearchTag() {
         return searchTag;
     }
 
-    public void setSearchTag(OutingTag searchTag) {
+    public void setSearchTag(Tag searchTag) {
         this.searchTag = searchTag;
     }
 

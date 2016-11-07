@@ -2,6 +2,7 @@ package model.outings;
 
 import model.locations.Address;
 import model.planning.IPlanningResult;
+import model.tags.Tag;
 import model.time.TimeSlot;
 import model.time.WeekTimeSchedule;
 import model.users.User;
@@ -16,7 +17,7 @@ public class OutingPlace extends Outing implements IPlanningResult {
     public OutingPlace() {
     }
 
-    public OutingPlace(String name, String description, Address address, List<OutingTag> tags, List<User> assistants, double price, WeekTimeSchedule weekTimeSchedule) {
+    public OutingPlace(String name, String description, Address address, List<Tag> tags, List<User> assistants, double price, WeekTimeSchedule weekTimeSchedule) {
         super(name, description, address, tags, assistants, price);
         this.weekTimeSchedule = weekTimeSchedule;
     }

@@ -1,7 +1,7 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jaxrs="http://cxf.apache.org/jaxrs"
        xmlns:cxf="http://cxf.apache.org/core"
-       xmlns="http://www.springframework.org/schema/beans"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
@@ -28,6 +28,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
             <ref bean="userRest"/>
             <ref bean="outingEventRest"/>
             <ref bean="outingPlaceRest"/>
+            <ref bean="tagRest"/>
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json"/>
@@ -41,15 +42,18 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         </jaxrs:features>
     </jaxrs:server>
 
+
     <!-- ======== User Services ========= -->
     <bean id="userService" class="services.UserService">
         <property name="repository" ref="userDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
         <property name="profileDAO" ref="profileDAO"/>
+
     </bean>
 
     <bean id="userRest" class="rest.UserRestService">
         <property name="service" ref="userService"/>
+        <property name="tagService" ref="tagService"/>
     </bean>
 
     <!-- ======== Outing Event Services ========= -->
@@ -73,15 +77,23 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         <property name="service" ref="outingPlaceService"/>
     </bean>
 
+    <!-- ======== Tag Services ========= -->
+    <bean id="tagService" class="services.TagService">
+        <property name="repository" ref="tagDAO"></property>
+    </bean>
+    <bean id="tagRest" class="rest.TagRestService">
+        <property name="service" ref="tagService"/>
+    </bean>
+    <!-- ======== Initialize Services ========= -->
     <bean id="initialize" class="services.initialization.ServiceInitializer">
         <constructor-arg>
             <list>
                 <ref bean="userService"></ref>
                 <ref bean="outingEventService"></ref>
                 <ref bean="outingPlaceService"></ref>
+                <ref bean="tagService"></ref>
             </list>
         </constructor-arg>
-
     </bean>
 
 </beans>

@@ -5,8 +5,8 @@ import model.locations.Coord;
 
 public class CoordBuilder {
 
-    private int latitude = 1234;
-    private int longitude = 4321;
+    private Double latitude = 123.4;
+    private Double longitude = 43.21;
 
     public static CoordBuilder anyCoord() {
         return new CoordBuilder();
@@ -16,12 +16,12 @@ public class CoordBuilder {
         return new Coord(latitude, longitude);
     }
 
-    public CoordBuilder withLatitude(int lat) {
+    public CoordBuilder withLatitude(Double lat) {
         latitude = lat;
         return this;
     }
 
-    public CoordBuilder withLongitude(int lon) {
+    public CoordBuilder withLongitude(Double lon) {
         longitude = lon;
         return this;
     }

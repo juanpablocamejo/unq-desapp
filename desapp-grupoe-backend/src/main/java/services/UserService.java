@@ -38,9 +38,9 @@ public class UserService extends GenericService<User> implements Initializable {
 
     @Override
     @Transactional
-    public void save(User object) {
-        addressDAO.save(object.getAddress());
-        profileDAO.save(object.getProfile());
-        super.save(object);
+    public void save(User user) {
+        addressDAO.save(user.getAddress());
+        profileDAO.save(user.getProfile());
+        super.save(user);
     }
 }

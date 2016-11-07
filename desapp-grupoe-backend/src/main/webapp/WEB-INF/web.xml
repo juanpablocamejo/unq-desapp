@@ -11,6 +11,7 @@
         <param-value>
             classpath:/WEB-INF/spring-persistence-context*.xml
             classpath:/WEB-INF/spring-services-context*.xml
+            classpath:/WEB-INF/aspect-log*.xml
         </param-value>
 
     </context-param>

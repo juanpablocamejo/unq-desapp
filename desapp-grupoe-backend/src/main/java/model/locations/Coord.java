@@ -3,31 +3,31 @@ package model.locations;
 import model.Entity;
 
 public class Coord extends Entity {
-    private int latitude;
-    private int longitude;
+    private Double latitude;
+    private Double longitude;
 
-    private Coord() {
+    public Coord() {
 
     }
 
-    public Coord(int latitude, int longitude) {
+    public Coord(Double latitude, Double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public int getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(int latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public int getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(int longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 

@@ -3,7 +3,7 @@ package model.builders.outings;
 import model.builders.AddressBuilder;
 import model.locations.Address;
 import model.outings.OutingEvent;
-import model.outings.OutingTag;
+import model.tags.Tag;
 import model.users.User;
 import org.joda.time.LocalDateTime;
 
@@ -15,7 +15,7 @@ public class OutingEventBuilder {
     private String name = "Name";
     private String description = "Description";
     private Address address = AddressBuilder.anyAddress().build();
-    private List<OutingTag> tags = new ArrayList<>();
+    private List<Tag> tags = new ArrayList<>();
     private List<User> assistants = new ArrayList<>();
     private double price = 1;
     private LocalDateTime startDateTime = LocalDateTime.now();
@@ -44,12 +44,12 @@ public class OutingEventBuilder {
         return this;
     }
 
-    public OutingEventBuilder withTags(ArrayList<OutingTag> t) {
+    public OutingEventBuilder withTags(ArrayList<Tag> t) {
         tags = t;
         return this;
     }
 
-    public OutingEventBuilder withTag(OutingTag t) {
+    public OutingEventBuilder withTag(Tag t) {
         tags.add(t);
         return this;
     }

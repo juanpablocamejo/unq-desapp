@@ -2,13 +2,13 @@ package model.planning;
 
 
 import model.builders.outings.OutingFilterBuilder;
-import model.outings.OutingTag;
+import model.tags.Tag;
 import model.users.Profile;
 
 public class BasicSearchStrategy {
 
     protected OutingFilterBuilder searchFilter(Profile profile, String tagName) {
-        OutingTag searchTag = new OutingTag();
+        Tag searchTag = new Tag();
         searchTag.setName(tagName);
         return OutingFilterBuilder.anOutingFilter()
                 .withSearchTag(searchTag);

@@ -21,13 +21,8 @@ public class GenericRestService<T> {
         return service.retriveAll();
     }
 
-    public Response findById(int id) {
-        T obj = service.findById(id);
-        if (obj == null) {
-            return Response.ok("No se encontro la entidad con el id: " + id).status(HttpStatus.NOT_FOUND_404).build();
-        } else {
-            return Response.ok(obj).status(HttpStatus.OK_200).build();
-        }
+    public T findById(int id) {
+        return service.findById(id);
     }
 
     public Response deleteById(int id) {
@@ -36,7 +31,7 @@ public class GenericRestService<T> {
             return Response.ok("No se encontro la entidad con el id: " + id).status(HttpStatus.NOT_FOUND_404).build();
         }
         service.delete(object);
-        return Response.ok("Se elimino correctamente").build();
+        return Response.ok("Se elimino correctamente").status(HttpStatus.OK_200).build();
     }
 
     public Response create(T object) {

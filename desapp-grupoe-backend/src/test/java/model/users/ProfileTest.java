@@ -1,6 +1,6 @@
 package model.users;
 
-import model.outings.OutingTag;
+import model.tags.Tag;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ public class ProfileTest {
     @Test
     public void addANewTagToTheListWorksOK() {
 
-        OutingTag tagMusic = anyTag().withName("Music").build();
-        OutingTag tagMovie = anyTag().withName("Movie").build();
+        Tag tagMusic = anyTag().withName("Music").build();
+        Tag tagMovie = anyTag().withName("Movie").build();
 
         Profile profile = new Profile();
         profile.addTag(tagMusic);
@@ -28,8 +28,8 @@ public class ProfileTest {
     @Test
     public void removeAnExistingTagRemovesFromTheListOK() {
 
-        OutingTag tagMusic = anyTag().withName("Music").build();
-        OutingTag tagMovie = anyTag().withName("Movie").build();
+        Tag tagMusic = anyTag().withName("Music").build();
+        Tag tagMovie = anyTag().withName("Movie").build();
 
         Profile profile = new Profile();
         profile.addTag(tagMusic);
@@ -60,19 +60,19 @@ public class ProfileTest {
     @Test
     public void testMergeProfilesResultingProfileTagsIsCalculatedCorrectly() {
 
-        OutingTag tag1 = anyTag().withName("Musica").build();
-        OutingTag tag2 = anyTag().withName("Pelicula").build();
-        OutingTag tag3 = anyTag().withName("Comida").build();
+        Tag tag1 = anyTag().withName("Musica").build();
+        Tag tag2 = anyTag().withName("Pelicula").build();
+        Tag tag3 = anyTag().withName("Comida").build();
 
-        ArrayList<OutingTag> tagsP1 = new ArrayList<>();
+        ArrayList<Tag> tagsP1 = new ArrayList<>();
         tagsP1.add(tag1);
         tagsP1.add(tag2);
 
-        ArrayList<OutingTag> tagsP2 = new ArrayList<>();
+        ArrayList<Tag> tagsP2 = new ArrayList<>();
         tagsP2.add(tag1);
         tagsP2.add(tag3);
 
-        ArrayList<OutingTag> tagsP3 = new ArrayList<>();
+        ArrayList<Tag> tagsP3 = new ArrayList<>();
         tagsP3.add(tag1);
 
 

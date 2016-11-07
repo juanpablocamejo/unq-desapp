@@ -1,7 +1,7 @@
 package model.users;
 
 import model.Entity;
-import model.outings.OutingTag;
+import model.tags.Tag;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -9,36 +9,40 @@ import java.util.List;
 
 
 public class Profile extends Entity {
-    private List<OutingTag> tags = new ArrayList<>();
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    private List<Tag> tags = new ArrayList<>();
     private double inexpensiveOutingLimit;
 
     public Profile() {
     }
 
-    public Profile(List<OutingTag> tags, double inexpensiveOutingLimit) {
+    public Profile(List<Tag> tags, double inexpensiveOutingLimit) {
         this.tags = tags;
         this.inexpensiveOutingLimit = inexpensiveOutingLimit;
     }
 
     public static Profile mergeProfiles(List<Profile> profiles) {
         int quorum = profiles.size() / 2;
-        Hashtable<OutingTag, Integer> tagsOccurrence = getTagsOccurrence(profiles);
+        Hashtable<Tag, Integer> tagsOccurrence = getTagsOccurrence(profiles);
         double inexpensiveLimitAvg = profiles.parallelStream().mapToDouble(Profile::getInexpensiveOutingLimit).average().getAsDouble();
         return new Profile(getQuorumTags(quorum, tagsOccurrence), inexpensiveLimitAvg);
     }
 
-    private static List<OutingTag> getQuorumTags(int quorum, Hashtable<OutingTag, Integer> tagsOccurrence) {
-        List<OutingTag> quorumTags = new ArrayList<>();
+    private static List<Tag> getQuorumTags(int quorum, Hashtable<Tag, Integer> tagsOccurrence) {
+        List<Tag> quorumTags = new ArrayList<>();
         tagsOccurrence.forEach((tag, occurrence) -> {
             if (occurrence > quorum) quorumTags.add(tag);
         });
         return quorumTags;
     }
 
-    private static Hashtable<OutingTag, Integer> getTagsOccurrence(List<Profile> profiles) {
-        Hashtable<OutingTag, Integer> tagsOccurrence = new Hashtable<>();
+    private static Hashtable<Tag, Integer> getTagsOccurrence(List<Profile> profiles) {
+        Hashtable<Tag, Integer> tagsOccurrence = new Hashtable<>();
         for (Profile profile : profiles) {
-            for (OutingTag tag : profile.getTags()) {
+            for (Tag tag : profile.getTags()) {
                 Integer currentOccurrence = tagsOccurrence.getOrDefault(tag, 0);
                 tagsOccurrence.put(tag, currentOccurrence + 1);
             }
@@ -46,19 +50,19 @@ public class Profile extends Entity {
         return tagsOccurrence;
     }
 
-    public void addTag(OutingTag tag) {
+    public void addTag(Tag tag) {
         if (!this.tags.contains(tag)) {
             this.tags.add(tag);
         }
     }
 
-    public void removeTag(OutingTag tag) {
+    public void removeTag(Tag tag) {
         if (tags.contains(tag)) {
             tags.remove(tag);
         }
     }
 
-    public List<OutingTag> getTags() {
+    public List<Tag> getTags() {
         return tags;
     }
 

@@ -3,7 +3,7 @@ package model.builders.outings;
 import model.builders.AddressBuilder;
 import model.locations.Address;
 import model.outings.OutingPlace;
-import model.outings.OutingTag;
+import model.tags.Tag;
 import model.time.DuplicatedTimeSlotException;
 import model.time.WeekTimeSchedule;
 import model.users.User;
@@ -17,7 +17,7 @@ public class OutingPlaceBuilder {
     private String name = "Name";
     private String description = "Description";
     private Address address = AddressBuilder.anyAddress().build();
-    private List<OutingTag> tags = new ArrayList<>();
+    private List<Tag> tags = new ArrayList<>();
     private List<User> assistants = new ArrayList<>();
     private double price = 1;
     private WeekTimeSchedule weekTimeSchedule = new WeekTimeSchedule();
@@ -45,12 +45,12 @@ public class OutingPlaceBuilder {
         return this;
     }
 
-    public OutingPlaceBuilder withTags(ArrayList<OutingTag> t) {
+    public OutingPlaceBuilder withTags(ArrayList<Tag> t) {
         tags = t;
         return this;
     }
 
-    public OutingPlaceBuilder withTag(OutingTag t) {
+    public OutingPlaceBuilder withTag(Tag t) {
         tags.add(t);
         return this;
     }

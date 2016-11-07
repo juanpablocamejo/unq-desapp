@@ -11,7 +11,7 @@
         <list name="tags" lazy="false">
             <key column="id"/>
             <list-index column="type"></list-index>
-            <many-to-many class="model.outings.OutingTag"/>
+            <many-to-many class="model.tags.Tag"/>
         </list>
     </class>
 </hibernate-mapping>
