@@ -1,12 +1,10 @@
-package services;
+package services.appservice;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import model.users.User;
 import org.springframework.transaction.annotation.Transactional;
 import persistence.GenericRepository;
+
+import java.io.Serializable;
+import java.util.List;
 
 
 public class GenericService<T> implements Serializable {

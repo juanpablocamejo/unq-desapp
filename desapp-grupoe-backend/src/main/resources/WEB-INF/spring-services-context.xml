@@ -1,7 +1,7 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jaxrs="http://cxf.apache.org/jaxrs"
        xmlns:cxf="http://cxf.apache.org/core"
-       xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
@@ -44,7 +44,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
 
     <!-- ======== User Services ========= -->
-    <bean id="userService" class="services.UserService">
+    <bean id="userService" class="services.appservice.UserService">
         <property name="repository" ref="userDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
         <property name="profileDAO" ref="profileDAO"/>
@@ -57,7 +57,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </bean>
 
     <!-- ======== Outing Event Services ========= -->
-    <bean id="outingEventService" class="services.OutingEventService">
+    <bean id="outingEventService" class="services.appservice.OutingEventService">
         <property name="repository" ref="outingEventDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
     </bean>
@@ -67,7 +67,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </bean>
 
     <!-- ======== Outing Place Services ========= -->
-    <bean id="outingPlaceService" class="services.OutingPlaceService">
+    <bean id="outingPlaceService" class="services.appservice.OutingPlaceService">
         <property name="repository" ref="outingPlaceDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
 
@@ -78,7 +78,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </bean>
 
     <!-- ======== Tag Services ========= -->
-    <bean id="tagService" class="services.TagService">
+    <bean id="tagService" class="services.appservice.TagService">
         <property name="repository" ref="tagDAO"></property>
     </bean>
     <bean id="tagRest" class="rest.TagRestService">

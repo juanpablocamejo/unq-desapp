@@ -1,4 +1,4 @@
-package services;
+package services.appservice;
 
 import model.builders.outings.OutingPlaceBuilder;
 import model.builders.time.WeekTimeScheduleBuilder;
@@ -11,15 +11,15 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
 
     private AddressDAO addressDAO;
 
+    public OutingPlaceService() {
+    }
+
     public AddressDAO getAddressDAO() {
         return addressDAO;
     }
 
     public void setAddressDAO(AddressDAO addressDAO) {
         this.addressDAO = addressDAO;
-    }
-
-    public OutingPlaceService() {
     }
 
     @Transactional

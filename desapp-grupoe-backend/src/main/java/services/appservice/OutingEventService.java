@@ -1,4 +1,4 @@
-package services;
+package services.appservice;
 
 import model.builders.outings.OutingEventBuilder;
 import model.outings.OutingEvent;

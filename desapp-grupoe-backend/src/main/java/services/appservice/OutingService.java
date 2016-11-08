@@ -1,4 +1,4 @@
-package services;
+package services.appservice;
 
 
 import model.outings.Outing;

@@ -6,7 +6,7 @@ import model.users.Profile;
 import model.users.User;
 import org.eclipse.jetty.http.HttpStatus;
 import rest.dto.UserDTO;
-import services.TagService;
+import services.appservice.TagService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
