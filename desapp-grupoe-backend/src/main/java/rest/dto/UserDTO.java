@@ -7,10 +7,15 @@ import java.util.List;
 public class UserDTO extends Entity {
     private String name;
     private String surname;
+    private String email;
     private String[] address;
     private List<Integer> tags;
     private List<String> friends;
     private double inexpensiveOutingLimit;
+
+    public UserDTO() {
+
+    }
 
     public String getName() {
         return name;
@@ -26,6 +31,14 @@ public class UserDTO extends Entity {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String[] getAddress() {
@@ -58,9 +71,5 @@ public class UserDTO extends Entity {
 
     public void setInexpensiveOutingLimit(double inexpensiveOutingLimit) {
         this.inexpensiveOutingLimit = inexpensiveOutingLimit;
-    }
-
-    public UserDTO() {
-
     }
 }

@@ -6,6 +6,7 @@ import model.tags.Tag;
 import model.users.User;
 import org.eclipse.jetty.http.HttpStatus;
 import rest.dto.OutingPlaceDTO;
+import services.appservice.UserService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -14,6 +15,12 @@ import java.util.List;
 
 @Path("places")
 public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
+
+    UserService userService;
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     @GET
     @Path("/")
@@ -58,7 +65,7 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
     }
 
     @PUT
-    @Path("/{id}")
+    @Path("/")
     @Consumes("application/json")
     @Produces("application/json")
     public Response updatePlace(OutingPlaceDTO dto) {
@@ -71,17 +78,22 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
     }
 
     @PUT
-    @Path("/{id}/")
-    @Consumes("application/json")
+    @Path("/{idPlace}/addAssistant/{idUser}")
     @Produces("application/json")
-    public Response addAssistant(OutingPlace op, User user) {
-        OutingPlace place = service.findById(op.getId());
+    public Response addAssistant(@PathParam("idPlace") int idPlace, @PathParam("idUser") int idUser) {
+        OutingPlace place = service.findById(idPlace);
+        User user = userService.findById(idUser);
         if (place == null) {
-            return Response.ok("No se puede actualizar el lugar. Motivo: Lugar inexistente").status(HttpStatus.NOT_FOUND_404).build();
+            return Response.ok("No existe un lugar con el id: " + idPlace).status(HttpStatus.NOT_FOUND_404).build();
         }
+
+        if (user == null) {
+            return Response.ok("No existe un usuario con id: " + idUser).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
         place.addAssistant(user);
         service.update(place);
-        return Response.ok().status(HttpStatus.OK_200).build();
+        return Response.ok(place).status(HttpStatus.OK_200).build();
     }
 
     public OutingPlaceDTO toDTO(OutingPlace op) {
@@ -90,6 +102,11 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
         dto.setName(op.getName());
         dto.setDescription(op.getDescription());
         dto.setAddress(op.getAddress().toArray());
+
+        List<String> assistants = new ArrayList<>();
+        op.getAssistants().parallelStream().forEach(a -> assistants.add(a.toString()));
+        dto.setAssistants(assistants);
+
         dto.setPrice(op.getPrice());
 
         List<String> tags = new ArrayList<>();
@@ -110,6 +127,10 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
         List<Tag> tags = new ArrayList<>();
         dto.getTags().parallelStream().forEach(name -> tags.add(new Tag(name)));
         o.setTags(tags);
+
+        List<User> assistants = new ArrayList<>();
+        dto.getAssistants().parallelStream().forEach(f -> assistants.add(userService.findById(Integer.parseInt(f.split(",")[0]))));
+        o.setAssistants(assistants);
 
         //o.setWeekTimeSchedule(dto.getWeekTimeSchedule().parseFromString());
 

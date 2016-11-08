@@ -162,3 +162,672 @@
 2016-11-08 18:32:46 INFO  <init> SQLErrorCodesFactory:126 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
 2016-11-08 18:32:47 INFO  initWebApplicationContext ContextLoader:325 - Root WebApplicationContext: initialization completed in 3292 ms
 2016-11-08 18:33:12 INFO  before LoggerSystem:19 - Metodo: findEventById, Args: [1]
+2016-11-08 18:57:33 INFO  initWebApplicationContext ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-11-08 18:57:33 INFO  prepareRefresh XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Tue Nov 08 18:57:33 ART 2016]; root of context hierarchy
+2016-11-08 18:57:33 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-persistence-context.xml]
+2016-11-08 18:57:33 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-services-context.xml]
+2016-11-08 18:57:33 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2016-11-08 18:57:33 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2016-11-08 18:57:33 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2016-11-08 18:57:33 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\aspect-log.xml]
+2016-11-08 18:57:33 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/hibernate.properties]
+2016-11-08 18:57:33 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/jdbc.properties]
+2016-11-08 18:57:34 INFO  <clinit> Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-11-08 18:57:34 INFO  logVersion Version:54 - HHH000412: Hibernate Core {4.3.6.Final}
+2016-11-08 18:57:34 INFO  <clinit> Environment:239 - HHH000206: hibernate.properties not found
+2016-11-08 18:57:34 INFO  buildBytecodeProvider Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:57:35 INFO  <init> Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-11-08 18:57:35 INFO  initiateService TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-11-08 18:57:35 INFO  <init> ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-11-08 18:57:35 INFO  execute SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Address drop constraint FK_9sl87qgccrhna42fdfqsog3tv
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.ADDRESS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table DayTimeSchedule drop constraint FK_lq10l7v3yedveupqchbp9s7ou
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.DAYTIMESCHEDULE
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent drop constraint FK_m2jxheuywd69sbwas09w4iabt
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_smp3x0t2njvn4cyve8y8llu8e
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_5y3bodfep13m17qa1xupvsnhg
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_7n4xfk9q63yrtkfk0k2v7pn54
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_koohift9jjafl38jeww3bnfo4
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_p6g86b9snp2mq34h9t8475ipp
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_3pn1dluv4k19k3vvaw941764m
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_pfcgp371yi3f5cb6bodobnh59
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_20t00sbmuptlq8n7s3ddgixs3
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_a4xpygycrgklc907o18d5mde7
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_rye7yt7gm00wxtqw9uc05kabc
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_myk9ftftb9yby90sjtqu7ey8n
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_dvtn5sk647emhdgel5bf1u497
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Tag drop constraint FK_latl205tx92i9b31bmve33v5t
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TAG
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot drop constraint FK_9kew8yi7k73aprqp1m74rrl3h
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_2k1y7f77t6sefxjldl73l2gq5
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_s9h2q2gqu32jwin0qfgdbfywp
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_skh40ccucn70buj38cuq3yxol
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_aqkfsewhpux2lw9ahk6nssie4
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: create table TimeSlot (ID integer generated by default as identity (start with 1), start varbinary(255), end varbinary(255), type integer, primary key (ID))
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - palabra no esperado: END
+2016-11-08 18:57:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot add constraint FK_9kew8yi7k73aprqp1m74rrl3h foreign key (id) references DayTimeSchedule
+2016-11-08 18:57:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 18:57:35 INFO  execute SchemaExport:405 - HHH000230: Schema export complete
+2016-11-08 18:57:35 INFO  afterPropertiesSet HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp.BasicDataSource@71391b3f] of Hibernate SessionFactory for HibernateTransactionManager
+2016-11-08 18:57:35 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2016-11-08 18:57:35 INFO  <init> SQLErrorCodesFactory:126 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2016-11-08 18:57:36 INFO  initWebApplicationContext ContextLoader:325 - Root WebApplicationContext: initialization completed in 3029 ms
+2016-11-08 18:59:17 INFO  initWebApplicationContext ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-11-08 18:59:17 INFO  prepareRefresh XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Tue Nov 08 18:59:17 ART 2016]; root of context hierarchy
+2016-11-08 18:59:17 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-persistence-context.xml]
+2016-11-08 18:59:18 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-services-context.xml]
+2016-11-08 18:59:18 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2016-11-08 18:59:18 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2016-11-08 18:59:18 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2016-11-08 18:59:18 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\aspect-log.xml]
+2016-11-08 18:59:18 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/hibernate.properties]
+2016-11-08 18:59:18 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/jdbc.properties]
+2016-11-08 18:59:18 INFO  <clinit> Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-11-08 18:59:18 INFO  logVersion Version:54 - HHH000412: Hibernate Core {4.3.6.Final}
+2016-11-08 18:59:18 INFO  <clinit> Environment:239 - HHH000206: hibernate.properties not found
+2016-11-08 18:59:18 INFO  buildBytecodeProvider Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-11-08 18:59:18 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:18 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:18 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:18 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:18 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:18 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:18 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:19 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:19 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:19 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:19 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:19 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 18:59:19 INFO  <init> Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-11-08 18:59:19 INFO  initiateService TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-11-08 18:59:19 INFO  <init> ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-11-08 18:59:19 INFO  execute SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Address drop constraint FK_9sl87qgccrhna42fdfqsog3tv
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.ADDRESS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table DayTimeSchedule drop constraint FK_lq10l7v3yedveupqchbp9s7ou
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.DAYTIMESCHEDULE
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent drop constraint FK_m2jxheuywd69sbwas09w4iabt
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_smp3x0t2njvn4cyve8y8llu8e
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_5y3bodfep13m17qa1xupvsnhg
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_7n4xfk9q63yrtkfk0k2v7pn54
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_koohift9jjafl38jeww3bnfo4
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_p6g86b9snp2mq34h9t8475ipp
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_3pn1dluv4k19k3vvaw941764m
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_pfcgp371yi3f5cb6bodobnh59
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_20t00sbmuptlq8n7s3ddgixs3
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_a4xpygycrgklc907o18d5mde7
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_rye7yt7gm00wxtqw9uc05kabc
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_myk9ftftb9yby90sjtqu7ey8n
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_dvtn5sk647emhdgel5bf1u497
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Tag drop constraint FK_latl205tx92i9b31bmve33v5t
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TAG
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot drop constraint FK_9kew8yi7k73aprqp1m74rrl3h
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_2k1y7f77t6sefxjldl73l2gq5
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_s9h2q2gqu32jwin0qfgdbfywp
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_skh40ccucn70buj38cuq3yxol
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_aqkfsewhpux2lw9ahk6nssie4
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: create table TimeSlot (ID integer generated by default as identity (start with 1), start varbinary(255), end varbinary(255), type integer, primary key (ID))
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - palabra no esperado: END
+2016-11-08 18:59:19 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot add constraint FK_9kew8yi7k73aprqp1m74rrl3h foreign key (id) references DayTimeSchedule
+2016-11-08 18:59:19 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 18:59:19 INFO  execute SchemaExport:405 - HHH000230: Schema export complete
+2016-11-08 18:59:19 INFO  afterPropertiesSet HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp.BasicDataSource@71391b3f] of Hibernate SessionFactory for HibernateTransactionManager
+2016-11-08 18:59:19 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2016-11-08 18:59:19 INFO  <init> SQLErrorCodesFactory:126 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2016-11-08 18:59:20 INFO  initWebApplicationContext ContextLoader:325 - Root WebApplicationContext: initialization completed in 2769 ms
+2016-11-08 18:59:49 INFO  before LoggerSystem:19 - Metodo: getUsers, Args: []
+2016-11-08 19:06:41 INFO  before LoggerSystem:19 - Metodo: getEvents, Args: []
+2016-11-08 19:06:55 INFO  before LoggerSystem:19 - Metodo: getPlaces, Args: []
+2016-11-08 19:10:37 INFO  before LoggerSystem:19 - Metodo: findEventById, Args: [1]
+2016-11-08 19:11:07 INFO  before LoggerSystem:19 - Metodo: updateEvent, Args: [rest.dto.OutingEventDTO@58031c5b]
+2016-11-08 19:11:14 INFO  before LoggerSystem:19 - Metodo: updateEvent, Args: [rest.dto.OutingEventDTO@3a94fbd8]
+2016-11-08 19:11:22 INFO  before LoggerSystem:19 - Metodo: getEvents, Args: []
+2016-11-08 19:13:49 INFO  initWebApplicationContext ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-11-08 19:13:49 INFO  prepareRefresh XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Tue Nov 08 19:13:49 ART 2016]; root of context hierarchy
+2016-11-08 19:13:49 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-persistence-context.xml]
+2016-11-08 19:13:49 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-services-context.xml]
+2016-11-08 19:13:49 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2016-11-08 19:13:49 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2016-11-08 19:13:49 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2016-11-08 19:13:49 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\aspect-log.xml]
+2016-11-08 19:13:49 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/hibernate.properties]
+2016-11-08 19:13:49 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/jdbc.properties]
+2016-11-08 19:13:50 INFO  <clinit> Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-11-08 19:13:50 INFO  logVersion Version:54 - HHH000412: Hibernate Core {4.3.6.Final}
+2016-11-08 19:13:50 INFO  <clinit> Environment:239 - HHH000206: hibernate.properties not found
+2016-11-08 19:13:50 INFO  buildBytecodeProvider Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:13:50 INFO  <init> Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-11-08 19:13:50 INFO  initiateService TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-11-08 19:13:50 INFO  <init> ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-11-08 19:13:51 INFO  execute SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Address drop constraint FK_9sl87qgccrhna42fdfqsog3tv
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.ADDRESS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table DayTimeSchedule drop constraint FK_lq10l7v3yedveupqchbp9s7ou
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.DAYTIMESCHEDULE
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent drop constraint FK_m2jxheuywd69sbwas09w4iabt
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_smp3x0t2njvn4cyve8y8llu8e
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_5y3bodfep13m17qa1xupvsnhg
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_7n4xfk9q63yrtkfk0k2v7pn54
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_koohift9jjafl38jeww3bnfo4
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_p6g86b9snp2mq34h9t8475ipp
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_3pn1dluv4k19k3vvaw941764m
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_pfcgp371yi3f5cb6bodobnh59
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_20t00sbmuptlq8n7s3ddgixs3
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_a4xpygycrgklc907o18d5mde7
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_rye7yt7gm00wxtqw9uc05kabc
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_myk9ftftb9yby90sjtqu7ey8n
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_dvtn5sk647emhdgel5bf1u497
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Tag drop constraint FK_latl205tx92i9b31bmve33v5t
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TAG
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot drop constraint FK_9kew8yi7k73aprqp1m74rrl3h
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_2k1y7f77t6sefxjldl73l2gq5
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_s9h2q2gqu32jwin0qfgdbfywp
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_skh40ccucn70buj38cuq3yxol
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_aqkfsewhpux2lw9ahk6nssie4
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: create table TimeSlot (ID integer generated by default as identity (start with 1), start varbinary(255), end varbinary(255), type integer, primary key (ID))
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - palabra no esperado: END
+2016-11-08 19:13:51 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot add constraint FK_9kew8yi7k73aprqp1m74rrl3h foreign key (id) references DayTimeSchedule
+2016-11-08 19:13:51 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 19:13:51 INFO  execute SchemaExport:405 - HHH000230: Schema export complete
+2016-11-08 19:13:51 INFO  afterPropertiesSet HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp.BasicDataSource@71391b3f] of Hibernate SessionFactory for HibernateTransactionManager
+2016-11-08 19:13:51 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2016-11-08 19:13:51 INFO  <init> SQLErrorCodesFactory:126 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2016-11-08 19:13:52 INFO  initWebApplicationContext ContextLoader:325 - Root WebApplicationContext: initialization completed in 3050 ms
+2016-11-08 19:13:57 INFO  before LoggerSystem:19 - Metodo: updateEvent, Args: [rest.dto.OutingEventDTO@29cfcbd8]
+2016-11-08 19:14:05 INFO  before LoggerSystem:19 - Metodo: getEvents, Args: []
+2016-11-08 19:32:27 INFO  before LoggerSystem:19 - Metodo: findUserProfile, Args: [2]
+2016-11-08 19:48:39 INFO  initWebApplicationContext ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-11-08 19:48:39 INFO  prepareRefresh XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Tue Nov 08 19:48:39 ART 2016]; root of context hierarchy
+2016-11-08 19:48:39 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-persistence-context.xml]
+2016-11-08 19:48:39 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-services-context.xml]
+2016-11-08 19:48:39 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2016-11-08 19:48:39 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2016-11-08 19:48:39 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2016-11-08 19:48:39 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\aspect-log.xml]
+2016-11-08 19:48:39 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/hibernate.properties]
+2016-11-08 19:48:39 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/jdbc.properties]
+2016-11-08 19:48:40 INFO  <clinit> Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-11-08 19:48:40 INFO  logVersion Version:54 - HHH000412: Hibernate Core {4.3.6.Final}
+2016-11-08 19:48:40 INFO  <clinit> Environment:239 - HHH000206: hibernate.properties not found
+2016-11-08 19:48:40 INFO  buildBytecodeProvider Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:48:40 INFO  <init> Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-11-08 19:48:40 INFO  initiateService TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-11-08 19:48:40 INFO  <init> ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-11-08 19:48:41 INFO  execute SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Address drop constraint FK_9sl87qgccrhna42fdfqsog3tv
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.ADDRESS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table DayTimeSchedule drop constraint FK_lq10l7v3yedveupqchbp9s7ou
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.DAYTIMESCHEDULE
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent drop constraint FK_m2jxheuywd69sbwas09w4iabt
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_smp3x0t2njvn4cyve8y8llu8e
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_5y3bodfep13m17qa1xupvsnhg
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_7n4xfk9q63yrtkfk0k2v7pn54
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_koohift9jjafl38jeww3bnfo4
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_p6g86b9snp2mq34h9t8475ipp
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_3pn1dluv4k19k3vvaw941764m
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_pfcgp371yi3f5cb6bodobnh59
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_20t00sbmuptlq8n7s3ddgixs3
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_a4xpygycrgklc907o18d5mde7
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_rye7yt7gm00wxtqw9uc05kabc
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_myk9ftftb9yby90sjtqu7ey8n
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_dvtn5sk647emhdgel5bf1u497
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Tag drop constraint FK_latl205tx92i9b31bmve33v5t
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TAG
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot drop constraint FK_9kew8yi7k73aprqp1m74rrl3h
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_2k1y7f77t6sefxjldl73l2gq5
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_s9h2q2gqu32jwin0qfgdbfywp
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_skh40ccucn70buj38cuq3yxol
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_aqkfsewhpux2lw9ahk6nssie4
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: create table TimeSlot (ID integer generated by default as identity (start with 1), start varbinary(255), end varbinary(255), type integer, primary key (ID))
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - palabra no esperado: END
+2016-11-08 19:48:41 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot add constraint FK_9kew8yi7k73aprqp1m74rrl3h foreign key (id) references DayTimeSchedule
+2016-11-08 19:48:41 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 19:48:41 INFO  execute SchemaExport:405 - HHH000230: Schema export complete
+2016-11-08 19:48:41 INFO  afterPropertiesSet HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp.BasicDataSource@71391b3f] of Hibernate SessionFactory for HibernateTransactionManager
+2016-11-08 19:48:41 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2016-11-08 19:48:41 INFO  <init> SQLErrorCodesFactory:126 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2016-11-08 19:48:41 INFO  initWebApplicationContext ContextLoader:325 - Root WebApplicationContext: initialization completed in 2667 ms
+2016-11-08 19:52:23 INFO  initWebApplicationContext ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-11-08 19:52:23 INFO  prepareRefresh XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Tue Nov 08 19:52:23 ART 2016]; root of context hierarchy
+2016-11-08 19:52:23 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-persistence-context.xml]
+2016-11-08 19:52:23 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-services-context.xml]
+2016-11-08 19:52:23 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2016-11-08 19:52:23 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2016-11-08 19:52:23 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2016-11-08 19:52:23 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\aspect-log.xml]
+2016-11-08 19:52:23 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/hibernate.properties]
+2016-11-08 19:52:23 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/jdbc.properties]
+2016-11-08 19:52:24 INFO  <clinit> Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-11-08 19:52:24 INFO  logVersion Version:54 - HHH000412: Hibernate Core {4.3.6.Final}
+2016-11-08 19:52:24 INFO  <clinit> Environment:239 - HHH000206: hibernate.properties not found
+2016-11-08 19:52:24 INFO  buildBytecodeProvider Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 19:52:24 INFO  <init> Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-11-08 19:52:24 INFO  initiateService TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-11-08 19:52:24 INFO  <init> ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-11-08 19:52:25 INFO  execute SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Address drop constraint FK_9sl87qgccrhna42fdfqsog3tv
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.ADDRESS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table DayTimeSchedule drop constraint FK_lq10l7v3yedveupqchbp9s7ou
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.DAYTIMESCHEDULE
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent drop constraint FK_m2jxheuywd69sbwas09w4iabt
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_smp3x0t2njvn4cyve8y8llu8e
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_5y3bodfep13m17qa1xupvsnhg
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_7n4xfk9q63yrtkfk0k2v7pn54
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_koohift9jjafl38jeww3bnfo4
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_p6g86b9snp2mq34h9t8475ipp
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_3pn1dluv4k19k3vvaw941764m
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_pfcgp371yi3f5cb6bodobnh59
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_20t00sbmuptlq8n7s3ddgixs3
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_a4xpygycrgklc907o18d5mde7
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_rye7yt7gm00wxtqw9uc05kabc
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_myk9ftftb9yby90sjtqu7ey8n
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_dvtn5sk647emhdgel5bf1u497
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Tag drop constraint FK_latl205tx92i9b31bmve33v5t
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TAG
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot drop constraint FK_9kew8yi7k73aprqp1m74rrl3h
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_2k1y7f77t6sefxjldl73l2gq5
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_s9h2q2gqu32jwin0qfgdbfywp
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_skh40ccucn70buj38cuq3yxol
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_aqkfsewhpux2lw9ahk6nssie4
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: create table TimeSlot (ID integer generated by default as identity (start with 1), start varbinary(255), end varbinary(255), type integer, primary key (ID))
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - palabra no esperado: END
+2016-11-08 19:52:25 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot add constraint FK_9kew8yi7k73aprqp1m74rrl3h foreign key (id) references DayTimeSchedule
+2016-11-08 19:52:25 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 19:52:25 INFO  execute SchemaExport:405 - HHH000230: Schema export complete
+2016-11-08 19:52:25 INFO  afterPropertiesSet HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp.BasicDataSource@71391b3f] of Hibernate SessionFactory for HibernateTransactionManager
+2016-11-08 19:52:25 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2016-11-08 19:52:25 INFO  <init> SQLErrorCodesFactory:126 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2016-11-08 19:52:26 INFO  initWebApplicationContext ContextLoader:325 - Root WebApplicationContext: initialization completed in 3030 ms
+2016-11-08 19:52:37 INFO  before LoggerSystem:19 - Metodo: findPlacesById, Args: [2]
+2016-11-08 20:02:24 INFO  initWebApplicationContext ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-11-08 20:02:25 INFO  prepareRefresh XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Tue Nov 08 20:02:25 ART 2016]; root of context hierarchy
+2016-11-08 20:02:25 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-persistence-context.xml]
+2016-11-08 20:02:25 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-services-context.xml]
+2016-11-08 20:02:25 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2016-11-08 20:02:25 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2016-11-08 20:02:25 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2016-11-08 20:02:25 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\aspect-log.xml]
+2016-11-08 20:02:25 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/hibernate.properties]
+2016-11-08 20:02:25 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/jdbc.properties]
+2016-11-08 20:02:26 INFO  <clinit> Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-11-08 20:02:26 INFO  logVersion Version:54 - HHH000412: Hibernate Core {4.3.6.Final}
+2016-11-08 20:02:26 INFO  <clinit> Environment:239 - HHH000206: hibernate.properties not found
+2016-11-08 20:02:26 INFO  buildBytecodeProvider Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:02:26 INFO  <init> Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-11-08 20:02:26 INFO  initiateService TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-11-08 20:02:26 INFO  <init> ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-11-08 20:02:27 INFO  execute SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Address drop constraint FK_9sl87qgccrhna42fdfqsog3tv
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.ADDRESS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table DayTimeSchedule drop constraint FK_lq10l7v3yedveupqchbp9s7ou
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.DAYTIMESCHEDULE
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent drop constraint FK_m2jxheuywd69sbwas09w4iabt
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_smp3x0t2njvn4cyve8y8llu8e
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_5y3bodfep13m17qa1xupvsnhg
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_7n4xfk9q63yrtkfk0k2v7pn54
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_koohift9jjafl38jeww3bnfo4
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_p6g86b9snp2mq34h9t8475ipp
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_3pn1dluv4k19k3vvaw941764m
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_pfcgp371yi3f5cb6bodobnh59
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_20t00sbmuptlq8n7s3ddgixs3
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_a4xpygycrgklc907o18d5mde7
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_rye7yt7gm00wxtqw9uc05kabc
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_myk9ftftb9yby90sjtqu7ey8n
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_dvtn5sk647emhdgel5bf1u497
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Tag drop constraint FK_latl205tx92i9b31bmve33v5t
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TAG
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot drop constraint FK_9kew8yi7k73aprqp1m74rrl3h
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_2k1y7f77t6sefxjldl73l2gq5
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_s9h2q2gqu32jwin0qfgdbfywp
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_skh40ccucn70buj38cuq3yxol
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_aqkfsewhpux2lw9ahk6nssie4
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: create table TimeSlot (ID integer generated by default as identity (start with 1), start varbinary(255), end varbinary(255), type integer, primary key (ID))
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - palabra no esperado: END
+2016-11-08 20:02:27 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot add constraint FK_9kew8yi7k73aprqp1m74rrl3h foreign key (id) references DayTimeSchedule
+2016-11-08 20:02:27 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 20:02:27 INFO  execute SchemaExport:405 - HHH000230: Schema export complete
+2016-11-08 20:02:27 INFO  afterPropertiesSet HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp.BasicDataSource@71391b3f] of Hibernate SessionFactory for HibernateTransactionManager
+2016-11-08 20:02:27 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2016-11-08 20:02:27 INFO  <init> SQLErrorCodesFactory:126 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2016-11-08 20:02:28 INFO  initWebApplicationContext ContextLoader:325 - Root WebApplicationContext: initialization completed in 3107 ms
+2016-11-08 20:02:35 INFO  before LoggerSystem:19 - Metodo: getPlaces, Args: []
+2016-11-08 20:02:42 INFO  before LoggerSystem:19 - Metodo: findPlacesById, Args: [1]
+2016-11-08 20:03:44 INFO  before LoggerSystem:19 - Metodo: addAssistant, Args: [1, 1]
+2016-11-08 20:03:52 INFO  before LoggerSystem:19 - Metodo: findPlacesById, Args: [1]
+2016-11-08 20:04:33 INFO  initWebApplicationContext ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-11-08 20:04:33 INFO  prepareRefresh XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Tue Nov 08 20:04:33 ART 2016]; root of context hierarchy
+2016-11-08 20:04:34 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-persistence-context.xml]
+2016-11-08 20:04:34 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-services-context.xml]
+2016-11-08 20:04:34 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2016-11-08 20:04:34 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2016-11-08 20:04:34 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2016-11-08 20:04:34 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\aspect-log.xml]
+2016-11-08 20:04:34 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/hibernate.properties]
+2016-11-08 20:04:34 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/jdbc.properties]
+2016-11-08 20:04:34 INFO  <clinit> Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-11-08 20:04:34 INFO  logVersion Version:54 - HHH000412: Hibernate Core {4.3.6.Final}
+2016-11-08 20:04:34 INFO  <clinit> Environment:239 - HHH000206: hibernate.properties not found
+2016-11-08 20:04:34 INFO  buildBytecodeProvider Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-11-08 20:04:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:34 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:35 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:35 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:35 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:35 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:35 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:35 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:35 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:35 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:04:35 INFO  <init> Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-11-08 20:04:35 INFO  initiateService TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-11-08 20:04:35 INFO  <init> ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-11-08 20:04:35 INFO  execute SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Address drop constraint FK_9sl87qgccrhna42fdfqsog3tv
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.ADDRESS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table DayTimeSchedule drop constraint FK_lq10l7v3yedveupqchbp9s7ou
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.DAYTIMESCHEDULE
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent drop constraint FK_m2jxheuywd69sbwas09w4iabt
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_smp3x0t2njvn4cyve8y8llu8e
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_5y3bodfep13m17qa1xupvsnhg
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_7n4xfk9q63yrtkfk0k2v7pn54
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_koohift9jjafl38jeww3bnfo4
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_p6g86b9snp2mq34h9t8475ipp
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_3pn1dluv4k19k3vvaw941764m
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_pfcgp371yi3f5cb6bodobnh59
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_20t00sbmuptlq8n7s3ddgixs3
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_a4xpygycrgklc907o18d5mde7
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_rye7yt7gm00wxtqw9uc05kabc
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_myk9ftftb9yby90sjtqu7ey8n
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_dvtn5sk647emhdgel5bf1u497
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Tag drop constraint FK_latl205tx92i9b31bmve33v5t
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TAG
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot drop constraint FK_9kew8yi7k73aprqp1m74rrl3h
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_2k1y7f77t6sefxjldl73l2gq5
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_s9h2q2gqu32jwin0qfgdbfywp
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_skh40ccucn70buj38cuq3yxol
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_aqkfsewhpux2lw9ahk6nssie4
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: create table TimeSlot (ID integer generated by default as identity (start with 1), start varbinary(255), end varbinary(255), type integer, primary key (ID))
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - palabra no esperado: END
+2016-11-08 20:04:35 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot add constraint FK_9kew8yi7k73aprqp1m74rrl3h foreign key (id) references DayTimeSchedule
+2016-11-08 20:04:35 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 20:04:35 INFO  execute SchemaExport:405 - HHH000230: Schema export complete
+2016-11-08 20:04:35 INFO  afterPropertiesSet HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp.BasicDataSource@71391b3f] of Hibernate SessionFactory for HibernateTransactionManager
+2016-11-08 20:04:35 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2016-11-08 20:04:35 INFO  <init> SQLErrorCodesFactory:126 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2016-11-08 20:04:36 INFO  initWebApplicationContext ContextLoader:325 - Root WebApplicationContext: initialization completed in 2725 ms
+2016-11-08 20:04:45 INFO  before LoggerSystem:19 - Metodo: addAssistant, Args: [1, 1]
+2016-11-08 20:05:17 INFO  before LoggerSystem:19 - Metodo: findPlacesById, Args: [1]
+2016-11-08 20:05:55 INFO  before LoggerSystem:19 - Metodo: addAssistant, Args: [1, 2]
+2016-11-08 20:06:02 INFO  before LoggerSystem:19 - Metodo: findPlacesById, Args: [1]
+2016-11-08 20:07:21 INFO  before LoggerSystem:19 - Metodo: updatePlace, Args: [rest.dto.OutingPlaceDTO@47ceb75a]
+2016-11-08 20:07:27 INFO  before LoggerSystem:19 - Metodo: getPlaces, Args: []
+2016-11-08 20:09:54 INFO  initWebApplicationContext ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-11-08 20:09:54 INFO  prepareRefresh XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Tue Nov 08 20:09:54 ART 2016]; root of context hierarchy
+2016-11-08 20:09:54 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-persistence-context.xml]
+2016-11-08 20:09:54 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\spring-services-context.xml]
+2016-11-08 20:09:54 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2016-11-08 20:09:55 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2016-11-08 20:09:55 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2016-11-08 20:09:55 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from file [C:\Users\Esteban\git\unq-desapp\desapp-grupoe-backend\target\desapp-grupoe-backend\WEB-INF\classes\WEB-INF\aspect-log.xml]
+2016-11-08 20:09:55 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/hibernate.properties]
+2016-11-08 20:09:55 INFO  loadProperties PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/Esteban/git/unq-desapp/desapp-grupoe-backend/target/desapp-grupoe-backend/WEB-INF/classes/WEB-INF/jdbc.properties]
+2016-11-08 20:09:55 INFO  <clinit> Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-11-08 20:09:55 INFO  logVersion Version:54 - HHH000412: Hibernate Core {4.3.6.Final}
+2016-11-08 20:09:55 INFO  <clinit> Environment:239 - HHH000206: hibernate.properties not found
+2016-11-08 20:09:55 INFO  buildBytecodeProvider Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:55 WARN  resolveEntity DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2016-11-08 20:09:56 INFO  <init> Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-11-08 20:09:56 INFO  initiateService TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-11-08 20:09:56 INFO  <init> ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-11-08 20:09:56 INFO  execute SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Address drop constraint FK_9sl87qgccrhna42fdfqsog3tv
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.ADDRESS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table DayTimeSchedule drop constraint FK_lq10l7v3yedveupqchbp9s7ou
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.DAYTIMESCHEDULE
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent drop constraint FK_m2jxheuywd69sbwas09w4iabt
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_smp3x0t2njvn4cyve8y8llu8e
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_assistants drop constraint FK_5y3bodfep13m17qa1xupvsnhg
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_ASSISTANTS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_7n4xfk9q63yrtkfk0k2v7pn54
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingEvent_tags drop constraint FK_koohift9jjafl38jeww3bnfo4
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGEVENT_TAGS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_p6g86b9snp2mq34h9t8475ipp
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace drop constraint FK_3pn1dluv4k19k3vvaw941764m
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_pfcgp371yi3f5cb6bodobnh59
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_assistants drop constraint FK_20t00sbmuptlq8n7s3ddgixs3
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_ASSISTANTS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_a4xpygycrgklc907o18d5mde7
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table OutingPlace_tags drop constraint FK_rye7yt7gm00wxtqw9uc05kabc
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.OUTINGPLACE_TAGS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_myk9ftftb9yby90sjtqu7ey8n
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Profile_tags drop constraint FK_dvtn5sk647emhdgel5bf1u497
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PROFILE_TAGS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table Tag drop constraint FK_latl205tx92i9b31bmve33v5t
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TAG
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot drop constraint FK_9kew8yi7k73aprqp1m74rrl3h
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_2k1y7f77t6sefxjldl73l2gq5
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User drop constraint FK_s9h2q2gqu32jwin0qfgdbfywp
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_skh40ccucn70buj38cuq3yxol
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table User_friends drop constraint FK_aqkfsewhpux2lw9ahk6nssie4
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER_FRIENDS
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: create table TimeSlot (ID integer generated by default as identity (start with 1), start varbinary(255), end varbinary(255), type integer, primary key (ID))
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - palabra no esperado: END
+2016-11-08 20:09:56 ERROR perform SchemaExport:425 - HHH000389: Unsuccessful: alter table TimeSlot add constraint FK_9kew8yi7k73aprqp1m74rrl3h foreign key (id) references DayTimeSchedule
+2016-11-08 20:09:56 ERROR perform SchemaExport:426 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.TIMESLOT
+2016-11-08 20:09:56 INFO  execute SchemaExport:405 - HHH000230: Schema export complete
+2016-11-08 20:09:56 INFO  afterPropertiesSet HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp.BasicDataSource@71391b3f] of Hibernate SessionFactory for HibernateTransactionManager
+2016-11-08 20:09:56 INFO  loadBeanDefinitions XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2016-11-08 20:09:56 INFO  <init> SQLErrorCodesFactory:126 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2016-11-08 20:09:57 INFO  initWebApplicationContext ContextLoader:325 - Root WebApplicationContext: initialization completed in 2819 ms

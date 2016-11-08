@@ -10,6 +10,7 @@ import java.util.List;
 public class User extends Entity {
     private String name;
     private String surname;
+    private String email;
     private Address address;
     private Profile profile;
     private List<User> friends = new ArrayList<>();
@@ -18,9 +19,10 @@ public class User extends Entity {
         this.profile = ProfileBuilder.anyProfile().build();
     }
 
-    public User(String name, String surname, Address address, Profile profile, List<User> friends) {
+    public User(String name, String surname, String email, Address address, Profile profile, List<User> friends) {
         this.name = name;
         this.surname = surname;
+        this.email = email;
         this.address = address;
         this.profile = profile;
         this.friends = friends;
@@ -41,6 +43,14 @@ public class User extends Entity {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Address getAddress() {

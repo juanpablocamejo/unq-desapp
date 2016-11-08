@@ -95,6 +95,7 @@ public class UserRestService extends GenericRestService<User> {
         dto.setId(user.getId());
         dto.setName(user.getName());
         dto.setSurname(user.getSurname());
+        dto.setEmail(user.getEmail());
         dto.setAddress(user.getAddress().toArray());
         dto.setInexpensiveOutingLimit(user.getProfile().getInexpensiveOutingLimit());
 
@@ -113,6 +114,7 @@ public class UserRestService extends GenericRestService<User> {
         u.setId(dto.getId());
         u.setName(dto.getName());
         u.setSurname(dto.getSurname());
+        u.setEmail(dto.getEmail());
         u.getProfile().setInexpensiveOutingLimit(dto.getInexpensiveOutingLimit());
         u.setAddress(Address.fromArray(dto.getAddress()));
 

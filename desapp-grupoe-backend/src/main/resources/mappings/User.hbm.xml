@@ -10,7 +10,8 @@
 
         <property name="name"/>
         <property name="surname"/>
-        <many-to-one name="address" class="model.locations.Address" cascade="all" lazy="false" />
+        <property name="email"/>
+        <many-to-one name="address" class="model.locations.Address" cascade="all" lazy="false"/>
         <list name="friends" lazy="false">
             <key column="id"/>
             <list-index column="type"></list-index>

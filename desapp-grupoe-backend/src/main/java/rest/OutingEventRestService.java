@@ -58,7 +58,7 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
     }
 
     @PUT
-    @Path("/{id}")
+    @Path("/")
     @Consumes("application/json")
     @Produces("application/json")
     public Response updateEvent(OutingEventDTO dto) {

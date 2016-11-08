@@ -12,6 +12,7 @@ public class UserBuilder {
 
     private String name = "username";
     private String surname = "surname";
+    private String email = "xxx@gmail.com";
     private Address address = AddressBuilder.anyAddress().build();
     private Profile profile = ProfileBuilder.anyProfile().build();
     private List<User> friends = new ArrayList<>();
@@ -21,7 +22,7 @@ public class UserBuilder {
     }
 
     public User build() {
-        return new User(name, surname, address, profile, friends);
+        return new User(name, surname, email, address, profile, friends);
     }
 
     public UserBuilder withName(String n) {
@@ -31,6 +32,11 @@ public class UserBuilder {
 
     public UserBuilder withSurname(String s) {
         surname = s;
+        return this;
+    }
+
+    public UserBuilder withEmail(String e) {
+        email = e;
         return this;
     }
 
