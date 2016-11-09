@@ -1,7 +1,10 @@
 package model.builders.outings;
 
+import model.builders.AddressBuilder;
+import model.locations.Address;
 import model.outings.OutingEvent;
-import model.outings.OutingTag;
+import model.tags.Tag;
+import model.users.User;
 import org.joda.time.LocalDateTime;
 
 import java.util.ArrayList;
@@ -11,7 +14,9 @@ public class OutingEventBuilder {
 
     private String name = "Name";
     private String description = "Description";
-    private List<OutingTag> tags = new ArrayList<>();
+    private Address address = AddressBuilder.anyAddress().build();
+    private List<Tag> tags = new ArrayList<>();
+    private List<User> assistants = new ArrayList<>();
     private double price = 1;
     private LocalDateTime startDateTime = LocalDateTime.now();
     private LocalDateTime endDateTime = LocalDateTime.now().plusHours(1);
@@ -21,7 +26,7 @@ public class OutingEventBuilder {
     }
 
     public OutingEvent build() {
-        return new OutingEvent(name, description, tags, price, startDateTime, endDateTime);
+        return new OutingEvent(name, description, address, tags, assistants, price, startDateTime, endDateTime);
     }
 
     public OutingEventBuilder withName(String n) {
@@ -34,13 +39,28 @@ public class OutingEventBuilder {
         return this;
     }
 
-    public OutingEventBuilder withTags(ArrayList<OutingTag> t) {
+    public OutingEventBuilder withAddress(Address a) {
+        address = a;
+        return this;
+    }
+
+    public OutingEventBuilder withTags(ArrayList<Tag> t) {
         tags = t;
         return this;
     }
 
-    public OutingEventBuilder withTag(OutingTag t) {
+    public OutingEventBuilder withTag(Tag t) {
         tags.add(t);
+        return this;
+    }
+
+    public OutingEventBuilder withAssistants(ArrayList<User> a) {
+        assistants = a;
+        return this;
+    }
+
+    public OutingEventBuilder withAssistant(User u) {
+        assistants.add(u);
         return this;
     }
 

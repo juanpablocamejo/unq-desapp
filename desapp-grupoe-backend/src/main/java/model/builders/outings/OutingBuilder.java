@@ -1,8 +1,11 @@
 package model.builders.outings;
 
+import model.builders.AddressBuilder;
+import model.locations.Address;
 import model.outings.Outing;
 import model.outings.OutingEvent;
-import model.outings.OutingTag;
+import model.tags.Tag;
+import model.users.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +14,9 @@ public class OutingBuilder {
 
     private String name = "Name";
     private String description = "Description";
-    private List<OutingTag> tags = new ArrayList<>();
+    private Address address = AddressBuilder.anyAddress().build();
+    private List<Tag> tags = new ArrayList<>();
+    private List<User> assistants = new ArrayList<>();
     private double price = 1;
 
     public static OutingBuilder anyOuting() {
@@ -19,7 +24,7 @@ public class OutingBuilder {
     }
 
     public Outing build() {
-        return new OutingEvent(name, description, tags, price);
+        return new OutingEvent(name, description, address, tags, assistants, price);
     }
 
     public OutingBuilder withName(String n) {
@@ -32,13 +37,28 @@ public class OutingBuilder {
         return this;
     }
 
-    public OutingBuilder withTags(ArrayList<OutingTag> t) {
+    public OutingBuilder withAddress(Address a) {
+        address = a;
+        return this;
+    }
+
+    public OutingBuilder withTags(ArrayList<Tag> t) {
         tags = t;
         return this;
     }
 
-    public OutingBuilder withTag(OutingTag t) {
+    public OutingBuilder withTag(Tag t) {
         tags.add(t);
+        return this;
+    }
+
+    public OutingBuilder withAssistants(ArrayList<User> a) {
+        assistants = a;
+        return this;
+    }
+
+    public OutingBuilder withAssistant(User u) {
+        assistants.add(u);
         return this;
     }
 

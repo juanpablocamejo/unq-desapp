@@ -4,7 +4,6 @@ import model.Entity;
 
 public class OutingTag extends Entity {
     private String name;
-    private OutingTag parent;
 
     public OutingTag() {
 
@@ -26,9 +25,8 @@ public class OutingTag extends Entity {
         return (int) (getId() ^ (getId() >>> 32));
     }
 
-    public OutingTag(String name, OutingTag parent) {
+    public OutingTag(String name) {
         this.name = name;
-        this.parent = parent;
     }
 
     public String getName() {
@@ -38,14 +36,5 @@ public class OutingTag extends Entity {
     public void setName(String name) {
         this.name = name;
     }
-
-    public OutingTag getParent() {
-        return parent;
-    }
-
-    public void setParent(OutingTag parent) {
-        this.parent = parent;
-    }
-
 
 }

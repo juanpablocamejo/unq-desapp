@@ -7,7 +7,8 @@
         <id column="ID" name="id">
             <generator class="native"/>
         </id>
-        <one-to-one name="coord" class="model.locations.Coord"/>
+
         <property name="location"/>
+        <many-to-one name="coord" class="model.locations.Coord" cascade="all" unique="true" lazy="false"/>
     </class>
 </hibernate-mapping>

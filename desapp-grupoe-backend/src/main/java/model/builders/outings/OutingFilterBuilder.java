@@ -1,6 +1,6 @@
 package model.builders.outings;
 
-import model.outings.OutingTag;
+import model.tags.Tag;
 import model.planning.OutingFilter;
 import model.time.TimeSlot;
 import org.joda.time.LocalDate;
@@ -9,7 +9,7 @@ public class OutingFilterBuilder {
 
     private LocalDate date = null;
     private TimeSlot timeSlot = null;
-    private OutingTag searchTag = null;
+    private Tag searchTag = null;
     private double maxPrice = 0;
 
 
@@ -32,7 +32,7 @@ public class OutingFilterBuilder {
         return this;
     }
 
-    public OutingFilterBuilder withSearchTag(OutingTag tag) {
+    public OutingFilterBuilder withSearchTag(Tag tag) {
         searchTag = tag;
         return this;
     }

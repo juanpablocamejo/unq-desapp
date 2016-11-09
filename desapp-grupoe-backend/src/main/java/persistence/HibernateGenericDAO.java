@@ -1,6 +1,7 @@
 package persistence;
 
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -64,7 +65,7 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
         this.getHibernateTemplate().save(entity);
         this.getHibernateTemplate().flush();
     }
-
+    
     public void update(final T entity) {
         this.getHibernateTemplate().update(entity);
     }

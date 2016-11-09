@@ -1,22 +1,20 @@
 package model.builders;
 
 import model.locations.Address;
-import model.locations.Coord;
 import model.users.Profile;
 import model.users.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static model.builders.AddressBuilder.anyAddress;
-import static model.builders.ProfileBuilder.anyProfile;
 
 public class UserBuilder {
 
     private String name = "username";
     private String surname = "surname";
-    private Address location = anyAddress().build();
-    private Profile profile = anyProfile().build();
+    private String email = "xxx@gmail.com";
+    private Address address = AddressBuilder.anyAddress().build();
+    private Profile profile = ProfileBuilder.anyProfile().build();
     private List<User> friends = new ArrayList<>();
 
     public static UserBuilder anyUser() {
@@ -24,7 +22,7 @@ public class UserBuilder {
     }
 
     public User build() {
-        return new User(name, surname, location, profile, friends);
+        return new User(name, surname, email, address, profile, friends);
     }
 
     public UserBuilder withName(String n) {
@@ -37,8 +35,13 @@ public class UserBuilder {
         return this;
     }
 
-    public UserBuilder withLocation(Address a) {
-        location = a;
+    public UserBuilder withEmail(String e) {
+        email = e;
+        return this;
+    }
+
+    public UserBuilder withAddress(Address a) {
+        address = a;
         return this;
     }
 

@@ -7,7 +7,7 @@ public class Address extends Entity {
     private Coord coord;
     private String location;
 
-    private Address() {
+    public Address() {
     }
 
     public Address(Coord coord, String location) {
@@ -29,5 +29,15 @@ public class Address extends Entity {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String[] toArray() {
+        String lat = coord.getLatitude().toString();
+        String lon = coord.getLongitude().toString();
+        return (new String[]{lat,lon,getLocation()});
+    }
+
+    public static Address fromArray(String[] a) {
+        return new Address(new Coord(Double.parseDouble(a[0]), Double.parseDouble(a[1])), a[2]);
     }
 }

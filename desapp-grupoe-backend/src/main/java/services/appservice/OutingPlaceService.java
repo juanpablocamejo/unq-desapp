@@ -1,14 +1,25 @@
-package services;
+package services.appservice;
 
 import model.builders.outings.OutingPlaceBuilder;
 import model.builders.time.WeekTimeScheduleBuilder;
 import model.outings.OutingPlace;
 import org.springframework.transaction.annotation.Transactional;
+import persistence.AddressDAO;
 import services.initialization.Initializable;
 
 public class OutingPlaceService extends GenericService<OutingPlace> implements Initializable {
 
+    private AddressDAO addressDAO;
+
     public OutingPlaceService() {
+    }
+
+    public AddressDAO getAddressDAO() {
+        return addressDAO;
+    }
+
+    public void setAddressDAO(AddressDAO addressDAO) {
+        this.addressDAO = addressDAO;
     }
 
     @Transactional
@@ -19,5 +30,12 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
         save(cuartetas);
         save(tgiFridays);
         save(milanesa);
+    }
+
+    @Override
+    @Transactional
+    public void save(OutingPlace object) {
+        addressDAO.save(object.getAddress());
+        super.save(object);
     }
 }

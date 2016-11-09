@@ -1,11 +1,22 @@
-package services;
+package services.appservice;
 
 import model.builders.outings.OutingEventBuilder;
 import model.outings.OutingEvent;
 import org.springframework.transaction.annotation.Transactional;
+import persistence.AddressDAO;
 import services.initialization.Initializable;
 
 public class OutingEventService extends GenericService<OutingEvent> implements Initializable {
+
+    private AddressDAO addressDAO;
+
+    public AddressDAO getAddressDAO() {
+        return addressDAO;
+    }
+
+    public void setAddressDAO(AddressDAO addressDAO) {
+        this.addressDAO = addressDAO;
+    }
 
     @Transactional
     public void initialize() {
@@ -17,5 +28,12 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
         save(oe2);
         save(oe3);
         save(oe4);
+    }
+
+    @Override
+    @Transactional
+    public void save(OutingEvent object) {
+        addressDAO.save(object.getAddress());
+        super.save(object);
     }
 }

@@ -3,15 +3,10 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field"
                    default-cascade="save-update">
-    <class name="model.users.Profile">
+    <class name="model.tags.TagCategory">
         <id column="ID" name="id">
             <generator class="native"/>
         </id>
-        <property name="inexpensiveOutingLimit"/>
-        <list name="tags" lazy="false">
-            <key column="id"/>
-            <list-index column="type"></list-index>
-            <many-to-many class="model.tags.Tag"/>
-        </list>
+        <property name="name"/>
     </class>
 </hibernate-mapping>

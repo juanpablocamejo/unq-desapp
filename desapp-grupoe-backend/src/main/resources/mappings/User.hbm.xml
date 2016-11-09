@@ -10,13 +10,14 @@
 
         <property name="name"/>
         <property name="surname"/>
-        <one-to-one name="location" class="model.locations.Address"/>
-        <!--<list name="friends" lazy="false">
+        <property name="email"/>
+        <many-to-one name="address" class="model.locations.Address" cascade="all" lazy="false"/>
+        <list name="friends" lazy="false">
             <key column="id"/>
             <list-index column="type"></list-index>
-            <one-to-many class="model.users.User"/>
-        </list>-->
-        <one-to-one name="profile" class="model.users.Profile"/>
+            <many-to-many class="model.users.User"/>
+        </list>
+        <many-to-one name="profile" class="model.users.Profile" cascade="all" unique="true" lazy="false"/>
 
     </class>
 </hibernate-mapping>
