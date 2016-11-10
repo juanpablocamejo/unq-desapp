@@ -63,7 +63,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.app %>/i18n/{,*/}*.json'
+          '<%= yeoman.app %>/i18n/{,*/}*.json',
+          '<%= yeoman.app %>/fonts/{,*/}*.*'
         ]
       }
     },
@@ -339,7 +340,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'adondevamosApp',
+          module: 'advApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
@@ -382,6 +383,7 @@ module.exports = function (grunt) {
             '*.html',
             'images/{,*/}*.{webp}',
             'i18n/{,*/}*.*',
+            'fonts/{,*/}*.*',
             'styles/fonts/{,*/}*.*'
           ]
         }, {
