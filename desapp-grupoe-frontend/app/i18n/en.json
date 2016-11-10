@@ -1,0 +1,30 @@
+{
+  "title": "Where we go?",
+  "profile": "Profile",
+  "logout": "Logout",
+  "language": "Language",
+  "search_strategies": {
+    "inexpensive": {
+      "title": "Cheaper",
+      "description": "Find free or cheap options to go out and have fun, even though you don´t have much money."
+    },
+    "friends": {
+      "title": "With Friends",
+      "description": "Planning the weekend with friends? Click here to find the best options."
+    },
+    "couples": {
+      "title": "Better Half",
+      "description": "It is always a good time to enjoy an outing with your couple. Find the ideal place."
+    },
+    "sat_night_fever": {
+      "title": "Saturday Night Fever",
+      "description": "If the schedule is not a problem for you, here we give you options from dusk to dawn."
+    },
+    "surprise_me": {
+      "title": "Surprise Me!",
+      "description": "It's time for you to do something different, let yourself be surprised with our most recommended options."
+    }
+  },
+  "dev_app": "Applications Development",
+  "and": "and"
+}

@@ -1,0 +1,30 @@
+{
+  "title": "¿A donde vamos?",
+  "profile": "Perfil",
+  "logout": "Salir",
+  "language": "Idioma",
+  "search_strategies": {
+    "inexpensive": {
+      "title": "Gasolera",
+      "description": "Encontrá opciones gratuitas o baratas para salir y pasarla bien aún cuando estés corto de plata."
+    },
+    "friends": {
+      "title": "Con Amigos",
+      "description": "¿Planificando el fin de semana con amigos? hacé click acá para encontrar las mejores opciones."
+    },
+    "couples": {
+      "title": "Media Naranja",
+      "description": "Siempre es un buen momento para disfrutar de una salida con tu pareja. Encontrá el lugar ideal."
+    },
+    "sat_night_fever": {
+      "title": "Saturday Night Fever",
+      "description": "Si para vos el horario no es un problema, acá te damos opciones para una salida de sol a sol."
+    },
+    "surprise_me": {
+      "title": "Sorprendeme!",
+      "description": "Es hora de que hagas algo distinto, dejate sorprender con nuestras opciones más recomendadas."
+    }
+  },
+  "dev_app": "Desarrollo de Aplicaciones",
+  "and": "y"
+}

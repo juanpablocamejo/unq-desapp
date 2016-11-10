@@ -15,7 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ui.materialize'
+    'ui.materialize',
+    'pascalprecht.translate',
+    'tmh.dynamicLocale',
+    'angular.filter'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -37,8 +40,18 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-
+  })
+  .config(function ($translateProvider, tmhDynamicLocaleProvider) {
+    $translateProvider
+      .useStaticFilesLoader({
+        prefix: '/i18n/',
+        suffix: '.json'
+      })
+      .useSanitizeValueStrategy('sanitize')
+      .preferredLanguage('es');
+    tmhDynamicLocaleProvider.localeLocationPattern('/i18n/angular-locale_{{locale}}.js');
   });
+
 /*global $*/
 $(function () {
   $('.button-collapse').sideNav({
