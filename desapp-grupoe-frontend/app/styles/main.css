@@ -1,3 +1,15 @@
 body{
   outline: 0;
 }
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.txt-shadow {
+  text-shadow: 1px 1px 1px #000;
+}
+
+.main-btn {
+  width: 100%;
+}

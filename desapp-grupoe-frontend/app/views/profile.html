@@ -1,39 +1,30 @@
-<h5>Tu perfil</h5>
-<div class="row">
-  <div input-field class="col s12 m6 l5">
-    <label>Nombre</label>
-    <input type="text" ng-model="user.name"/>
+<div class="card-panel">
+  <h5></h5>
+  <div class="row">
+    <div input-field class="col s12 m6 l5">
+      <label>Nombre</label>
+      <input type="text" ng-model="user.name"/>
+    </div>
+    <div input-field class="col s12 m6 l5">
+      <label>Apellido</label>
+      <input type="text" ng-model="user.surname"/>
+    </div>
+    <div input-field class="col s12 m6 l5">
+      <label>Email</label>
+      <input type="text" user.email/>
+    </div>
   </div>
-  <div input-field class="col s12 m6 l5">
-    <label>Apellido</label>
-    <input type="text" ng-model="user.surname"/>
-  </div>
-  <div input-field class="col s12 m6 l5">
-    <label>Email</label>
-    <input type="text"/>
-  </div>
-
-</div>
-<h5>Preferencias</h5>
-<div class="row">
-  <div input-field class="col s12 m6 l5">
-    <label>Limite para salidas baratas</label>
-    <input type="number"/>
-  </div>
-  <div>
-    <input type="checkbox" id="chk1" checked="checked" />
-    <label for="chk1">Rock</label>
-  </div>
-  <div>
-    <input type="checkbox" id="chk2" checked="checked" />
-    <label for="chk2">Cumbia</label>
-  </div>
-  <div>
-    <input type="checkbox" id="chk3" checked="checked" />
-    <label for="chk3">Jazz</label>
-  </div>
-  <div>
-    <input type="checkbox" id="chk4" checked="checked" />
-    <label for="chk4">Pop</label>
+  <div class="row">
+    <div input-field class="col s12 m6 l5">
+      <label>Limite para salidas baratas</label>
+      <input type="number" ng-model="user.inexpensiveOutingLimit"/>
+    </div>
+    <div class="col s12 m6 l5" ng-repeat="(category ,cat_tags) in tags | groupBy:'category.name'">
+      <h6>{{category}}</h6>
+      <div ng-repeat="t in cat_tags">
+        <input type="checkbox" id="chk{{t.id}}" ng-click="selectTag(t.id)"/>
+        <label for="chk{{t.id}}">{{t.name}}</label>
+      </div>
+    </div>
   </div>
 </div>

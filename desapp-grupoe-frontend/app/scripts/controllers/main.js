@@ -1,34 +1,39 @@
 'use strict';
 
 angular.module('advApp')
-  .controller('MainCtrl', function() {
+  .controller('MainCtrl', function () {
     // Create the factory that share the Fact
-
-    this.goto = function(strategy, path){setTimeout(function(){window.location.replace(path);},150);};
-    this.searchButtons = [{
-      'name': 'Gasolera',
+    var vm = this;
+    vm.a_date = new Date();
+    vm.goto = function (strategy, path) {
+      setTimeout(function () {
+        window.location.replace(path);
+      }, 150);
+    };
+    vm.searchButtons = [{
+      'name': 'search_strategies.inexpensive.title',
       'href': '#/search?strategy=inexpensive',
-      'description': 'Encontrá opciones gratuitas o baratas para salir y pasarla bien aún cuando estés corto de plata.',
+      'description': 'search_strategies.inexpensive.description',
       'class':'card red'
     }, {
-      'name': 'Con Amigos',
+      'name': 'search_strategies.friends.title',
       'href': '#/search?strategy=friends',
-      'description': '¿Planificando el fin de semana con amigos? hacé click acá para encontrar las mejores opciones.',
+      'description': 'search_strategies.friends.description',
       'class':'purple'
     }, {
-      'name': 'Saturday Night Fever',
+      'name': 'search_strategies.sat_night_fever.title',
       'href': '#/search?strategy=saturdaynightfever',
-      'description': 'Si para vos el horario no es un problema, acá te damos opciones para una salida de sol a sol.',
+      'description': 'search_strategies.sat_night_fever.description',
       'class':'blue'
     }, {
-      'name': 'Media Naranja',
+      'name': 'search_strategies.couples.title',
       'href': '#/search?strategy=couples',
-      'description': 'Siempre es un buen momento para disfrutar de una salida con tu pareja. Encontrá el lugar ideal.',
+      'description': 'search_strategies.sat_night_fever.description',
       'class':'orange'
     }, {
-      'name': 'Sorprendeme',
+      'name': 'search_strategies.surprise_me.title',
       'href': '#/search?strategy=surpriseme',
-      'description': 'Es hora de que hagas algo distinto, dejate sorprender con nuestras opciones más recomendadas.',
+      'description': 'search_strategies.surprise_me.description',
       'class':'green '
     }];
   });

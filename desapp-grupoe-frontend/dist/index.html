@@ -1,7 +1,63 @@
-<!doctype html> <html> <head> <meta charset="utf-8"> <title>¿A donde vamos?</title> <meta name="description" content=""> <meta name="viewport" content="width=device-width,initial-scale=1"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.1de44683.css"> <link rel="stylesheet" href="styles/main.a106e078.css"> <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> </head> <body ng-app="advApp"> <!--[if lte IE 8]>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title translate="title"></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="stylesheet" href="styles/vendor.1de44683.css">
+  <link rel="stylesheet" href="styles/main.cdd0e709.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>html {
+    background: url(images/street-texture-hd-wallpaper.045e4cb0.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* Fallback for web browsers that doesn't support RGBa */
+  }</style>
+</head>
+<body ng-app="advApp" ng-cloak> <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
-<![endif]--> <!-- Add your site or application content here --> <header> <nav> <div class="nav-wrapper grey darken-3"> <a href="#!" class="brand-logo">¿A donde vamos?</a> <div class="container"> <a href="#" data-activates="mobile-nav" class="button-collapse right hide-on-med-and-up"><i class="material-icons">menu</i></a> </div> <ul class="right hide-on-small-only"> <li><a href="#/profile" class="waves-effect waves-light">Perfil</a></li> <li><a href="/#!/" class="waves-effect waves-light">Salir</a></li> </ul> <ul class="side-nav right" id="mobile-nav"> <li><a href="#/profile" class="waves-effect waves-light">Perfil</a></li> <li><a href="/#!/" class="waves-effect waves-light">Salir</a></li> </ul> </div> </nav> </header> <div class="container" ng-view=""> </div> <div class="footer"> <div class="container"> <p class="center-align"><a href="http://www.unq.edu.ar/carreras/32-tecnicatura-universitaria-en-programaci%C3%B3n-inform%C3%A1tica.php" target="_blank">TPI - UNQ</a> | Desarrollo de Aplicaciones | Esteban Schafir y Juan Pablo Camejo</p> </div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>!function (A, n, g, u, l, a, r) {
+<![endif]--> <!-- Add your site or application content here -->
+<header>
+  <div class="navbar-fixed opacity-80">
+    <nav>
+      <div class="nav-wrapper black"><a href="#!" class="brand-logo" translate="title"></a>
+        <div class="container"><a href="#" data-activates="mobile-nav" class="button-collapse right hide-on-med-and-up"><i
+          class="material-icons">menu</i></a></div>
+        <ul class="right hide-on-small-only">
+          <li><a href="#/profile" class="waves-effect waves-light" translate>profile</a></li>
+          <li><a href="/#!/" class="waves-effect waves-light" translate>logout</a></li>
+        </ul>
+        <ul class="side-nav right" id="mobile-nav">
+          <li><a href="#/profile" class="waves-effect waves-light" translate>profile</a></li>
+          <li><a href="/#!/" class="waves-effect waves-light" translate>logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="container" ng-view=""></div>
+<div ng-controller="LocaleCtrl" class="fixed-action-btn horizontal txt-shadow"><a
+  class="btn-floating btn-large red opacity-80" title="{{'language' | translate}}"> <i
+  class="material-icons">language</i> </a>
+  <ul class="txt-shadow opacity-80">
+    <li><a ng-click="changeLanguage('es')" class="btn-floating yellow darken-1"><span
+      style="margin-right:10px">ES</span></a></li>
+    <li><a ng-click="changeLanguage('en')" class="btn-floating orange darken-1"><span
+      style="margin-right:10px">EN</span></a></li>
+  </ul>
+</div>
+<div class="footer">
+  <div class="container"><p class="center-align white-text txt-shadow"><a
+    href="http://www.unq.edu.ar/carreras/32-tecnicatura-universitaria-en-programaci%C3%B3n-inform%C3%A1tica.php"
+    target="_blank">TPI - UNQ</a> | {{'dev_app' | translate }} | Esteban Schafir {{'and' | translate}} Juan Pablo Camejo
+  </p></div>
+</div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>!function (A, n, g, u, l, a, r) {
     A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
         (A[l].q = A[l].q || []).push(arguments)
       }, A[l].l = +new Date, a = n.createElement(g),
@@ -9,4 +65,8 @@
   }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
   ga('create', 'UA-XXXXX-X');
-  ga('send', 'pageview');</script> <script src="scripts/vendor.9ca2824d.js"></script> <script src="scripts/scripts.c5b1687b.js"></script> </body> </html>
+ga('send', 'pageview');</script>
+<script src="scripts/vendor.21a3d0df.js"></script>
+<script src="scripts/scripts.c9345f21.js"></script>
+</body>
+</html>
