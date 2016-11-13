@@ -6,6 +6,7 @@ import model.tags.Tag;
 import model.users.User;
 import org.eclipse.jetty.http.HttpStatus;
 import rest.dto.OutingPlaceDTO;
+import services.appservice.TagService;
 import services.appservice.UserService;
 
 import javax.ws.rs.*;
@@ -17,9 +18,14 @@ import java.util.List;
 public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
 
     UserService userService;
+    TagService tagService;
 
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    public void setTagService(TagService tagService) {
+        this.tagService = tagService;
     }
 
     @GET
@@ -74,7 +80,7 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
             return Response.ok("No se puede actualizar el lugar. Motivo: Lugar inexistente").status(HttpStatus.NOT_FOUND_404).build();
         }
         service.update(place);
-        return Response.ok("El lugar fue actualizado exitosamente").status(HttpStatus.OK_200).build();
+        return Response.ok(toDTO(place)).status(HttpStatus.OK_200).build();
     }
 
     @PUT
@@ -93,7 +99,26 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
 
         place.addAssistant(user);
         service.update(place);
-        return Response.ok(place).status(HttpStatus.OK_200).build();
+        return Response.ok(toDTO(place)).status(HttpStatus.OK_200).build();
+    }
+
+    @PUT
+    @Path("/{idPlace}/removeAssistant/{idUser}")
+    @Produces("application/json")
+    public Response removeAssistant(@PathParam("idPlace") int idPlace, @PathParam("idUser") int idUser) {
+        OutingPlace place = service.findById(idPlace);
+        User user = userService.findById(idUser);
+        if (place == null) {
+            return Response.ok("No existe un lugar con el id: " + idPlace).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
+        if (user == null) {
+            return Response.ok("No existe un usuario con id: " + idUser).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
+        place.removeAssistant(user);
+        service.update(place);
+        return Response.ok(toDTO(place)).status(HttpStatus.OK_200).build();
     }
 
     public OutingPlaceDTO toDTO(OutingPlace op) {
@@ -109,23 +134,29 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
 
         dto.setPrice(op.getPrice());
 
-        List<String> tags = new ArrayList<>();
-        op.getTags().parallelStream().forEach(o -> tags.add(o.getName()));
+        List<Integer> tags = new ArrayList<>();
+        op.getTags().parallelStream().forEach(t -> tags.add(t.getId()));
         dto.setTags(tags);
-        dto.setWeekTimeSchedule(op.getWeekTimeSchedule().toString());
+        //dto.setWeekTimeSchedule(op.getWeekTimeSchedule().toString());
         return dto;
     }
 
     public OutingPlace fromDTO(OutingPlaceDTO dto, OutingPlace... op) {
-        OutingPlace o = op.length > 0 ? op[0] : new OutingPlace();
+        boolean isUpdate = op.length > 0;
+        OutingPlace o = isUpdate ? op[0] : new OutingPlace();
         o.setId(dto.getId());
         o.setName(dto.getName());
         o.setDescription(dto.getDescription());
         o.setPrice(dto.getPrice());
-        o.setAddress(Address.fromArray(dto.getAddress()));
+        Address newAddress = Address.fromArray(dto.getAddress());
+        if (isUpdate) {
+            newAddress.setId(o.getAddress().getId());
+            newAddress.getCoord().setId(o.getAddress().getCoord().getId());
+        }
+        o.setAddress(newAddress);
 
         List<Tag> tags = new ArrayList<>();
-        dto.getTags().parallelStream().forEach(name -> tags.add(new Tag(name)));
+        dto.getTags().parallelStream().forEach(t -> tags.add(tagService.findById(t)));
         o.setTags(tags);
 
         List<User> assistants = new ArrayList<>();

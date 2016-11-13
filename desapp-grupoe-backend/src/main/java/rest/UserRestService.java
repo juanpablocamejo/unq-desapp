@@ -44,8 +44,8 @@ public class UserRestService extends GenericRestService<User> {
         if (obj == null) {
             return Response.ok("No se encontro el usuario con el id: " + id).status(HttpStatus.NOT_FOUND_404).build();
         } else {
-            UserDTO dto = toDTO(obj);
-            return Response.ok(dto).status(HttpStatus.OK_200).build();
+
+            return Response.ok(toDTO(obj)).status(HttpStatus.OK_200).build();
         }
     }
 
@@ -67,7 +67,8 @@ public class UserRestService extends GenericRestService<User> {
     @Produces("application/json")
     public Response createUser(UserDTO dto) {
         User user = fromDTO(dto);
-        return super.create(user);
+        super.create(user);
+        return Response.ok(service.findById(user.getId())).build();
     }
 
     @PUT
@@ -79,6 +80,44 @@ public class UserRestService extends GenericRestService<User> {
         if (user == null) {
             return Response.ok("No se encontro el usuario").status(HttpStatus.NOT_FOUND_404).build();
         }
+        service.update(user);
+        return Response.ok(service.findById(user.getId())).status(HttpStatus.OK_200).build();
+    }
+
+    @PUT
+    @Path("/{idUser}/addFriend/{idFriend}")
+    @Produces("application/json")
+    public Response addFriend(@PathParam("idUser") int idUser, @PathParam("idFriend") int idFriend) {
+        User user = service.findById(idUser);
+        User friend = service.findById(idFriend);
+        if (user == null) {
+            return Response.ok("No existe un usuario con el id: " + idUser).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
+        if (friend == null) {
+            return Response.ok("No existe un usuario con id: " + idFriend).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
+        user.addFriend(friend);
+        service.update(user);
+        return Response.ok(toDTO(user)).status(HttpStatus.OK_200).build();
+    }
+
+    @PUT
+    @Path("/{idUser}/removeFriend/{idFriend}")
+    @Produces("application/json")
+    public Response removeFriend(@PathParam("idUser") int idUser, @PathParam("idFriend") int idFriend) {
+        User user = service.findById(idUser);
+        User friend = service.findById(idFriend);
+        if (user == null) {
+            return Response.ok("No existe un usuario con el id: " + idUser).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
+        if (friend == null) {
+            return Response.ok("No existe un usuario con id: " + idFriend).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
+        user.getFriends().remove(friend);
         service.update(user);
         return Response.ok(user).status(HttpStatus.OK_200).build();
     }
@@ -110,13 +149,19 @@ public class UserRestService extends GenericRestService<User> {
     }
 
     public User fromDTO(UserDTO dto, User... user) {
-        User u = user.length > 0 ? user[0] : new User();
+        Boolean isUpdate = user.length > 0;
+        User u = isUpdate ? user[0] : new User();
         u.setId(dto.getId());
         u.setName(dto.getName());
         u.setSurname(dto.getSurname());
         u.setEmail(dto.getEmail());
         u.getProfile().setInexpensiveOutingLimit(dto.getInexpensiveOutingLimit());
-        u.setAddress(Address.fromArray(dto.getAddress()));
+        Address newAddress = Address.fromArray(dto.getAddress());
+        if (isUpdate) {
+            newAddress.setId(u.getAddress().getId());
+            newAddress.getCoord().setId(u.getAddress().getCoord().getId());
+        }
+        u.setAddress(newAddress);
 
         List<User> friends = new ArrayList<>();
         dto.getFriends().parallelStream().forEach(f -> friends.add(service.findById(Integer.parseInt(f.split(",")[0]))));

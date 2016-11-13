@@ -64,18 +64,20 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
     <bean id="outingEventRest" class="rest.OutingEventRestService">
         <property name="service" ref="outingEventService"/>
+        <property name="userService" ref="userService"/>
+        <property name="tagService" ref="tagService"/>
     </bean>
 
     <!-- ======== Outing Place Services ========= -->
     <bean id="outingPlaceService" class="services.appservice.OutingPlaceService">
         <property name="repository" ref="outingPlaceDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
-
     </bean>
 
     <bean id="outingPlaceRest" class="rest.OutingPlaceRestService">
         <property name="service" ref="outingPlaceService"/>
         <property name="userService" ref="userService"/>
+        <property name="tagService" ref="tagService"/>
     </bean>
 
     <!-- ======== Tag Services ========= -->

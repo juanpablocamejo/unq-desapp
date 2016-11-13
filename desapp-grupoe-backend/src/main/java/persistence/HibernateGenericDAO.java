@@ -1,7 +1,6 @@
 package persistence;
 
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,6 +11,7 @@ import java.util.List;
  * @param <T>
  */
 
+@SuppressWarnings("unchecked")
 public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport implements GenericRepository<T>, Serializable {
 
     private static final long serialVersionUID = 5058950102420892922L;
@@ -45,8 +45,7 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
     }
 
     public List<T> findAll() {
-        List<T> find = (List<T>) this.getHibernateTemplate().find("from " + this.persistentClass.getName() + " o");
-        return find;
+        return (List<T>) this.getHibernateTemplate().find("from " + this.persistentClass.getName() + " o");
 
     }
 
@@ -65,9 +64,10 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
         this.getHibernateTemplate().save(entity);
         this.getHibernateTemplate().flush();
     }
-    
+
     public void update(final T entity) {
-        this.getHibernateTemplate().update(entity);
+        this.getHibernateTemplate().merge(entity);
+        this.getHibernateTemplate().flush();
     }
 
 

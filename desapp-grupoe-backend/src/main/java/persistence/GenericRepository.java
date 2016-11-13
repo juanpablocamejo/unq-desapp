@@ -1,7 +1,5 @@
 package persistence;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import java.io.Serializable;
 import java.util.List;
 

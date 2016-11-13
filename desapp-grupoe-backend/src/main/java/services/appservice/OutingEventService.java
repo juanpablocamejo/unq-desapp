@@ -33,7 +33,10 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
     @Override
     @Transactional
     public void save(OutingEvent object) {
+        OutingEvent newOutingEvent = OutingEventBuilder.anOutingEvent().build();
+        super.save(newOutingEvent);
+        object.setId(newOutingEvent.getId());
         addressDAO.save(object.getAddress());
-        super.save(object);
+        super.update(object);
     }
 }

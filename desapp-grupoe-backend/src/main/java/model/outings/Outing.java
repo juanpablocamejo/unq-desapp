@@ -111,4 +111,10 @@ public abstract class Outing extends Entity implements IPlanningResult {
             getAssistants().add(user);
         }
     }
+
+    public void removeAssistant(User user) {
+        if (getAssistants().contains(user)) {
+            getAssistants().remove(user);
+        }
+    }
 }

@@ -9,6 +9,6 @@
         </id>
 
         <property name="location"/>
-        <many-to-one name="coord" class="model.locations.Coord" cascade="all" unique="true" lazy="false"/>
+        <many-to-one name="coord" class="model.locations.Coord" unique="true" lazy="false" cascade="all"/>
     </class>
 </hibernate-mapping>

@@ -11,9 +11,6 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
 
     private AddressDAO addressDAO;
 
-    public OutingPlaceService() {
-    }
-
     public AddressDAO getAddressDAO() {
         return addressDAO;
     }
@@ -35,7 +32,10 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
     @Override
     @Transactional
     public void save(OutingPlace object) {
+        OutingPlace newOutingPlace = OutingPlaceBuilder.anOutingPlace().build();
+        super.save(newOutingPlace);
+        object.setId(newOutingPlace.getId());
         addressDAO.save(object.getAddress());
-        super.save(object);
+        super.update(object);
     }
 }

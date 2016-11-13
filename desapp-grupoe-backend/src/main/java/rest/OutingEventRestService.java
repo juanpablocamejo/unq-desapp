@@ -3,9 +3,12 @@ package rest;
 import model.locations.Address;
 import model.outings.OutingEvent;
 import model.tags.Tag;
+import model.users.User;
 import org.eclipse.jetty.http.HttpStatus;
 import org.joda.time.LocalDateTime;
 import rest.dto.OutingEventDTO;
+import services.appservice.TagService;
+import services.appservice.UserService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -14,6 +17,18 @@ import java.util.List;
 
 @Path("events")
 public class OutingEventRestService extends GenericRestService<OutingEvent> {
+
+    UserService userService;
+    TagService tagService;
+
+    public void setTagService(TagService tagService) {
+        this.tagService = tagService;
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
     @GET
     @Path("/")
     @Produces("application/json")
@@ -67,7 +82,45 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
             return Response.ok("No se puede actualizar el evento. Motivo: Evento inexistente").status(HttpStatus.NOT_FOUND_404).build();
         }
         service.update(event);
-        return Response.ok("El evento fue actualizado exitosamente").status(HttpStatus.OK_200).build();
+        return Response.ok(toDTO(event)).status(HttpStatus.OK_200).build();
+    }
+
+    @PUT
+    @Path("/{idPlace}/addAssistant/{idUser}")
+    @Produces("application/json")
+    public Response addAssistant(@PathParam("idPlace") int idEvent, @PathParam("idUser") int idUser) {
+        OutingEvent event = service.findById(idEvent);
+        User user = userService.findById(idUser);
+        if (event == null) {
+            return Response.ok("No existe un evento con el id: " + idEvent).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
+        if (user == null) {
+            return Response.ok("No existe un usuario con id: " + idUser).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
+        event.addAssistant(user);
+        service.update(event);
+        return Response.ok(toDTO(event)).status(HttpStatus.OK_200).build();
+    }
+
+    @PUT
+    @Path("/{idPlace}/removeAssistant/{idUser}")
+    @Produces("application/json")
+    public Response removeAssistant(@PathParam("idPlace") int idEvent, @PathParam("idUser") int idUser) {
+        OutingEvent event = service.findById(idEvent);
+        User user = userService.findById(idUser);
+        if (event == null) {
+            return Response.ok("No existe un evento con el id: " + idEvent).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
+        if (user == null) {
+            return Response.ok("No existe un usuario con id: " + idUser).status(HttpStatus.NOT_FOUND_404).build();
+        }
+
+        event.removeAssistant(user);
+        service.update(event);
+        return Response.ok(toDTO(event)).status(HttpStatus.OK_200).build();
     }
 
     public OutingEventDTO toDTO(OutingEvent oe) {
@@ -78,9 +131,13 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
         dto.setAddress(oe.getAddress().toArray());
         dto.setPrice(oe.getPrice());
 
-        List<String> tags = new ArrayList<>();
-        oe.getTags().parallelStream().forEach(o -> tags.add(o.getName()));
+        List<Integer> tags = new ArrayList<>();
+        oe.getTags().parallelStream().forEach(o -> tags.add(o.getId()));
         dto.setTags(tags);
+
+        List<String> assistants = new ArrayList<>();
+        oe.getAssistants().parallelStream().forEach(a -> assistants.add(a.toString()));
+        dto.setAssistants(assistants);
 
 
         dto.setStartDateTime(oe.getStartDateTime().toString());
@@ -90,16 +147,26 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
     }
 
     public OutingEvent fromDTO(OutingEventDTO dto, OutingEvent... oe) {
-        OutingEvent o = oe.length > 0 ? oe[0] : new OutingEvent();
+        boolean isUpdate = oe.length > 0;
+        OutingEvent o = isUpdate ? oe[0] : new OutingEvent();
         o.setId(dto.getId());
         o.setName(dto.getName());
         o.setDescription(dto.getDescription());
         o.setPrice(dto.getPrice());
-        o.setAddress(Address.fromArray(dto.getAddress()));
+        Address newAddress = Address.fromArray(dto.getAddress());
+        if (isUpdate) {
+            newAddress.setId(o.getAddress().getId());
+            newAddress.getCoord().setId(o.getAddress().getCoord().getId());
+        }
+        o.setAddress(newAddress);
 
         List<Tag> tags = new ArrayList<>();
-        dto.getTags().parallelStream().forEach(t -> tags.add(new Tag(t)));
+        dto.getTags().parallelStream().forEach(t -> tags.add(tagService.findById(t)));
         o.setTags(tags);
+
+        List<User> assistants = new ArrayList<>();
+        dto.getAssistants().parallelStream().forEach(f -> assistants.add(userService.findById(Integer.parseInt(f.split(",")[0]))));
+        o.setAssistants(assistants);
 
         o.setStartDateTime(LocalDateTime.parse(dto.getStartDateTime()));
         o.setEndDateTime(LocalDateTime.parse(dto.getEndDateTime()));

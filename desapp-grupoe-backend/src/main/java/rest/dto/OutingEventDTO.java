@@ -10,10 +10,14 @@ public class OutingEventDTO extends Entity {
     private String name;
     private String description;
     private String[] address;
-    private List<String> tags = new ArrayList<>();
+    private List<Integer> tags = new ArrayList<>();
+    private List<String> assistants = new ArrayList<>();
     private double price;
     private String startDateTime;
     private String endDateTime;
+
+    public OutingEventDTO() {
+    }
 
     public String getName() {
         return name;
@@ -39,12 +43,20 @@ public class OutingEventDTO extends Entity {
         this.address = address;
     }
 
-    public List<String> getTags() {
+    public List<Integer> getTags() {
         return tags;
     }
 
-    public void setTags(List<String> tags) {
+    public void setTags(List<Integer> tags) {
         this.tags = tags;
+    }
+
+    public List<String> getAssistants() {
+        return assistants;
+    }
+
+    public void setAssistants(List<String> assistants) {
+        this.assistants = assistants;
     }
 
     public double getPrice() {
@@ -69,8 +81,5 @@ public class OutingEventDTO extends Entity {
 
     public void setEndDateTime(String endDateTime) {
         this.endDateTime = endDateTime;
-    }
-
-    public OutingEventDTO() {
     }
 }

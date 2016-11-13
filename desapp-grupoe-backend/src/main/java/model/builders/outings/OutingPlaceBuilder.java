@@ -1,6 +1,7 @@
 package model.builders.outings;
 
 import model.builders.AddressBuilder;
+import model.builders.time.WeekTimeScheduleBuilder;
 import model.locations.Address;
 import model.outings.OutingPlace;
 import model.tags.Tag;
@@ -20,7 +21,7 @@ public class OutingPlaceBuilder {
     private List<Tag> tags = new ArrayList<>();
     private List<User> assistants = new ArrayList<>();
     private double price = 1;
-    private WeekTimeSchedule weekTimeSchedule = new WeekTimeSchedule();
+    private WeekTimeSchedule weekTimeSchedule = WeekTimeScheduleBuilder.anyWeekTimeSchedule().build();
 
     public static OutingPlaceBuilder anOutingPlace() {
         return new OutingPlaceBuilder();

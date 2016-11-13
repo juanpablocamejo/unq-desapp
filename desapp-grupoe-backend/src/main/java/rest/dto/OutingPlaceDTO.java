@@ -10,10 +10,10 @@ public class OutingPlaceDTO extends Entity {
     private String name;
     private String description;
     private String[] address;
-    private List<String> tags = new ArrayList<>();
+    private List<Integer> tags = new ArrayList<>();
     private List<String> assistants = new ArrayList<>();
     private double price;
-    private String weekTimeSchedule;
+    //private String weekTimeSchedule;
 
     public OutingPlaceDTO() {
     }
@@ -42,11 +42,11 @@ public class OutingPlaceDTO extends Entity {
         this.address = address;
     }
 
-    public List<String> getTags() {
+    public List<Integer> getTags() {
         return tags;
     }
 
-    public void setTags(List<String> tags) {
+    public void setTags(List<Integer> tags) {
         this.tags = tags;
     }
 
@@ -66,11 +66,11 @@ public class OutingPlaceDTO extends Entity {
         this.price = price;
     }
 
-    public String getWeekTimeSchedule() {
+    /*public String getWeekTimeSchedule() {
         return weekTimeSchedule;
     }
 
     public void setWeekTimeSchedule(String weekTimeSchedule) {
         this.weekTimeSchedule = weekTimeSchedule;
-    }
+    }*/
 }

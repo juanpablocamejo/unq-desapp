@@ -10,7 +10,7 @@
 
         <property name="name"/>
         <property name="description"/>
-        <many-to-one name="address" class="model.locations.Address" cascade="all" unique="true" lazy="false"/>
+        <many-to-one name="address" class="model.locations.Address" unique="true" lazy="false" cascade="all"/>
         <property name="price"/>
         <property name="startDateTime" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime"/>
         <property name="endDateTime" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime"/>

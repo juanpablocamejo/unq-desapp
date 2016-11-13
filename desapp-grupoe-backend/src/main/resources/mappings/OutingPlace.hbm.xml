@@ -9,18 +9,20 @@
         </id>
         <property name="name"/>
         <property name="description"/>
-        <many-to-one name="address" class="model.locations.Address" unique="true" lazy="false"/>
+        <many-to-one name="weekTimeSchedule" class="model.time.WeekTimeSchedule" unique="true" lazy="false"
+                     cascade="all"/>
+        <many-to-one name="address" class="model.locations.Address" unique="true" lazy="false" cascade="all"/>
         <list name="tags" lazy="false">
             <key column="id"/>
             <list-index column="type"></list-index>
             <many-to-many class="model.tags.Tag"/>
         </list>
-     <list name="assistants" lazy="false">
+        <list name="assistants" lazy="false">
             <key column="id"/>
             <list-index column="type"></list-index>
             <many-to-many class="model.users.User"/>
         </list>
         <property name="price"/>
-        <many-to-one name="weekTimeSchedule" class="model.time.WeekTimeSchedule" unique="true" lazy="false"/>
+
     </class>
 </hibernate-mapping>
