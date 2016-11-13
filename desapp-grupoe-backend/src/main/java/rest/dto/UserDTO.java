@@ -8,6 +8,7 @@ public class UserDTO extends Entity {
     private String name;
     private String surname;
     private String email;
+    private String image;
     private String[] address;
     private List<Integer> tags;
     private List<String> friends;
@@ -39,6 +40,14 @@ public class UserDTO extends Entity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String[] getAddress() {

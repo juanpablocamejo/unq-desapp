@@ -11,6 +11,7 @@ public class User extends Entity {
     private String name;
     private String surname;
     private String email;
+    private String image;
     private Address address;
     private Profile profile;
     private List<User> friends = new ArrayList<>();
@@ -19,10 +20,11 @@ public class User extends Entity {
         this.profile = ProfileBuilder.anyProfile().build();
     }
 
-    public User(String name, String surname, String email, Address address, Profile profile, List<User> friends) {
+    public User(String name, String surname, String email, String image, Address address, Profile profile, List<User> friends) {
         this.name = name;
         this.surname = surname;
         this.email = email;
+        this.image = image;
         this.address = address;
         this.profile = profile;
         this.friends = friends;
@@ -51,6 +53,14 @@ public class User extends Entity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Address getAddress() {
@@ -94,13 +104,5 @@ public class User extends Entity {
         return getId() + "," + getName();
     }
 
-
-    /*    public Profile getFriendsProfile() {
-        List<Profile> friendsProfiles = new ArrayList<>();
-        for (User friend : this.friends) {
-            friendsProfiles.add(friend.getProfile());
-        }
-        return Profile.mergeProfiles(friendsProfiles);
-    }*/
 }
 

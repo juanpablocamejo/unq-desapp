@@ -11,15 +11,17 @@ public class TagService extends GenericService<Tag> implements Initializable {
     @Transactional
     @Override
     public void initialize() {
-        TagCategory music = new TagCategory("Music");
-        TagCategory movie = new TagCategory("Movie");
-        TagCategory gastronomy = new TagCategory("Gastronomy");
-        TagCategory transport = new TagCategory("Transport");
-        TagCategory others = new TagCategory("Others");
+        TagCategory music = new TagCategory("music");
+        TagCategory movie = new TagCategory("movies");
+        TagCategory gastronomy = new TagCategory("gastronomy");
+        TagCategory transport = new TagCategory("transport");
+        TagCategory others = new TagCategory("others");
 
         getRepository().save(TagBuilder.anyTag().withName("Rock").withCategory(music).build());
         getRepository().save(TagBuilder.anyTag().withName("Pop").withCategory(music).build());
         getRepository().save(TagBuilder.anyTag().withName("Jazz").withCategory(music).build());
+        getRepository().save(TagBuilder.anyTag().withName("Reggae").withCategory(music).build());
+        getRepository().save(TagBuilder.anyTag().withName("Electronic").withCategory(music).build());
 
         getRepository().save(TagBuilder.anyTag().withName("Suspense").withCategory(movie).build());
         getRepository().save(TagBuilder.anyTag().withName("Drama").withCategory(movie).build());
@@ -43,5 +45,4 @@ public class TagService extends GenericService<Tag> implements Initializable {
         getRepository().save(TagBuilder.anyTag().withName("Couples").withCategory(others).build());
         getRepository().save(TagBuilder.anyTag().withName("Friends").withCategory(others).build());
     }
-
 }

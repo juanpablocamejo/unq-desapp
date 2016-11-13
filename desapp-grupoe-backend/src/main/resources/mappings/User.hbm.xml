@@ -11,6 +11,7 @@
         <property name="name"/>
         <property name="surname"/>
         <property name="email"/>
+        <property name="image"/>
         <many-to-one name="address" class="model.locations.Address" lazy="false"/>
         <list name="friends" lazy="false">
             <key column="id"/>

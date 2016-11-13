@@ -61,6 +61,18 @@ public class UserRestService extends GenericRestService<User> {
         return Response.ok(profile).status(HttpStatus.OK_200).build();
     }
 
+    @GET
+    @Path("/byEmail/{email}")
+    @Produces("application/json")
+    public Response findUserbyEmail(@PathParam("email") String email) {
+        for (UserDTO d : getUsers()) {
+            if (d.getEmail().equals(email)) {
+                return Response.ok((d)).build();
+            }
+        }
+        return Response.ok().status(HttpStatus.NOT_FOUND_404).build();
+    }
+
     @POST
     @Path("/")
     @Consumes("application/json")
@@ -135,6 +147,7 @@ public class UserRestService extends GenericRestService<User> {
         dto.setName(user.getName());
         dto.setSurname(user.getSurname());
         dto.setEmail(user.getEmail());
+        dto.setImage(user.getImage());
         dto.setAddress(user.getAddress().toArray());
         dto.setInexpensiveOutingLimit(user.getProfile().getInexpensiveOutingLimit());
 
@@ -155,6 +168,7 @@ public class UserRestService extends GenericRestService<User> {
         u.setName(dto.getName());
         u.setSurname(dto.getSurname());
         u.setEmail(dto.getEmail());
+        u.setImage(dto.getImage());
         u.getProfile().setInexpensiveOutingLimit(dto.getInexpensiveOutingLimit());
         Address newAddress = Address.fromArray(dto.getAddress());
         if (isUpdate) {
