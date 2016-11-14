@@ -1,7 +1,10 @@
 {
   "title": "¿A donde vamos?",
   "profile": "Perfil",
+  "friends": "Amigos",
+  "main": "Principal",
   "logout": "Salir",
+  "google_sign_in": "Acceder con Google",
   "language": "Idioma",
   "search_strategies": {
     "inexpensive": {
@@ -26,5 +29,15 @@
     }
   },
   "dev_app": "Desarrollo de Aplicaciones",
-  "and": "y"
+  "and": "y",
+  "name": "Nombre",
+  "surname": "Apellido",
+  "email": "Email",
+  "inexpensive_limit": "Limite para salidas baratas",
+  "tag_categories": {
+    "music": "Música",
+    "movies": "Peliculas",
+    "gastronomy": "Gastronomía",
+    "transport": "Transporte"
+  }
 }

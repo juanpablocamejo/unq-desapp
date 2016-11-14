@@ -18,11 +18,17 @@ angular
     'ui.materialize',
     'pascalprecht.translate',
     'tmh.dynamicLocale',
-    'angular.filter'
+    'angular.filter',
+    'socialLogin'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
@@ -34,6 +40,11 @@ angular
       })
       .when('/profile', {
         templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl',
+        controllerAs: 'profile'
+      })
+      .when('/friends', {
+        templateUrl: 'views/friends.html',
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
       })
@@ -50,6 +61,28 @@ angular
       .useSanitizeValueStrategy('sanitize')
       .preferredLanguage('es');
     tmhDynamicLocaleProvider.localeLocationPattern('/i18n/angular-locale_{{locale}}.js');
+  })
+  .config(function (socialProvider) {
+    socialProvider.setGoogleKey("1012008431025-usfsjk7vqtbe1qgksj60tuh7g32ntv31.apps.googleusercontent.com");
+  })
+  .run(function ($rootScope, $location, $window, API) {
+    $rootScope.$on('event:social-sign-in-success', function (event, user) {
+      $rootScope.isUserSignedIn = true;
+      $rootScope.currentUser = user;
+      API.getOrCreateUser();
+      $window.location.assign("/#main");
+    });
+
+    $rootScope.$on('event:social-sign-out-success', function () {
+      $rootScope.isUserSignedIn = false;
+      $rootScope.currentUser = null;
+      $window.location.assign("/");
+    });
+
+    $rootScope.$on('event:social-sign-state-changed', function (event, state) {
+      $rootScope.isUserSignedIn = state;
+      if (!$rootScope.isUserSignedIn && $location.path() != '/' && $location.path() != '') $window.location.assign("/");
+    });
   });
 
 /*global $*/

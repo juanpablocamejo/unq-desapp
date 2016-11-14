@@ -1,46 +1,47 @@
 <!doctype html>
-<html>
+<html ng-app="advApp" ng-cloak translate-cloak>
 <head>
   <meta charset="utf-8">
   <title translate="title"></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="stylesheet" href="styles/vendor.1de44683.css">
-  <link rel="stylesheet" href="styles/main.cdd0e709.css">
+  <link rel="stylesheet" href="styles/vendor.df864ff2.css">
+  <link rel="stylesheet" href="styles/main.51765c17.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <style>html {
-    background: url(images/street-texture-hd-wallpaper.045e4cb0.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    /* Fallback for web browsers that doesn't support RGBa */
-  }</style>
 </head>
-<body ng-app="advApp" ng-cloak> <!--[if lte IE 8]>
+<body ng-controller="AuthCtrl" ng-init="checkLogin()"> <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
 <![endif]--> <!-- Add your site or application content here -->
 <header>
   <div class="navbar-fixed opacity-80">
     <nav>
-      <div class="nav-wrapper black"><a href="#!" class="brand-logo" translate="title"></a>
-        <div class="container"><a href="#" data-activates="mobile-nav" class="button-collapse right hide-on-med-and-up"><i
+      <div class="nav-wrapper black"><a href="#/main/" class="brand-logo left" translate="title"></a>
+        <div class="container" ng-show="isUserSignedIn"><a href="#" data-activates="mobile-nav"
+                                                           class="button-collapse right hide-on-med-and-up"><i
           class="material-icons">menu</i></a></div>
-        <ul class="right hide-on-small-only">
+        <ul class="right hide-on-small-only" ng-show="isUserSignedIn">
+          <li><a href="#/friends/" class="waves-effect waves-light" translate>friends</a></li>
           <li><a href="#/profile" class="waves-effect waves-light" translate>profile</a></li>
-          <li><a href="/#!/" class="waves-effect waves-light" translate>logout</a></li>
+          <li><a href="#" class="waves-effect waves-light" ng-click="logout()" translate>logout</a></li>
         </ul>
-        <ul class="side-nav right" id="mobile-nav">
+        <ul class="side-nav right" id="mobile-nav" ng-show="isUserSignedIn">
+          <li><a href="#/main/" class="waves-effect waves-light" translate>main</a></li>
+          <li><a href="#/friends/" class="waves-effect waves-light" translate>friends</a></li>
           <li><a href="#/profile" class="waves-effect waves-light" translate>profile</a></li>
-          <li><a href="/#!/" class="waves-effect waves-light" translate>logout</a></li>
+          <li><a href="#" class="waves-effect waves-light" ng-click="logout()" translate>logout</a></li>
         </ul>
       </div>
     </nav>
   </div>
 </header>
-<div class="container" ng-view=""></div>
+<div ng-if="!isUserSignedIn" ng-controller="LoginCtrl" class="container center-align" ng-init="checkLogin()">
+  <div class="row section" style="height:400px"><a class="btn red" style="margin-top:100px" g-login
+                                                   style="text-transform:none !important"><i
+    class="fa fa-google left"></i>{{"google_sign_in" | translate}}</a></div>
+</div>
+<div class="container" ng-view="" ng-if="isUserSignedIn"></div>
 <div ng-controller="LocaleCtrl" class="fixed-action-btn horizontal txt-shadow"><a
   class="btn-floating btn-large red opacity-80" title="{{'language' | translate}}"> <i
   class="material-icons">language</i> </a>
@@ -66,7 +67,7 @@
 
   ga('create', 'UA-XXXXX-X');
 ga('send', 'pageview');</script>
-<script src="scripts/vendor.21a3d0df.js"></script>
-<script src="scripts/scripts.c9345f21.js"></script>
+<script src="scripts/vendor.a4f5b9ea.js"></script>
+<script src="scripts/scripts.04e0a285.js"></script>
 </body>
 </html>

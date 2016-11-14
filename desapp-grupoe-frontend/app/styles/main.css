@@ -13,3 +13,12 @@ body{
 .main-btn {
   width: 100%;
 }
+
+html {
+  background: url(/images/street-texture-hd-wallpaper.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* Fallback for web browsers that doesn't support RGBa */
+}

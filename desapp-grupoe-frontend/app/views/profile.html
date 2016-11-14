@@ -1,30 +1,42 @@
 <div class="card-panel">
-  <h5></h5>
-  <div class="row">
-    <div input-field class="col s12 m6 l5">
-      <label>Nombre</label>
+  <h5 translate> profile </h5>
+  <div class="divider"></div>
+  <div class="row section">
+    <div input-field class="col s12 m6 l6">
+      <label translate>name</label>
       <input type="text" ng-model="user.name"/>
     </div>
-    <div input-field class="col s12 m6 l5">
-      <label>Apellido</label>
+    <div input-field class="col s12 m6 l6">
+      <label translate>surname</label>
       <input type="text" ng-model="user.surname"/>
     </div>
-    <div input-field class="col s12 m6 l5">
-      <label>Email</label>
-      <input type="text" user.email/>
+    <div input-field class="col s12 m6 l6">
+      <label translate>email</label>
+      <input type="text" ng-model="user.email"/>
     </div>
   </div>
-  <div class="row">
-    <div input-field class="col s12 m6 l5">
-      <label>Limite para salidas baratas</label>
-      <input type="number" ng-model="user.inexpensiveOutingLimit"/>
+  <div class="divider"></div>
+  <div class="row section">
+    <div input-field class="col s7 m4 l3">
+      <label translate>inexpensive_limit</label>
+      <input type="text" ng-model="user.inexpensiveOutingLimit"/>
     </div>
-    <div class="col s12 m6 l5" ng-repeat="(category ,cat_tags) in tags | groupBy:'category.name'">
-      <h6>{{category}}</h6>
-      <div ng-repeat="t in cat_tags">
-        <input type="checkbox" id="chk{{t.id}}" ng-click="selectTag(t.id)"/>
+  </div>
+  <div class="divider"></div>
+  <div class="row section">
+    <div class="col s12 m6 l5 offset-l1" ng-repeat="c in categories">
+      <h6 translate="tag_categories.{{c}}"></h6>
+      <div ng-repeat="t in tags | filter: {category: {name: c}} ">
+        <input type="checkbox" id="chk{{t.id}}" ng-model="t.checked" ng-change="selectTag(t.id)"/>
         <label for="chk{{t.id}}">{{t.name}}</label>
       </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="row section">
+    <div class="col s12 center-align">
+      <a class="waves-effect waves-light btn" ng-click="user.$update()">GUARDAR <i class="material-icons right">save</i></a>
     </div>
   </div>
 </div>

@@ -1,7 +1,10 @@
 {
   "title": "Where we go?",
   "profile": "Profile",
+  "friends": "Friends",
+  "main": "Home",
   "logout": "Logout",
+  "google_sign_in": "Sign in with Google",
   "language": "Language",
   "search_strategies": {
     "inexpensive": {
@@ -26,5 +29,15 @@
     }
   },
   "dev_app": "Applications Development",
-  "and": "and"
+  "and": "and",
+  "name": "Name",
+  "surname": "Surname",
+  "email": "Email",
+  "inexpensive_limit": "Cheaper outing limit",
+  "tag_categories": {
+    "music": "Music",
+    "movies": "Movies",
+    "gastronomy": "Gastronomy",
+    "transport": "Transport"
+  }
 }

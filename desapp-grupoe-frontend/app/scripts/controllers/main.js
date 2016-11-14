@@ -2,7 +2,6 @@
 
 angular.module('advApp')
   .controller('MainCtrl', function () {
-    // Create the factory that share the Fact
     var vm = this;
     vm.a_date = new Date();
     vm.goto = function (strategy, path) {
@@ -14,26 +13,26 @@ angular.module('advApp')
       'name': 'search_strategies.inexpensive.title',
       'href': '#/search?strategy=inexpensive',
       'description': 'search_strategies.inexpensive.description',
-      'class':'card red'
+      'color': 'red'
     }, {
       'name': 'search_strategies.friends.title',
       'href': '#/search?strategy=friends',
       'description': 'search_strategies.friends.description',
-      'class':'purple'
+      'color': 'purple'
     }, {
       'name': 'search_strategies.sat_night_fever.title',
-      'href': '#/search?strategy=saturdaynightfever',
+      'href': '#/search?strategy=saturday_night_fever',
       'description': 'search_strategies.sat_night_fever.description',
-      'class':'blue'
+      'color': 'blue'
     }, {
       'name': 'search_strategies.couples.title',
       'href': '#/search?strategy=couples',
-      'description': 'search_strategies.sat_night_fever.description',
-      'class':'orange'
+      'description': 'search_strategies.couples.description',
+      'color': 'orange'
     }, {
       'name': 'search_strategies.surprise_me.title',
-      'href': '#/search?strategy=surpriseme',
+      'href': '#/search?strategy=surprise_me',
       'description': 'search_strategies.surprise_me.description',
-      'class':'green '
+      'color': 'green '
     }];
   });

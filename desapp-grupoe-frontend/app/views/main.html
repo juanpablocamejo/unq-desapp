@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col s12 m12 l6 center-align" ng-repeat="btn in main.searchButtons">
-      <div class="main-btn waves-effect waves-light card-panel hoverable opacity-80 txt-shadow
-           {{btn.class}}" ng-click="main.goto(btn.name, btn.href)">
+      <div class="main-btn waves-effect waves-light card-panel small hoverable opacity-80 txt-shadow
+           {{btn.color}}" ng-click="main.goto(btn.name, btn.href)">
         <span class="white-text">
           <h5 translate>{{btn.name}}</h5>
           <p translate>{{btn.description}}</p>
@@ -9,3 +9,4 @@
       </div>
     </div>
 </div>
+<p>{{$location.host()}}</p>
