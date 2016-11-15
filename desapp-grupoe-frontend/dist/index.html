@@ -6,8 +6,8 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="stylesheet" href="styles/vendor.df864ff2.css">
-  <link rel="stylesheet" href="styles/main.51765c17.css">
+  <link rel="stylesheet" href="styles/vendor.5640b5ba.css">
+  <link rel="stylesheet" href="styles/main.3a6b9433.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body ng-controller="AuthCtrl" ng-init="checkLogin()"> <!--[if lte IE 8]>
@@ -37,8 +37,9 @@
   </div>
 </header>
 <div ng-if="!isUserSignedIn" ng-controller="LoginCtrl" class="container center-align" ng-init="checkLogin()">
-  <div class="row section" style="height:400px"><a class="btn red" style="margin-top:100px" g-login
-                                                   style="text-transform:none !important"><i
+  <div class="row section" style="height:400px" ng-cloak translate-cloak><a class="btn red" style="margin-top:100px"
+                                                                            g-login
+                                                                            style="text-transform:none !important"><i
     class="fa fa-google left"></i>{{"google_sign_in" | translate}}</a></div>
 </div>
 <div class="container" ng-view="" ng-if="isUserSignedIn"></div>
@@ -67,7 +68,7 @@
 
   ga('create', 'UA-XXXXX-X');
 ga('send', 'pageview');</script>
-<script src="scripts/vendor.a4f5b9ea.js"></script>
-<script src="scripts/scripts.04e0a285.js"></script>
+<script src="scripts/vendor.b7e08376.js"></script>
+<script src="scripts/scripts.3dd84093.js"></script>
 </body>
 </html>

@@ -38,7 +38,6 @@ public class GenericService<T> implements Serializable {
 
     @Transactional
     public void update(final T object) {
-
         this.getRepository().update(object);
     }
 
@@ -46,6 +45,4 @@ public class GenericService<T> implements Serializable {
     public T findById(final int id) {
         return this.getRepository().findById(id);
     }
-
-
 }

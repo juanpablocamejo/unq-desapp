@@ -14,9 +14,11 @@ public class OutingEventBuilder {
 
     private String name = "Name";
     private String description = "Description";
+    private String image = "eventImage";
     private Address address = AddressBuilder.anyAddress().build();
     private List<Tag> tags = new ArrayList<>();
     private List<User> assistants = new ArrayList<>();
+    private int maxAssistants = 100;
     private double price = 1;
     private LocalDateTime startDateTime = LocalDateTime.now();
     private LocalDateTime endDateTime = LocalDateTime.now().plusHours(1);
@@ -26,7 +28,7 @@ public class OutingEventBuilder {
     }
 
     public OutingEvent build() {
-        return new OutingEvent(name, description, address, tags, assistants, price, startDateTime, endDateTime);
+        return new OutingEvent(name, description, image, address, tags, assistants, maxAssistants, price, startDateTime, endDateTime);
     }
 
     public OutingEventBuilder withName(String n) {
@@ -36,6 +38,11 @@ public class OutingEventBuilder {
 
     public OutingEventBuilder withDescription(String d) {
         description = d;
+        return this;
+    }
+
+    public OutingEventBuilder withImage(String i) {
+        image = i;
         return this;
     }
 
@@ -61,6 +68,11 @@ public class OutingEventBuilder {
 
     public OutingEventBuilder withAssistant(User u) {
         assistants.add(u);
+        return this;
+    }
+
+    public OutingEventBuilder withMaxAssistants(int max) {
+        maxAssistants = max;
         return this;
     }
 

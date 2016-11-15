@@ -56,8 +56,18 @@ public class UserBuilder {
         return this;
     }
 
+    public UserBuilder withPriceLimit(double p) {
+        profile.setInexpensiveOutingLimit(p);
+        return this;
+    }
+
     public UserBuilder withFriends(List<User> f) {
         friends = f;
+        return this;
+    }
+
+    public UserBuilder withFriend(User f) {
+        friends.add(f);
         return this;
     }
 

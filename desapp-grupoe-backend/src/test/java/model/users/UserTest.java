@@ -15,6 +15,9 @@ public class UserTest {
         User friend1 = anyUser().withName("Pedro").build();
         User friend2 = anyUser().withName("Carlos").build();
 
+        friend1.setId(1);
+        friend2.setId(2);
+
         User user = anyUser().withName("Pablo").build();
 
         user.addFriend(friend1);
@@ -28,6 +31,8 @@ public class UserTest {
 
         User friend1 = anyUser().withName("Pedro").build();
         User user = anyUser().withName("Pablo").build();
+
+        friend1.setId(1);
 
         user.addFriend(friend1);
         user.addFriend(friend1);
@@ -54,7 +59,7 @@ public class UserTest {
     }
 
 /*    @Test
-    public void getFriendsProfile() throws Exception {
+    public void obtainFriendsProfile() throws Exception {
 
     }*/
 

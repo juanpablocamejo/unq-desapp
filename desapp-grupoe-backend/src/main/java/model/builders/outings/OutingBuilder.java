@@ -14,9 +14,11 @@ public class OutingBuilder {
 
     private String name = "Name";
     private String description = "Description";
+    private String image = "ImagePath";
     private Address address = AddressBuilder.anyAddress().build();
     private List<Tag> tags = new ArrayList<>();
     private List<User> assistants = new ArrayList<>();
+    private int maxAssistants = 100;
     private double price = 1;
 
     public static OutingBuilder anyOuting() {
@@ -24,7 +26,7 @@ public class OutingBuilder {
     }
 
     public Outing build() {
-        return new OutingEvent(name, description, address, tags, assistants, price);
+        return new OutingEvent(name, description, image, address, tags, assistants, maxAssistants, price);
     }
 
     public OutingBuilder withName(String n) {
@@ -34,6 +36,11 @@ public class OutingBuilder {
 
     public OutingBuilder withDescription(String d) {
         description = d;
+        return this;
+    }
+
+    public OutingBuilder withImage(String i) {
+        image = i;
         return this;
     }
 
@@ -59,6 +66,11 @@ public class OutingBuilder {
 
     public OutingBuilder withAssistant(User u) {
         assistants.add(u);
+        return this;
+    }
+
+    public OutingBuilder withMaxAssistants(int max) {
+        maxAssistants = max;
         return this;
     }
 

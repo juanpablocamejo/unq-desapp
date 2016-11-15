@@ -42,7 +42,11 @@ public class TagService extends GenericService<Tag> implements Initializable {
         getRepository().save(TagBuilder.anyTag().withName("Subway").withCategory(transport).build());
         getRepository().save(TagBuilder.anyTag().withName("Train").withCategory(transport).build());
 
-        getRepository().save(TagBuilder.anyTag().withName("Couples").withCategory(others).build());
-        getRepository().save(TagBuilder.anyTag().withName("Friends").withCategory(others).build());
+        getRepository().save(TagBuilder.anyTag().withName("couples").withCategory(others).build());
+        getRepository().save(TagBuilder.anyTag().withName("inexpensive").withCategory(others).build());
+        getRepository().save(TagBuilder.anyTag().withName("friends").withCategory(others).build());
+        getRepository().save(TagBuilder.anyTag().withName("surprise_me").withCategory(others).build());
+        getRepository().save(TagBuilder.anyTag().withName("sat_night_fever").withCategory(others).build());
+
     }
 }

@@ -19,7 +19,8 @@ angular
     'pascalprecht.translate',
     'tmh.dynamicLocale',
     'angular.filter',
-    'socialLogin'
+    'socialLogin',
+    'datatables'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -45,8 +46,8 @@ angular
       })
       .when('/friends', {
         templateUrl: 'views/friends.html',
-        controller: 'ProfileCtrl',
-        controllerAs: 'profile'
+        controller: 'FriendsCtrl',
+        controllerAs: 'friends'
       })
       .otherwise({
         redirectTo: '/'
@@ -68,14 +69,14 @@ angular
   .run(function ($rootScope, $location, $window, API) {
     $rootScope.$on('event:social-sign-in-success', function (event, user) {
       $rootScope.isUserSignedIn = true;
-      $rootScope.currentUser = user;
+      $rootScope.googleUser = user;
       API.getOrCreateUser();
       $window.location.assign("/#main");
     });
 
     $rootScope.$on('event:social-sign-out-success', function () {
       $rootScope.isUserSignedIn = false;
-      $rootScope.currentUser = null;
+      $rootScope.googleUser = null;
       $window.location.assign("/");
     });
 

@@ -1,2 +1,39 @@
-<p><h3>Sección de búsqueda</h3></p>
-<p ng-repeat="u in search.users">{{u.name}}</p>
+<div class="card-panel">
+
+  <div class="row section">
+    <div><h5 translate="{{strategy}}.title"></h5></div>
+  </div>
+  <div class="row section">
+    <div class="input-field col s12 m6 l6">
+      <label translate>assistants</label>
+      <input type="number" ng-model="cnt"/>
+    </div>
+
+    <a class="waves-effect waves-light btn" ng-click="searchAll()"><i class="material-icons left">search</i>{{'search' |
+      translate}}</a>
+  </div>
+  <div class="divider"></div>
+
+  <div class="row section">
+    <h6 translate="events"></h6>
+    <table class="dtable striped">
+      <tr ng-repeat="e in events">
+        <td>{{e.startDateTime | date}}</td>
+        <td>{{e.name}}</td>
+        <td><a href="" ng-click="viewEvent(e)" class="btn right">{{'details' | translate}}</a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="row section">
+    <h6 translate="places"></h6>
+    <table class="dtable striped">
+      <tr ng-repeat="p in places">
+        <td>{{p.name}}</td>
+        <td>{{p.description}}</td>
+        <td><a href="" ng-click="viewPlace(p)" class="btn right">{{'details' | translate}}</a></td>
+      </tr>
+    </table>
+  </div>
+
+
+</div>

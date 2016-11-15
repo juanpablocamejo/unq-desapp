@@ -39,5 +39,12 @@
     "movies": "Movies",
     "gastronomy": "Gastronomy",
     "transport": "Transport"
-  }
+  },
+  "friends_search": "Friends Search",
+  "my_friends": "My Friends",
+  "assistants": "How many assistants?",
+  "search": "Search",
+  "details": "Details",
+  "events": "Sugested Events",
+  "places": "Sugested Places"
 }

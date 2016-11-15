@@ -9,9 +9,11 @@ public class OutingEventDTO extends Entity {
 
     private String name;
     private String description;
+    private String image;
     private String[] address;
     private List<Integer> tags = new ArrayList<>();
     private List<String> assistants = new ArrayList<>();
+    private int maxAssistants;
     private double price;
     private String startDateTime;
     private String endDateTime;
@@ -29,6 +31,14 @@ public class OutingEventDTO extends Entity {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setDescription(String description) {
@@ -57,6 +67,14 @@ public class OutingEventDTO extends Entity {
 
     public void setAssistants(List<String> assistants) {
         this.assistants = assistants;
+    }
+
+    public int getMaxAssistants() {
+        return maxAssistants;
+    }
+
+    public void setMaxAssistants(int maxAssistants) {
+        this.maxAssistants = maxAssistants;
     }
 
     public double getPrice() {

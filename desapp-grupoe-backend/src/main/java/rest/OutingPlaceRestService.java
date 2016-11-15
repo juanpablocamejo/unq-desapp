@@ -1,11 +1,14 @@
 package rest;
 
+import model.builders.outings.OutingFilterBuilder;
 import model.locations.Address;
 import model.outings.OutingPlace;
 import model.tags.Tag;
 import model.users.User;
 import org.eclipse.jetty.http.HttpStatus;
+import persistence.strategies.OutingFilter;
 import rest.dto.OutingPlaceDTO;
+import services.appservice.OutingPlaceService;
 import services.appservice.TagService;
 import services.appservice.UserService;
 
@@ -13,6 +16,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("places")
 public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
@@ -39,6 +43,24 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
             dtos.add(toDTO(op));
         }
         return dtos;
+    }
+
+    @GET
+    @Path("/search")
+    @Produces("application/json")
+    public Response findEvents(@QueryParam("strategy") String strategy,
+                               @QueryParam("user") int user,
+                               @QueryParam("assistants") int assistants
+    ) {
+
+        OutingFilter filter = OutingFilterBuilder.anOutingFilter()
+                .withStrategy(strategy)
+                .withUserID(user)
+                .withAssistants(assistants)
+                .build();
+        List<OutingPlace> results = ((OutingPlaceService) service).searchPlaces(filter);
+        List<OutingPlaceDTO> dtos = results.stream().map(this::toDTO).collect(Collectors.toList());
+        return Response.ok(dtos).build();
     }
 
     @GET
@@ -126,12 +148,14 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
         dto.setId(op.getId());
         dto.setName(op.getName());
         dto.setDescription(op.getDescription());
+        dto.setImage(op.getImage());
         dto.setAddress(op.getAddress().toArray());
 
         List<String> assistants = new ArrayList<>();
         op.getAssistants().parallelStream().forEach(a -> assistants.add(a.toString()));
         dto.setAssistants(assistants);
 
+        dto.setMaxAssistants(op.getMaxAssistants());
         dto.setPrice(op.getPrice());
 
         List<Integer> tags = new ArrayList<>();
@@ -147,6 +171,7 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
         o.setId(dto.getId());
         o.setName(dto.getName());
         o.setDescription(dto.getDescription());
+        o.setImage(dto.getImage());
         o.setPrice(dto.getPrice());
         Address newAddress = Address.fromArray(dto.getAddress());
         if (isUpdate) {
@@ -162,6 +187,8 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
         List<User> assistants = new ArrayList<>();
         dto.getAssistants().parallelStream().forEach(f -> assistants.add(userService.findById(Integer.parseInt(f.split(",")[0]))));
         o.setAssistants(assistants);
+
+        o.setMaxAssistants(dto.getMaxAssistants());
 
         //o.setWeekTimeSchedule(dto.getWeekTimeSchedule().parseFromString());
 

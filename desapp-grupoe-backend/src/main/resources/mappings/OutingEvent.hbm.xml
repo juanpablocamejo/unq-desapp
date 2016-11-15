@@ -10,6 +10,7 @@
 
         <property name="name"/>
         <property name="description"/>
+        <property name="image"/>
         <many-to-one name="address" class="model.locations.Address" unique="true" lazy="false" cascade="all"/>
         <property name="price"/>
         <property name="startDateTime" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime"/>
@@ -24,6 +25,7 @@
             <list-index column="type"></list-index>
             <many-to-many class="model.users.User"/>
         </list>
+        <property name="maxAssistants"/>
 
     </class>
 </hibernate-mapping>

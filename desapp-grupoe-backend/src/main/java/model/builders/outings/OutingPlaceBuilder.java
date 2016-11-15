@@ -17,9 +17,11 @@ public class OutingPlaceBuilder {
 
     private String name = "Name";
     private String description = "Description";
+    private String image = "placeImage";
     private Address address = AddressBuilder.anyAddress().build();
     private List<Tag> tags = new ArrayList<>();
     private List<User> assistants = new ArrayList<>();
+    private int maxAssistants = 100;
     private double price = 1;
     private WeekTimeSchedule weekTimeSchedule = WeekTimeScheduleBuilder.anyWeekTimeSchedule().build();
 
@@ -28,7 +30,7 @@ public class OutingPlaceBuilder {
     }
 
     public OutingPlace build() {
-        return new OutingPlace(name, description, address, tags, assistants, price, weekTimeSchedule);
+        return new OutingPlace(name, description, image, address, tags, assistants, maxAssistants, price, weekTimeSchedule);
     }
 
     public OutingPlaceBuilder withName(String n) {
@@ -38,6 +40,11 @@ public class OutingPlaceBuilder {
 
     public OutingPlaceBuilder withDescription(String d) {
         description = d;
+        return this;
+    }
+
+    public OutingPlaceBuilder withImage(String i) {
+        image = i;
         return this;
     }
 
@@ -63,6 +70,11 @@ public class OutingPlaceBuilder {
 
     public OutingPlaceBuilder withAssistant(User u) {
         assistants.add(u);
+        return this;
+    }
+
+    public OutingPlaceBuilder withMaxAssistants(int max) {
+        maxAssistants = max;
         return this;
     }
 

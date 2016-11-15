@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="bower_components/roboto-fontface/css/roboto/roboto-fontface.css" />
   <link rel="stylesheet" href="bower_components/roboto-fontface/css/roboto-condensed/roboto-condensed-fontface.css" />
   <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css"/>
+  <link rel="stylesheet"
+        href="bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css"/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -55,7 +57,7 @@
   </div>
 </header>
 <div ng-if="!isUserSignedIn" ng-controller="LoginCtrl" class="container center-align" ng-init="checkLogin()">
-  <div class="row section" style="height:400px;">
+  <div class="row section" style="height:400px;" ng-cloak translate-cloak>
     <a class="btn red" style="margin-top:100px;" g-login style="text-transform:none !important"><i
       class="fa fa-google left"></i>{{"google_sign_in" | translate}}</a>
   </div>
@@ -112,6 +114,21 @@
 <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
 <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
 <script src="bower_components/angularjs-social-login/angularjs-social-login.js"></script>
+<script src="bower_components/datatables.net/js/jquery.dataTables.js"></script>
+<script src="bower_components/datatables.net-responsive/js/dataTables.responsive.js"></script>
+<script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
+<script src="bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.js"></script>
+<script src="bower_components/angular-datatables/dist/plugins/colreorder/angular-datatables.colreorder.js"></script>
+<script src="bower_components/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js"></script>
+<script
+  src="bower_components/angular-datatables/dist/plugins/light-columnfilter/angular-datatables.light-columnfilter.js"></script>
+<script src="bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.js"></script>
+<script src="bower_components/angular-datatables/dist/plugins/fixedcolumns/angular-datatables.fixedcolumns.js"></script>
+<script src="bower_components/angular-datatables/dist/plugins/fixedheader/angular-datatables.fixedheader.js"></script>
+<script src="bower_components/angular-datatables/dist/plugins/scroller/angular-datatables.scroller.js"></script>
+<script src="bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js"></script>
+<script src="bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.js"></script>
+<script src="bower_components/angular-datatables/dist/plugins/select/angular-datatables.select.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 

@@ -16,7 +16,7 @@ angular.module('advApp')
       $scope.tags = [];
       $scope.user = {};
       $scope.categories = [];
-      API.resource('/users/:id').get({id: 1}).$promise
+      API.getCurrentUser()
         .then(function (u) {
           $scope.user = u;
           console.log(u);
@@ -39,4 +39,12 @@ angular.module('advApp')
       console.log($scope.user.tags);
     };
     $scope.loadUser();
+    $scope.save = function () {
+      console.log($scope.user);
+      $scope.user.$update(
+        function () {
+          Materialize.toast('Cambios guardados correctamente', 2000);
+        }
+      );
+    };
   });

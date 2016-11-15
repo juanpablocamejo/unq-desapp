@@ -88,20 +88,41 @@ public class User extends Entity {
     }
 
     public void addFriend(User friend) {
-        if (!getFriends().contains(friend)) {
-            getFriends().add(friend);
+        if (friend.getId() != getId()) {
+            boolean hasFriend = false;
+            for (int i = 0; i < getFriends().size(); i++) {
+                if (getFriends().get(i).getId() == friend.getId()) {
+                    hasFriend = true;
+                    break;
+                }
+            }
+            if (!hasFriend) getFriends().add(friend);
         }
     }
 
     public void removeFriend(User friend) {
-        if (getFriends().contains(friend)) {
-            getFriends().remove(friend);
+        for (int i = 0; i < getFriends().size(); i++) {
+            if (getFriends().get(i).getId() == friend.getId()) {
+                getFriends().remove(i);
+            }
         }
+    }
+
+    public Profile obtainFriendsProfile() {
+        List<Profile> friendsProfiles = new ArrayList<>();
+        for (User friend : friends) {
+            friendsProfiles.add(friend.getProfile());
+        }
+        return Profile.mergeProfiles(friendsProfiles);
     }
 
     @Override
     public String toString() {
-        return getId() + "," + getName();
+        return getId() + "," + getName() + "," + getSurname() + "," + getImage();
+    }
+
+    public String[] toArray() {
+        return new String[]{Integer.toString(getId()), getName() + " " + getSurname(), getImage()};
     }
 
 }

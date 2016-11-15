@@ -1,12 +1,15 @@
 package rest;
 
+import model.builders.outings.OutingFilterBuilder;
 import model.locations.Address;
 import model.outings.OutingEvent;
 import model.tags.Tag;
 import model.users.User;
 import org.eclipse.jetty.http.HttpStatus;
 import org.joda.time.LocalDateTime;
+import persistence.strategies.OutingFilter;
 import rest.dto.OutingEventDTO;
+import services.appservice.OutingEventService;
 import services.appservice.TagService;
 import services.appservice.UserService;
 
@@ -14,6 +17,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("events")
 public class OutingEventRestService extends GenericRestService<OutingEvent> {
@@ -41,6 +45,25 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
         }
 
         return dtos;
+    }
+
+    @GET
+    @Path("/search")
+    //"events/search?strategy=couples&user=2&date=23454643&assistants"
+    @Produces("application/json")
+    public Response findEvents(@QueryParam("strategy") String strategy,
+                               @QueryParam("user") int user,
+                               @QueryParam("assistants") int assistants
+    ) {
+
+        OutingFilter filter = OutingFilterBuilder.anOutingFilter()
+                .withStrategy(strategy)
+                .withUserID(user)
+                .withAssistants(assistants)
+                .build();
+        List<OutingEvent> results = ((OutingEventService) service).searchEvents(filter);
+        List<OutingEventDTO> dtos = results.stream().map(this::toDTO).collect(Collectors.toList());
+        return Response.ok(dtos).build();
     }
 
     @GET
@@ -128,6 +151,7 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
         dto.setId(oe.getId());
         dto.setName(oe.getName());
         dto.setDescription(oe.getDescription());
+        dto.setImage(oe.getImage());
         dto.setAddress(oe.getAddress().toArray());
         dto.setPrice(oe.getPrice());
 
@@ -138,6 +162,8 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
         List<String> assistants = new ArrayList<>();
         oe.getAssistants().parallelStream().forEach(a -> assistants.add(a.toString()));
         dto.setAssistants(assistants);
+
+        dto.setMaxAssistants(oe.getMaxAssistants());
 
 
         dto.setStartDateTime(oe.getStartDateTime().toString());
@@ -152,6 +178,7 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
         o.setId(dto.getId());
         o.setName(dto.getName());
         o.setDescription(dto.getDescription());
+        o.setImage(dto.getImage());
         o.setPrice(dto.getPrice());
         Address newAddress = Address.fromArray(dto.getAddress());
         if (isUpdate) {
@@ -167,6 +194,8 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
         List<User> assistants = new ArrayList<>();
         dto.getAssistants().parallelStream().forEach(f -> assistants.add(userService.findById(Integer.parseInt(f.split(",")[0]))));
         o.setAssistants(assistants);
+
+        o.setMaxAssistants(dto.getMaxAssistants());
 
         o.setStartDateTime(LocalDateTime.parse(dto.getStartDateTime()));
         o.setEndDateTime(LocalDateTime.parse(dto.getEndDateTime()));

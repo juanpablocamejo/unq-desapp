@@ -1,8 +1,12 @@
 package persistence;
 
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import persistence.strategies.IPlanningStrategy;
+import persistence.strategies.OutingFilter;
+import persistence.strategies.StrategyBuilder;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,15 +25,6 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
     public int count() {
         List<Long> list = (List<Long>) this.getHibernateTemplate()
                 .find("select count(*) from " + this.persistentClass.getName() + " o");
-
-        // this.getHibernateTemplate().execute(new HibernateCallback<Car>() {
-        //
-        // @Override
-        // public Car doInHibernate(final Session session) throws
-        // HibernateException, SQLException {
-        // throw new UnsupportedOperationException();
-        // }
-        // });
         Long count = list.get(0);
         return count.intValue();
 
@@ -46,12 +41,10 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
 
     public List<T> findAll() {
         return (List<T>) this.getHibernateTemplate().find("from " + this.persistentClass.getName() + " o");
-
     }
 
     public List<T> findByExample(final T exampleObject) {
         return this.getHibernateTemplate().findByExample(exampleObject);
-
     }
 
     public T findById(final Serializable id) {
@@ -69,6 +62,4 @@ public abstract class HibernateGenericDAO<T> extends HibernateDaoSupport impleme
         this.getHibernateTemplate().merge(entity);
         this.getHibernateTemplate().flush();
     }
-
-
 }

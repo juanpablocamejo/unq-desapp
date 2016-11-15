@@ -111,10 +111,12 @@
 
     <bean id="outingEventDAO" class="persistence.OutingEventDAO">
         <property name="sessionFactory" ref="persistence.sessionFactory"/>
+        <property name="userDAO" ref="userDAO"></property>
     </bean>
 
     <bean id="outingPlaceDAO" class="persistence.OutingPlaceDAO">
         <property name="sessionFactory" ref="persistence.sessionFactory"/>
+        <property name="userDAO" ref="userDAO"></property>
     </bean>
 
     <bean id="addressDAO" class="persistence.AddressDAO">

@@ -1,15 +1,30 @@
 <div class="card-panel">
-  <h5 translate> friends </h5>
-  <div class="divider"></div>
+  <h6 translate="friends_search"></h6>
   <div class="row section">
-    <ul class="pagination">
-      <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-      <li class="active"><a href="#!">1</a></li>
-      <li class="waves-effect"><a href="#!">2</a></li>
-      <li class="waves-effect"><a href="#!">3</a></li>
-      <li class="waves-effect"><a href="#!">4</a></li>
-      <li class="waves-effect"><a href="#!">5</a></li>
-      <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-    </ul>
+    <div input-field class="col s12 m6 l4">
+      <label translate>buscar...</label>
+      <input type="text" ng-model="searchText" ng-change="search(searchText)"/>
+    </div>
+    <div class="col s12 m7 l9">
+      <table class="dtable striped">
+        <tr ng-repeat="r in results">
+          <td>{{r[1]}}</td>
+          <td><a href="" ng-click="addFriend(r[0])" class="btn right">agregar</a></td>
+        </tr>
+      </table>
+    </div>
   </div>
+  <div class="divider"></div>
+  <h5 translate="my_friends"></h5>
+  <div class="row section">
+    <table>
+      <tr ng-repeat="f in user.friends">
+        <td><i class="fa fa-user left"></i>{{f[1]}}</td>
+        <td><a href="" ng-click="remove(f)"><i class="material-icons">close</i></a></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
 </div>
+

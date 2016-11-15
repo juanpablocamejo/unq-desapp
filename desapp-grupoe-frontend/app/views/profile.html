@@ -17,10 +17,20 @@
   </div>
   <div class="divider"></div>
   <div class="row section">
-    <div input-field class="col s7 m4 l3">
-      <label translate>inexpensive_limit</label>
-      <input type="text" ng-model="user.inexpensiveOutingLimit"/>
-    </div>
+    <table style="border-collapse: collapse; padding: 0 0 0 0">
+      <tr>
+        <td style="text-align: right; width:20px">
+          $
+        </td>
+        <td>
+          <div input-field class="col s7 m4 l3">
+            <label translate>inexpensive_limit</label>
+            <input type="text" ng-model="user.inexpensiveOutingLimit"/>
+          </div>
+        </td>
+      </tr>
+    </table>
+
   </div>
   <div class="divider"></div>
   <div class="row section">
@@ -36,7 +46,7 @@
 
   <div class="row section">
     <div class="col s12 center-align">
-      <a class="waves-effect waves-light btn" ng-click="user.$update()">GUARDAR <i class="material-icons right">save</i></a>
+      <a class="waves-effect waves-light btn" ng-click="save()">GUARDAR <i class="material-icons right">save</i></a>
     </div>
   </div>
 </div>

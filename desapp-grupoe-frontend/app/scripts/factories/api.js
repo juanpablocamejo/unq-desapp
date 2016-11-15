@@ -4,6 +4,11 @@
   function factory($resource, $rootScope, $location) {
     factory.$inject = ['$resource', '$rootScope', '$location'];
 
+    function getCurrUser() {
+      if ($rootScope.isUserSignedIn) {
+        return getResource('/users/:id').get({id: $rootScope.currentUserId}).$promise;
+      }
+    }
     function getResource(path) {
       if ($rootScope.isUserSignedIn) {
         var host = $location.host();
@@ -21,19 +26,36 @@
     }
 
     function getOrCreate() {
-      getResource("/users/byEmail/:email", {email: $rootScope.currentUser.email}).get().$promise.then(
+      getResource("/users/byEmail/:email").get({email: $rootScope.googleUser.email}).$promise.then(
         function (res) {
-          $rootScope.user = res;
+          console.log(res);
+          getResource("/users/:id").get({id: res.id}, function (usr) {
+            $rootScope.currentUserId = usr.id;
+          });
         },
-        function () {
-          //TODO: create new user
+        function (res) {
+          console.log(res);
+          var user = {
+            "address": ["0.0", "0.0", "Buenos Aires"],
+            "name": $rootScope.googleUser.name,
+            "inexpensiveOutingLimit": 100,
+            "surname": $rootScope.googleUser.surname,
+            "tags": [],
+            "friends": [],
+            "image": $rootScope.googleUser.image,
+            "email": $rootScope.googleUser.email
+          };
+          getResource("/users").save(user, function (res) {
+            $rootScope.currentUserId = res.id;
+          });
         }
       )
     }
 
     var service = {
       resource: getResource,
-      getOrCreateUser: getOrCreate
+      getOrCreateUser: getOrCreate,
+      getCurrentUser: getCurrUser
     };
 
     return service;

@@ -11,7 +11,7 @@ public class UserDTO extends Entity {
     private String image;
     private String[] address;
     private List<Integer> tags;
-    private List<String> friends;
+    private List<String[]> friends;
     private double inexpensiveOutingLimit;
 
     public UserDTO() {
@@ -66,11 +66,11 @@ public class UserDTO extends Entity {
         this.tags = tags;
     }
 
-    public List<String> getFriends() {
+    public List<String[]> getFriends() {
         return friends;
     }
 
-    public void setFriends(List<String> friends) {
+    public void setFriends(List<String[]> friends) {
         this.friends = friends;
     }
 

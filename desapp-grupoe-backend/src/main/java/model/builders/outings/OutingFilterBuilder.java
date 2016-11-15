@@ -1,24 +1,30 @@
 package model.builders.outings;
 
-import model.tags.Tag;
-import model.planning.OutingFilter;
-import model.time.TimeSlot;
 import org.joda.time.LocalDate;
+import persistence.strategies.OutingFilter;
 
 public class OutingFilterBuilder {
-
-    private LocalDate date = null;
-    private TimeSlot timeSlot = null;
-    private Tag searchTag = null;
-    private double maxPrice = 0;
-
+    private int idUser = 1;
+    private int assistants = 2;
+    private LocalDate date = new LocalDate();
+    private String strategy = "";
 
     public static OutingFilterBuilder anOutingFilter() {
         return new OutingFilterBuilder();
     }
 
     public OutingFilter build() {
-        return new OutingFilter(date, timeSlot, searchTag, maxPrice);
+        return new OutingFilter(idUser, assistants, date, strategy);
+    }
+
+    public OutingFilterBuilder withUserID(int id) {
+        idUser = id;
+        return this;
+    }
+
+    public OutingFilterBuilder withAssistants(int cant) {
+        assistants = cant;
+        return this;
     }
 
     public OutingFilterBuilder withDate(LocalDate d) {
@@ -26,19 +32,8 @@ public class OutingFilterBuilder {
         return this;
     }
 
-    public OutingFilterBuilder withDateTime(LocalDate d, TimeSlot ts) {
-        date = d;
-        timeSlot = ts;
-        return this;
-    }
-
-    public OutingFilterBuilder withSearchTag(Tag tag) {
-        searchTag = tag;
-        return this;
-    }
-
-    public OutingFilterBuilder withMaxPrice(double p) {
-        maxPrice = p;
+    public OutingFilterBuilder withStrategy(String strategy) {
+        this.strategy = strategy;
         return this;
     }
 

@@ -2,11 +2,11 @@ package model.outings;
 
 import model.Entity;
 import model.locations.Address;
-import model.planning.IPlanningResult;
 import model.tags.Tag;
 import model.time.TimeSlot;
 import model.users.User;
 import org.joda.time.LocalDate;
+import persistence.strategies.IPlanningResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,17 +15,21 @@ public abstract class Outing extends Entity implements IPlanningResult {
 
     private String name;
     private String description;
+    private String image;
     private Address address;
     private List<Tag> tags = new ArrayList<>();
     private List<User> assistants = new ArrayList<>();
+    private int maxAssistants;
     private double price;
 
-    protected Outing(String name, String description, Address address, List<Tag> tags, List<User> assistants, double price) {
+    protected Outing(String name, String description, String image, Address address, List<Tag> tags, List<User> assistants, int maxAssistants, double price) {
         this.name = name;
         this.description = description;
+        this.image = image;
         this.address = address;
         this.tags = tags;
         this.assistants = assistants;
+        this.maxAssistants = maxAssistants;
         this.price = price;
     }
 
@@ -47,6 +51,14 @@ public abstract class Outing extends Entity implements IPlanningResult {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Address getAddress() {
@@ -71,6 +83,14 @@ public abstract class Outing extends Entity implements IPlanningResult {
 
     public void setAssistants(List<User> assistants) {
         this.assistants = assistants;
+    }
+
+    public int getMaxAssistants() {
+        return maxAssistants;
+    }
+
+    public void setMaxAssistants(int maxAssistants) {
+        this.maxAssistants = maxAssistants;
     }
 
     @Override
@@ -107,14 +127,35 @@ public abstract class Outing extends Entity implements IPlanningResult {
     }
 
     public void addAssistant(User user) {
-        if (!getAssistants().contains(user)) {
+        boolean hasAssistant = false;
+        for (int i = 0; i < getAssistants().size(); i++) {
+            if (getAssistants().get(i).getId() == user.getId()) {
+                hasAssistant = true;
+                break;
+            }
+        }
+        if (!hasAssistant) {
             getAssistants().add(user);
         }
     }
 
     public void removeAssistant(User user) {
-        if (getAssistants().contains(user)) {
-            getAssistants().remove(user);
+        for (int i = 0; i < getAssistants().size(); i++) {
+            if (getAssistants().get(i).getId() == user.getId()) {
+                getAssistants().remove(i);
+            }
         }
+    }
+
+    public boolean matchWith(List<Tag> list) {
+        boolean result = false;
+        for (Tag tag : getTags()) {
+            for (Tag listTag : list) {
+                if (tag.equals(listTag)) {
+                    result = true;
+                }
+            }
+        }
+        return result;
     }
 }

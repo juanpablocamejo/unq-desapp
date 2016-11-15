@@ -14,16 +14,15 @@ public class OutingEvent extends Outing {
     private LocalDateTime endDateTime;
 
     public OutingEvent() {
-        //super();
 
     }
 
-    public OutingEvent(String name, String description, Address address, List<Tag> tags, List<User> assistants, double price) {
-        super(name, description, address, tags, assistants, price);
+    public OutingEvent(String name, String description, String image, Address address, List<Tag> tags, List<User> assistants, int maxAssistants, double price) {
+        super(name, description, image, address, tags, assistants, maxAssistants, price);
     }
 
-    public OutingEvent(String name, String description, Address address, List<Tag> tags, List<User> assistants, double price, LocalDateTime startDateTime, LocalDateTime endDateTime) {
-        super(name, description, address, tags, assistants, price);
+    public OutingEvent(String name, String description, String image, Address address, List<Tag> tags, List<User> assistants, int maxAssistants, double price, LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        super(name, description, image, address, tags, assistants, maxAssistants, price);
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
     }

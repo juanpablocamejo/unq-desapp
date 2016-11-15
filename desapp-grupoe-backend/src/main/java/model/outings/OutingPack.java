@@ -1,6 +1,6 @@
 package model.outings;
 
-import model.planning.IPlanningResult;
+import persistence.strategies.IPlanningResult;
 
 import java.util.ArrayList;
 import java.util.List;

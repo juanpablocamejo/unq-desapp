@@ -7,6 +7,7 @@ import model.users.User;
 import org.eclipse.jetty.http.HttpStatus;
 import rest.dto.UserDTO;
 import services.appservice.TagService;
+import services.appservice.UserService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -44,7 +45,6 @@ public class UserRestService extends GenericRestService<User> {
         if (obj == null) {
             return Response.ok("No se encontro el usuario con el id: " + id).status(HttpStatus.NOT_FOUND_404).build();
         } else {
-
             return Response.ok(toDTO(obj)).status(HttpStatus.OK_200).build();
         }
     }
@@ -64,13 +64,23 @@ public class UserRestService extends GenericRestService<User> {
     @GET
     @Path("/byEmail/{email}")
     @Produces("application/json")
-    public Response findUserbyEmail(@PathParam("email") String email) {
-        for (UserDTO d : getUsers()) {
-            if (d.getEmail().equals(email)) {
-                return Response.ok((d)).build();
-            }
+    public Response findUserByEmail(@PathParam("email") String email) {
+        User user = ((UserService) service).findByEmail(email);
+        if (user == null) {
+            return Response.ok().status(HttpStatus.NOT_FOUND_404).build();
         }
-        return Response.ok().status(HttpStatus.NOT_FOUND_404).build();
+        return Response.ok(toDTO(user)).build();
+    }
+
+    @GET
+    @Path("/byName/{name}")
+    @Produces("application/json")
+    public Response findUserByName(@PathParam("name") String name) {
+        List<String> users = ((UserService) service).findByName(name);
+        if (users.isEmpty()) {
+            return Response.ok().status(HttpStatus.NOT_FOUND_404).build();
+        }
+        return Response.ok(users).build();
     }
 
     @POST
@@ -93,7 +103,7 @@ public class UserRestService extends GenericRestService<User> {
             return Response.ok("No se encontro el usuario").status(HttpStatus.NOT_FOUND_404).build();
         }
         service.update(user);
-        return Response.ok(service.findById(user.getId())).status(HttpStatus.OK_200).build();
+        return Response.ok(toDTO(service.findById(user.getId()))).status(HttpStatus.OK_200).build();
     }
 
     @PUT
@@ -129,9 +139,9 @@ public class UserRestService extends GenericRestService<User> {
             return Response.ok("No existe un usuario con id: " + idFriend).status(HttpStatus.NOT_FOUND_404).build();
         }
 
-        user.getFriends().remove(friend);
+        user.removeFriend(friend);
         service.update(user);
-        return Response.ok(user).status(HttpStatus.OK_200).build();
+        return Response.ok(toDTO(user)).status(HttpStatus.OK_200).build();
     }
 
     @DELETE
@@ -151,12 +161,12 @@ public class UserRestService extends GenericRestService<User> {
         dto.setAddress(user.getAddress().toArray());
         dto.setInexpensiveOutingLimit(user.getProfile().getInexpensiveOutingLimit());
 
-        List<String> friends = new ArrayList<>();
-        user.getFriends().parallelStream().forEach(f -> friends.add(f.toString()));
+        List<String[]> friends = new ArrayList<>();
+        user.getFriends().forEach(f -> friends.add(f.toArray()));
         dto.setFriends(friends);
 
         List<Integer> tags = new ArrayList<>();
-        user.getProfile().getTags().parallelStream().forEach(tag -> tags.add(tag.getId()));
+        user.getProfile().getTags().forEach(tag -> tags.add(tag.getId()));
         dto.setTags(tags);
         return dto;
     }
@@ -178,7 +188,7 @@ public class UserRestService extends GenericRestService<User> {
         u.setAddress(newAddress);
 
         List<User> friends = new ArrayList<>();
-        dto.getFriends().parallelStream().forEach(f -> friends.add(service.findById(Integer.parseInt(f.split(",")[0]))));
+        dto.getFriends().parallelStream().forEach(f -> friends.add(service.findById(Integer.parseInt(f[0]))));
         u.setFriends(friends);
 
         List<Tag> tags = new ArrayList<>();

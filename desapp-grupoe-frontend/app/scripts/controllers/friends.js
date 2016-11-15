@@ -1,21 +1,42 @@
 'use strict';
 
 angular.module('advApp')
-  .controller('FriendsCtrl', function ($scope, API) {
-    $scope.loadUser = function () {
-      $scope.tags = [];
-      $scope.user = {};
-      $scope.categories = [];
-      API.resource('/users/:id').get({id: 1}).$promise
-        .then(function (u) {
-          $scope.user = u;
-          console.log(u);
-        })
-        .then(function () {
-          API.resource('/tags').query().$promise
-            .then(loadTags);
-        });
-    };
+  .controller('FriendsCtrl', ['$scope', 'API', function ($scope, API) {
+    $scope.searchText = '';
+    $scope.results = [];
+    $scope.search = function (searchText) {
+      if (searchText.length < 2) {
+        $scope.results = [];
+        return;
+      }
 
-    $scope.loadUser();
-  });
+      console.log(searchText);
+      API.resource("/users/byName/" + searchText).query().$promise.then(function (res) {
+          $scope.results = res;
+        }, function (err) {
+          console.log(err);
+          $scope.results = [];
+          return false;
+        }
+      )
+    };
+    $scope.addFriend = function (id) {
+      API.resource('/users/' + $scope.user.id + '/addFriend/' + id).update(null,
+        function (usr) {
+          $scope.user = usr;
+        }
+      );
+    }
+    $scope.remove = function (f) {
+      if (confirm("¿Desea eliminar a " + f[1] + " de su lista de amigos?")) {
+        API.resource('/users/' + $scope.user.id + '/removeFriend/' + f[0]).update(null,
+          function (usr) {
+            $scope.user = usr;
+          }
+        );
+      }
+    };
+    API.getCurrentUser().then(function (usr) {
+      $scope.user = usr;
+    });
+  }]);

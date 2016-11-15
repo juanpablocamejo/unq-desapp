@@ -22,3 +22,9 @@ html {
   background-size: cover;
   /* Fallback for web browsers that doesn't support RGBa */
 }
+
+.dtable tr, .dtable td {
+  height: 15px !important;
+  padding: 1px 1px 1px 1px !important;
+}
+

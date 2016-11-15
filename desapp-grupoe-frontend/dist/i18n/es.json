@@ -39,5 +39,12 @@
     "movies": "Peliculas",
     "gastronomy": "Gastronomía",
     "transport": "Transporte"
-  }
+  },
+  "friends_search": "Búsqueda de Amigos",
+  "my_friends": "Mis amigos",
+  "assistants": "¿Cuántos asistirán?",
+  "search": "Buscar",
+  "details": "Detalle",
+  "events": "Eventos Sugeridos",
+  "places": "Lugares Sugeridos"
 }

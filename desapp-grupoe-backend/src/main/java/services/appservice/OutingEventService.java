@@ -4,7 +4,12 @@ import model.builders.outings.OutingEventBuilder;
 import model.outings.OutingEvent;
 import org.springframework.transaction.annotation.Transactional;
 import persistence.AddressDAO;
+import persistence.OutingEventDAO;
+import persistence.UserDAO;
+import persistence.strategies.OutingFilter;
 import services.initialization.Initializable;
+
+import java.util.List;
 
 public class OutingEventService extends GenericService<OutingEvent> implements Initializable {
 
@@ -20,10 +25,10 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
 
     @Transactional
     public void initialize() {
-        OutingEvent oe1 = OutingEventBuilder.anOutingEvent().withName("Event 1").withDescription("Descripcion Evento 1").withPrice(50).build();
-        OutingEvent oe2 = OutingEventBuilder.anOutingEvent().withName("Event 2").withDescription("Descripcion Evento 2").withPrice(20).build();
-        OutingEvent oe3 = OutingEventBuilder.anOutingEvent().withName("Event 3").withDescription("Descripcion Evento 3").withPrice(100).build();
-        OutingEvent oe4 = OutingEventBuilder.anOutingEvent().withName("Event 4").withDescription("Descripcion Evento 4").withPrice(600).build();
+        OutingEvent oe1 = OutingEventBuilder.anOutingEvent().withName("Recital Indio Solari").withDescription("Misa India en Tandil").withPrice(800).withMaxAssistants(200000).withImage("https://www.brujulea.net/public/lugares/lugarpkgi58.jpg").build();
+        OutingEvent oe2 = OutingEventBuilder.anOutingEvent().withName("Fiesta Ochentosa").withDescription("Revivi los 80").withPrice(100).withMaxAssistants(200).withImage("https://www.brujulea.net/public/lugares/lugarpkgi58.jpg").build();
+        OutingEvent oe3 = OutingEventBuilder.anOutingEvent().withName("Oktober Fest").withDescription("Birritas!").withPrice(500).withMaxAssistants(300).withImage("https://www.brujulea.net/public/lugares/lugarpkgi58.jpg").build();
+        OutingEvent oe4 = OutingEventBuilder.anOutingEvent().withName("PaintBall").withDescription("Oferta de Paintball para 10 personas").withPrice(80).withMaxAssistants(10).withImage("https://www.brujulea.net/public/lugares/lugarpkgi58.jpg").build();
         save(oe1);
         save(oe2);
         save(oe3);
@@ -39,4 +44,12 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
         addressDAO.save(object.getAddress());
         super.update(object);
     }
+
+    @Transactional
+    public List<OutingEvent> searchEvents(OutingFilter filter) {
+        OutingEventDAO repo = (OutingEventDAO) getRepository();
+        return repo.findEvents(filter);
+    }
+
+
 }

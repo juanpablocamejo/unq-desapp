@@ -1,14 +1,15 @@
 angular
   .module('advApp')
   .controller('AuthCtrl', ['$scope', '$window', '$location', 'socialLoginService', '$rootScope', function ($scope, $window, $location, socialLoginService, $rootScope) {
+    function unauthorizedState() {
+      return !$rootScope.isUserSignedIn && $location.path() != "/" && $location.path() != "";
+    }
     $scope.checkLogin = function () {
-      if (!$rootScope.isUserSignedIn && $location.path() != '/' && $location.path() != '') {
+      if (unauthorizedState()) {
         $window.location.assign("/");
       }
     };
     $scope.logout = function () {
       socialLoginService.logout();
     };
-    if (!$scope.isUserSignedIn && $location.path() != "/" && $location.path() != "") $window.location.assign("/");
-
   }]);

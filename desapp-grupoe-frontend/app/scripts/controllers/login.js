@@ -1,6 +1,6 @@
 angular
   .module('advApp')
-  .controller('LoginCtrl', ['$scope', '$window', '$location', 'socialLoginService', '$rootScope', function ($scope, $window, $location, socialLoginService, $rootScope) {
+  .controller('LoginCtrl', ['$scope', '$window', '$rootScope', function ($scope, $window, $rootScope) {
     $scope.checkLogin = function () {
       if ($rootScope.isUserSignedIn) {
         $window.location.assign("/#/main");
