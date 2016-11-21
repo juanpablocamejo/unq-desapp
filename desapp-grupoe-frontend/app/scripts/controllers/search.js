@@ -11,7 +11,6 @@ angular.module('advApp')
     }
 
     $scope.searchAll = function () {
-      console.log($rootScope.currentStrategy);
       var qs = "?strategy=" + $rootScope.currentStrategy + "&user=" + $scope.user.id + "&assistants=" + $scope.cnt;
       API.resource('/events/search' + qs).query().$promise.then(
         function (events) {
@@ -26,7 +25,6 @@ angular.module('advApp')
           $scope.places = [];
         });
     };
-    console.log($rootScope.currentStrategy);
     API.getCurrentUser().then(
       function (usr) {
         $scope.user = usr;

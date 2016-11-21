@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('advApp')
-  .controller('MainCtrl', ['$rootScope', function ($rootScope) {
+  .controller('MainCtrl', ['$rootScope', '$window', '$timeout', '$scope', function ($rootScope, $window, $timeout, $scope) {
+
     var vm = this;
     vm.a_date = new Date();
     vm.goto = function (strategy, path) {
       $rootScope.currentStrategy = strategy.split('.')[1];
-      setTimeout(function () {
-        window.location.replace(path);
+      $timeout(function () {
+        $window.location.replace(path);
       }, 150);
     };
     vm.searchButtons = [{

@@ -46,5 +46,7 @@
   "search": "Buscar",
   "details": "Detalle",
   "events": "Eventos Sugeridos",
-  "places": "Lugares Sugeridos"
+  "places": "Lugares Sugeridos",
+  "add_friend_ok": "Amigo agregado correctamente",
+  "remove_friend_ok": "Amigo eliminado correctamente"
 }

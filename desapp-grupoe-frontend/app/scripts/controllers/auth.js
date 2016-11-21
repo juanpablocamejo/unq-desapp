@@ -1,15 +1,49 @@
-angular
-  .module('advApp')
-  .controller('AuthCtrl', ['$scope', '$window', '$location', 'socialLoginService', '$rootScope', function ($scope, $window, $location, socialLoginService, $rootScope) {
-    function unauthorizedState() {
-      return !$rootScope.isUserSignedIn && $location.path() != "/" && $location.path() != "";
-    }
-    $scope.checkLogin = function () {
-      if (unauthorizedState()) {
-        $window.location.assign("/");
-      }
-    };
+(function () {
+  'use strict';
+
+  angular
+    .module('advApp')
+    .value('current', {user: null})
+    .controller('AuthCtrl', authController);
+
+  authController.$inject = ['$scope', 'gauth', 'current', 'API', '$route'];
+
+  function authController($scope, gauth, current, API, $route) {
+    $scope.signedIn = {value: false};
+    gauth.addListener(function (res) {
+      API.getOrCreateUser(gauth.getCurrentState().user)
+        .then(function (usr) {
+          current.user = usr;
+          $scope.signedIn.value = res;
+        });
+    });
+
     $scope.logout = function () {
-      socialLoginService.logout();
+      gauth.logout().then(
+        function () {
+          $scope.signedIn.value = false;
+          current.user = null;
+        }
+      );
     };
-  }]);
+
+    $scope.login = function () {
+      gauth.login().then(
+        function (user) {
+          $scope.signedIn.value = true;
+          API.getOrCreateUser(user).then(
+            function (usr) {
+              current.user = usr;
+              $scope.signedIn.value = true;
+              $route.reload();
+            }
+          );
+
+        }
+      );
+    };
+  }
+})();
+
+
+

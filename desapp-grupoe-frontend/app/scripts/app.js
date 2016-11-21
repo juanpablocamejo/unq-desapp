@@ -19,7 +19,7 @@ angular
     'pascalprecht.translate',
     'tmh.dynamicLocale',
     'angular.filter',
-    'socialLogin',
+    'adv.gauth',
     'datatables'
   ])
   .config(function ($routeProvider) {
@@ -29,7 +29,7 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/main', {
+      .when('/#', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
@@ -63,27 +63,8 @@ angular
       .preferredLanguage('es');
     tmhDynamicLocaleProvider.localeLocationPattern('/i18n/angular-locale_{{locale}}.js');
   })
-  .config(function (socialProvider) {
-    socialProvider.setGoogleKey("1012008431025-usfsjk7vqtbe1qgksj60tuh7g32ntv31.apps.googleusercontent.com");
-  })
-  .run(function ($rootScope, $location, $window, API) {
-    $rootScope.$on('event:social-sign-in-success', function (event, user) {
-      $rootScope.isUserSignedIn = true;
-      $rootScope.googleUser = user;
-      API.getOrCreateUser();
-      $window.location.assign("/#main");
-    });
-
-    $rootScope.$on('event:social-sign-out-success', function () {
-      $rootScope.isUserSignedIn = false;
-      $rootScope.googleUser = null;
-      $window.location.assign("/");
-    });
-
-    $rootScope.$on('event:social-sign-state-changed', function (event, state) {
-      $rootScope.isUserSignedIn = state;
-      if (!$rootScope.isUserSignedIn && $location.path() != '/' && $location.path() != '') $window.location.assign("/");
-    });
+  .config(function (gauthProvider) {
+    gauthProvider.setGoogleKey("1012008431025-usfsjk7vqtbe1qgksj60tuh7g32ntv31.apps.googleusercontent.com");
   });
 
 /*global $*/
