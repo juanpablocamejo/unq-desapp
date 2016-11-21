@@ -53,3 +53,41 @@ NOTES:
 
 KNOWN ISSUES:
 *
+
+---------------------------------------------------------------------
+TAG ENTREGA 3.0
+---------------------------------------------------------------------
+NEW FEATURES:
+
+BACKEND
+* Strategyes implemented:
+	-Friends
+	-Couples
+	-Better Half
+	-Inexpensive.
+* Architecture Test: Services must have @Transactional notation.
+* Log4j integration with AOP.
+* Some validation. Ie: add / remove friends verify that user does / doesn´t have the friends on his list, and can´t add the user itselfs to his friend's list
+Assist on an event checks if the user does already mark to assist to the event.
+
+
+FRONTEND:
+* Grunt  integration.
+* Home Page
+* Profile Page (integrated with Google account) and the possibility to modify it.
+* Friends Page
+* Auth0 integration. Login with Google account.
+* Search events and places with Strategies implemented on backend.
+* Add/remove friend.
+
+
+NOTES:
+* Implementation of SaturdayNightFeverStrategy on next Release.
+* User attendance on outings not implemented yet.
+* Event/Places details not implemented yet on frontend.
+* Gmaps integration not implmented yet.
+* Pagination not implemented yet.
+
+KNOWN ISSUES:
+* The applications takes some time to brind the profile information when you logon.
+* Logging out does not work properly.
