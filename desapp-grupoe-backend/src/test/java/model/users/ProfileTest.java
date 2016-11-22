@@ -4,18 +4,20 @@ import model.tags.Tag;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import static model.builders.ProfileBuilder.anyProfile;
-import static model.builders.TagBuilder.anyTag;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ProfileTest {
 
     @Test
     public void addANewTagToTheListWorksOK() {
 
-        Tag tagMusic = anyTag().withName("Music").build();
-        Tag tagMovie = anyTag().withName("Movie").build();
+        Tag tagMusic = mock(Tag.class);
+        Tag tagMovie = mock(Tag.class);
 
         Profile profile = new Profile();
         profile.addTag(tagMusic);
@@ -28,8 +30,10 @@ public class ProfileTest {
     @Test
     public void removeAnExistingTagRemovesFromTheListOK() {
 
-        Tag tagMusic = anyTag().withName("Music").build();
-        Tag tagMovie = anyTag().withName("Movie").build();
+        Tag tagMusic = mock(Tag.class);
+        Tag tagMovie = mock(Tag.class);
+        when(tagMusic.getId()).thenReturn(1);
+        when(tagMovie.getId()).thenReturn(2);
 
         Profile profile = new Profile();
         profile.addTag(tagMusic);
@@ -60,20 +64,20 @@ public class ProfileTest {
     @Test
     public void testMergeProfilesResultingProfileTagsIsCalculatedCorrectly() {
 
-        Tag tag1 = anyTag().withName("Musica").build();
-        Tag tag2 = anyTag().withName("Pelicula").build();
-        Tag tag3 = anyTag().withName("Comida").build();
+        Tag musica = mock(Tag.class);
+        Tag pelicula = mock(Tag.class);
+        Tag comida = mock(Tag.class);
 
         ArrayList<Tag> tagsP1 = new ArrayList<>();
-        tagsP1.add(tag1);
-        tagsP1.add(tag2);
+        tagsP1.add(musica);
+        tagsP1.add(pelicula);
 
         ArrayList<Tag> tagsP2 = new ArrayList<>();
-        tagsP2.add(tag1);
-        tagsP2.add(tag3);
+        tagsP2.add(musica);
+        tagsP2.add(comida);
 
         ArrayList<Tag> tagsP3 = new ArrayList<>();
-        tagsP3.add(tag1);
+        tagsP3.add(musica);
 
 
         Profile profile1 = anyProfile().withTags(tagsP1).build();
@@ -87,8 +91,45 @@ public class ProfileTest {
 
         Profile profileToTest = Profile.mergeProfiles(profiles);
 
-        assertTrue(profileToTest.getTags().contains(tag1));
-        assertFalse(profileToTest.getTags().contains(tag2));
-        assertFalse(profileToTest.getTags().contains(tag3));
+        assertTrue(profileToTest.getTags().contains(musica));
+        assertFalse(profileToTest.getTags().contains(pelicula));
+        assertFalse(profileToTest.getTags().contains(comida));
+    }
+
+    @Test
+    public void testGetTagsOccurrenceCalculatesOK() {
+
+        Tag musica = mock(Tag.class);
+        Tag pelicula = mock(Tag.class);
+        Tag comida = mock(Tag.class);
+
+        ArrayList<Tag> tagsP1 = new ArrayList<>();
+        tagsP1.add(musica);
+        tagsP1.add(pelicula);
+
+        ArrayList<Tag> tagsP2 = new ArrayList<>();
+        tagsP2.add(musica);
+        tagsP2.add(comida);
+
+        ArrayList<Tag> tagsP3 = new ArrayList<>();
+        tagsP3.add(musica);
+        tagsP3.add(pelicula);
+
+        Profile profile1 = anyProfile().withTags(tagsP1).build();
+        Profile profile2 = anyProfile().withTags(tagsP2).build();
+        Profile profile3 = anyProfile().withTags(tagsP3).build();
+
+        ArrayList<Profile> profiles = new ArrayList<>();
+        profiles.add(profile1);
+        profiles.add(profile2);
+        profiles.add(profile3);
+
+        Hashtable<Tag, Integer> hash = new Hashtable<>();
+        hash.put(musica, 3);
+        hash.put(pelicula, 2);
+        hash.put(comida, 1);
+
+        assertEquals(Profile.getTagsOccurrence(profiles), hash);
+
     }
 }

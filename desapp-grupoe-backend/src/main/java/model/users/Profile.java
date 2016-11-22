@@ -9,13 +9,8 @@ import java.util.List;
 
 
 public class Profile extends Entity {
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
-
     private List<Tag> tags = new ArrayList<>();
     private double inexpensiveOutingLimit;
-
     public Profile() {
     }
 
@@ -39,7 +34,7 @@ public class Profile extends Entity {
         return quorumTags;
     }
 
-    private static Hashtable<Tag, Integer> getTagsOccurrence(List<Profile> profiles) {
+    public static Hashtable<Tag, Integer> getTagsOccurrence(List<Profile> profiles) {
         Hashtable<Tag, Integer> tagsOccurrence = new Hashtable<>();
         for (Profile profile : profiles) {
             for (Tag tag : profile.getTags()) {
@@ -51,19 +46,32 @@ public class Profile extends Entity {
     }
 
     public void addTag(Tag tag) {
-        if (!this.tags.contains(tag)) {
-            this.tags.add(tag);
+        boolean hasTag = false;
+        for (int i = 0; i < getTags().size(); i++) {
+            if (getTags().get(i).getId() == tag.getId()) {
+                hasTag = true;
+                break;
+            }
+        }
+        if (!hasTag) {
+            getTags().add(tag);
         }
     }
 
     public void removeTag(Tag tag) {
-        if (tags.contains(tag)) {
-            tags.remove(tag);
+        for (int i = 0; i < getTags().size(); i++) {
+            if (getTags().get(i).getId() == tag.getId()) {
+                getTags().remove(i);
+            }
         }
     }
 
     public List<Tag> getTags() {
         return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
     public double getInexpensiveOutingLimit() {

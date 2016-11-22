@@ -1,11 +1,11 @@
-package services.appservice;
+package services;
 
+import exceptions.EntityValidationException;
 import model.builders.outings.OutingEventBuilder;
 import model.outings.OutingEvent;
 import org.springframework.transaction.annotation.Transactional;
 import persistence.AddressDAO;
 import persistence.OutingEventDAO;
-import persistence.UserDAO;
 import persistence.strategies.OutingFilter;
 import services.initialization.Initializable;
 
@@ -24,7 +24,7 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
     }
 
     @Transactional
-    public void initialize() {
+    public void initialize() throws EntityValidationException {
         OutingEvent oe1 = OutingEventBuilder.anOutingEvent().withName("Recital Indio Solari").withDescription("Misa India en Tandil").withPrice(800).withMaxAssistants(200000).withImage("https://www.brujulea.net/public/lugares/lugarpkgi58.jpg").build();
         OutingEvent oe2 = OutingEventBuilder.anOutingEvent().withName("Fiesta Ochentosa").withDescription("Revivi los 80").withPrice(100).withMaxAssistants(200).withImage("https://www.brujulea.net/public/lugares/lugarpkgi58.jpg").build();
         OutingEvent oe3 = OutingEventBuilder.anOutingEvent().withName("Oktober Fest").withDescription("Birritas!").withPrice(500).withMaxAssistants(300).withImage("https://www.brujulea.net/public/lugares/lugarpkgi58.jpg").build();
@@ -37,7 +37,7 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
 
     @Override
     @Transactional
-    public void save(OutingEvent object) {
+    public void save(OutingEvent object) throws EntityValidationException {
         OutingEvent newOutingEvent = OutingEventBuilder.anOutingEvent().build();
         super.save(newOutingEvent);
         object.setId(newOutingEvent.getId());

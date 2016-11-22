@@ -1,7 +1,9 @@
 package rest;
 
-import org.eclipse.jetty.http.HttpStatus;
-import services.appservice.GenericService;
+import exceptions.EntityValidationException;
+import exceptions.RequestException;
+import exceptions.ResourceNotFoundException;
+import services.GenericService;
 
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -26,16 +28,21 @@ public class GenericRestService<T> {
     }
 
     public Response deleteById(int id) {
-        T object = service.findById(id);
-        if (object == null) {
-            return Response.ok("No se encontro la entidad con el id: " + id).status(HttpStatus.NOT_FOUND_404).build();
+        T object;
+        try {
+            object = service.findById(id);
+            if (object == null) {
+                throw new ResourceNotFoundException("Non existant entity with id " + id);
+            }
+            service.delete(object);
+            return Response.ok("Se elimino correctamente").build();
+        } catch (RequestException e) {
+            return e.getHttpResponse();
         }
-        service.delete(object);
-        return Response.ok("Se elimino correctamente").status(HttpStatus.OK_200).build();
     }
 
-    public Response create(T object) {
+    public void create(T object) throws EntityValidationException {
         service.save(object);
-        return Response.ok(object).status(HttpStatus.OK_200).build();
+
     }
 }

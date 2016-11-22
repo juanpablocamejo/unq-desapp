@@ -1,12 +1,8 @@
 package persistence;
 
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
-import persistence.strategies.IPlanningStrategy;
-import persistence.strategies.OutingFilter;
-import persistence.strategies.StrategyBuilder;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

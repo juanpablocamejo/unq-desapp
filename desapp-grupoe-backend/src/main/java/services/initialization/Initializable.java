@@ -1,6 +1,8 @@
 package services.initialization;
 
+import exceptions.EntityValidationException;
+
 public interface Initializable {
 
-    void initialize();
+    void initialize() throws EntityValidationException;
 }
