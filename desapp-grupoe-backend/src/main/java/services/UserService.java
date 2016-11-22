@@ -1,21 +1,33 @@
-package services.appservice;
+package services;
 
+import exceptions.EntityValidationException;
 import model.builders.ProfileBuilder;
 import model.builders.UserBuilder;
 import model.users.Profile;
 import model.users.User;
 import org.springframework.transaction.annotation.Transactional;
 import persistence.AddressDAO;
+import persistence.GenericRepository;
 import persistence.ProfileDAO;
 import persistence.UserDAO;
 import services.initialization.Initializable;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class UserService extends GenericService<User> implements Initializable {
 
     private AddressDAO addressDAO;
     private ProfileDAO profileDAO;
+
+    public UserService() {
+    }
+
+    public UserService(GenericRepository udao, AddressDAO aDao, ProfileDAO pDao) {
+        this.setRepository(udao);
+        this.addressDAO = aDao;
+        this.profileDAO = pDao;
+    }
 
     public AddressDAO getAddressDAO() {
         return addressDAO;
@@ -34,7 +46,7 @@ public class UserService extends GenericService<User> implements Initializable {
     }
 
     @Transactional
-    public void initialize() {
+    public void initialize() throws EntityValidationException {
         User tomas = UserBuilder.anyUser().withName("Tomas").withSurname("Perez").withEmail("tperez@gmail.com").withPriceLimit(50).withImage("https://organicthemes.com/demo/profile/files/2012/12/profile_img.png").build();
         User diego = UserBuilder.anyUser().withName("Diego").withSurname("Garcia").withEmail("dgarcia@gmail.com").withPriceLimit(200).withImage("https://organicthemes.com/demo/profile/files/2012/12/profile_img.png").build();
         save(tomas);
@@ -50,6 +62,10 @@ public class UserService extends GenericService<User> implements Initializable {
     @Override
     @Transactional
     public void save(User user) {
+        if (!(findByEmail(user.getEmail()) == null)) {
+            throw new EntityValidationException("User already exists with email " + user.getEmail());
+        }
+        validate(user);
         Profile newProfile = ProfileBuilder.anyProfile().build();
         profileDAO.save(newProfile);
         user.getProfile().setId(newProfile.getId());
@@ -61,15 +77,57 @@ public class UserService extends GenericService<User> implements Initializable {
         super.update(user);
     }
 
+    @Override
+    @Transactional
+    public void update(User user) {
+        validate(user);
+        super.update(user);
+    }
+
     @Transactional
     public User findByEmail(String email) {
+        if (!isMail(email)) {
+            throw new EntityValidationException("Invalid email...");
+        }
         UserDAO repo = (UserDAO) getRepository();
         return repo.findByEmail(email);
     }
 
     @Transactional
     public List<String> findByName(String name) {
+        if (!lettersOnly(name)) {
+            throw new EntityValidationException("Invalid name...");
+        }
         UserDAO repo = (UserDAO) getRepository();
         return repo.findByName(name);
+    }
+
+    private void validate(User user) {
+
+        if (!lettersOnly(user.getName())) {
+            throw new EntityValidationException("Invalid name...");
+        }
+        if (!lettersOnly(user.getSurname())) {
+            throw new EntityValidationException("Invalid surname...");
+        }
+
+        if (!isMail(user.getEmail())) {
+            throw new EntityValidationException("Invalid email...");
+        }
+
+        if (user.getProfile().getInexpensiveOutingLimit() < 0) {
+            throw new EntityValidationException("Invalid outing limit price...");
+        }
+    }
+
+    private boolean isMail(String text) {
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(text);
+        return m.matches();
+    }
+
+    private boolean lettersOnly(String text) {
+        return (Pattern.matches("^[A-Za-z\\s]+$", text.trim()));
     }
 }

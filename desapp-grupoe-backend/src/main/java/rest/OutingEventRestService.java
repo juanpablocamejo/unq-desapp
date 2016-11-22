@@ -1,5 +1,8 @@
 package rest;
 
+import exceptions.EntityValidationException;
+import exceptions.RequestException;
+import exceptions.ResourceNotFoundException;
 import model.builders.outings.OutingFilterBuilder;
 import model.locations.Address;
 import model.outings.OutingEvent;
@@ -9,9 +12,9 @@ import org.eclipse.jetty.http.HttpStatus;
 import org.joda.time.LocalDateTime;
 import persistence.strategies.OutingFilter;
 import rest.dto.OutingEventDTO;
-import services.appservice.OutingEventService;
-import services.appservice.TagService;
-import services.appservice.UserService;
+import services.OutingEventService;
+import services.TagService;
+import services.UserService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -38,18 +41,11 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
     @Produces("application/json")
     public List<OutingEventDTO> getEvents() {
         List<OutingEvent> outings = super.getAll();
-        List<OutingEventDTO> dtos = new ArrayList<>();
-
-        for (OutingEvent e : outings) {
-            dtos.add(toDTO(e));
-        }
-
-        return dtos;
+        return outings.stream().map(this::toDTO).collect(Collectors.toList());
     }
 
     @GET
     @Path("/search")
-    //"events/search?strategy=couples&user=2&date=23454643&assistants"
     @Produces("application/json")
     public Response findEvents(@QueryParam("strategy") String strategy,
                                @QueryParam("user") int user,
@@ -70,12 +66,15 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
     @Path("/{id}")
     @Produces("application/json")
     public Response findEventById(@PathParam("id") int id) {
-        OutingEvent obj = super.findById(id);
-        if (obj == null) {
-            return Response.ok("No se encontro la entidad con el id: " + id).status(HttpStatus.NOT_FOUND_404).build();
-        } else {
-            OutingEventDTO dto = toDTO(obj);
-            return Response.ok(dto).status(HttpStatus.OK_200).build();
+        OutingEvent event;
+        try {
+            event = super.findById(id);
+            if (event == null) {
+                throw new ResourceNotFoundException("No event with id " + id);
+            }
+            return Response.ok(toDTO(event)).build();
+        } catch (RequestException e) {
+            return e.getHttpResponse();
         }
     }
 
@@ -92,7 +91,13 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
     @Produces("application/json")
     public Response createEvent(OutingEventDTO dto) {
         OutingEvent event = fromDTO(dto);
-        return super.create(event);
+        try {
+            super.create(event);
+            return Response.ok(toDTO(event)).build();
+        } catch (EntityValidationException e) {
+            e.printStackTrace();
+            return Response.status(HttpStatus.UNPROCESSABLE_ENTITY_422).entity(e.getMessage()).build();
+        }
     }
 
     @PUT
@@ -100,50 +105,64 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
     @Consumes("application/json")
     @Produces("application/json")
     public Response updateEvent(OutingEventDTO dto) {
-        OutingEvent event = fromDTO(dto, service.findById(dto.getId()));
-        if (event == null) {
-            return Response.ok("No se puede actualizar el evento. Motivo: Evento inexistente").status(HttpStatus.NOT_FOUND_404).build();
+        OutingEvent event;
+        try {
+            event = fromDTO(dto, service.findById(dto.getId()));
+            if (event == null) {
+                throw new ResourceNotFoundException("Invalid event...");
+            }
+            service.update(event);
+            return Response.ok(toDTO(event)).build();
+        } catch (RequestException e) {
+            return e.getHttpResponse();
         }
-        service.update(event);
-        return Response.ok(toDTO(event)).status(HttpStatus.OK_200).build();
     }
 
     @PUT
     @Path("/{idPlace}/addAssistant/{idUser}")
     @Produces("application/json")
     public Response addAssistant(@PathParam("idPlace") int idEvent, @PathParam("idUser") int idUser) {
-        OutingEvent event = service.findById(idEvent);
-        User user = userService.findById(idUser);
-        if (event == null) {
-            return Response.ok("No existe un evento con el id: " + idEvent).status(HttpStatus.NOT_FOUND_404).build();
-        }
+        OutingEvent event;
+        User user;
+        try {
+            event = service.findById(idEvent);
+            user = userService.findById(idUser);
+            if (event == null) {
+                throw new ResourceNotFoundException("No outing event found with id " + idEvent);
+            }
 
-        if (user == null) {
-            return Response.ok("No existe un usuario con id: " + idUser).status(HttpStatus.NOT_FOUND_404).build();
+            if (user == null) {
+                throw new ResourceNotFoundException("No user found with id " + idUser);
+            }
+            event.addAssistant(user);
+            service.update(event);
+            return Response.ok(toDTO(event)).build();
+        } catch (RequestException e) {
+            return e.getHttpResponse();
         }
-
-        event.addAssistant(user);
-        service.update(event);
-        return Response.ok(toDTO(event)).status(HttpStatus.OK_200).build();
     }
 
     @PUT
     @Path("/{idPlace}/removeAssistant/{idUser}")
     @Produces("application/json")
     public Response removeAssistant(@PathParam("idPlace") int idEvent, @PathParam("idUser") int idUser) {
-        OutingEvent event = service.findById(idEvent);
-        User user = userService.findById(idUser);
-        if (event == null) {
-            return Response.ok("No existe un evento con el id: " + idEvent).status(HttpStatus.NOT_FOUND_404).build();
+        OutingEvent event;
+        User user;
+        try {
+            event = service.findById(idEvent);
+            user = userService.findById(idUser);
+            if (event == null) {
+                throw new ResourceNotFoundException("No outing place found with id " + idEvent);
+            }
+            if (user == null) {
+                throw new ResourceNotFoundException("No user found with id " + idUser);
+            }
+            event.removeAssistant(user);
+            service.update(event);
+            return Response.ok(toDTO(event)).build();
+        } catch (RequestException e) {
+            return e.getHttpResponse();
         }
-
-        if (user == null) {
-            return Response.ok("No existe un usuario con id: " + idUser).status(HttpStatus.NOT_FOUND_404).build();
-        }
-
-        event.removeAssistant(user);
-        service.update(event);
-        return Response.ok(toDTO(event)).status(HttpStatus.OK_200).build();
     }
 
     public OutingEventDTO toDTO(OutingEvent oe) {

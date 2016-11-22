@@ -121,7 +121,14 @@ public abstract class Outing extends Entity implements IPlanningResult {
     }
 
     public void addTag(Tag tag) {
-        if (!getTags().contains(tag)) {
+        boolean hasTag = false;
+        for (int i = 0; i < getTags().size(); i++) {
+            if (getTags().get(i).getId() == tag.getId()) {
+                hasTag = true;
+                break;
+            }
+        }
+        if (!hasTag) {
             getTags().add(tag);
         }
     }

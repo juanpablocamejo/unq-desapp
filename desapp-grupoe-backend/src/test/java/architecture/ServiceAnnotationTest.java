@@ -1,3 +1,5 @@
+package architecture;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.io.Resource;

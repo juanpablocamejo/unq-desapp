@@ -1,4 +1,4 @@
-package services.appservice;
+package services;
 
 import org.springframework.transaction.annotation.Transactional;
 import persistence.GenericRepository;

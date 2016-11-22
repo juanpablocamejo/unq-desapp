@@ -44,7 +44,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
 
     <!-- ======== User Services ========= -->
-    <bean id="userService" class="services.appservice.UserService">
+    <bean id="userService" class="services.UserService">
         <property name="repository" ref="userDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
         <property name="profileDAO" ref="profileDAO"/>
@@ -56,7 +56,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </bean>
 
     <!-- ======== Outing Event Services ========= -->
-    <bean id="outingEventService" class="services.appservice.OutingEventService">
+    <bean id="outingEventService" class="services.OutingEventService">
         <property name="repository" ref="outingEventDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
     </bean>
@@ -68,7 +68,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </bean>
 
     <!-- ======== Outing Place Services ========= -->
-    <bean id="outingPlaceService" class="services.appservice.OutingPlaceService">
+    <bean id="outingPlaceService" class="services.OutingPlaceService">
         <property name="repository" ref="outingPlaceDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
     </bean>
@@ -80,7 +80,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     </bean>
 
     <!-- ======== Tag Services ========= -->
-    <bean id="tagService" class="services.appservice.TagService">
+    <bean id="tagService" class="services.TagService">
         <property name="repository" ref="tagDAO"></property>
     </bean>
     <bean id="tagRest" class="rest.TagRestService">

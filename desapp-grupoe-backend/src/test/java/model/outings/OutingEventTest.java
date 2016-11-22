@@ -1,9 +1,9 @@
 package model.outings;
 
-import model.builders.TagBuilder;
 import model.builders.outings.OutingEventBuilder;
 import model.tags.Tag;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +14,13 @@ import static org.junit.Assert.assertTrue;
 public class OutingEventTest {
     @Test
     public void matchWithTagListReturnsOKWhenATagMatchWithOtherInTheOtherList() {
-
         List<Tag> tags = new ArrayList<>();
-        Tag tag1 = TagBuilder.anyTag().withName("Tag1").build();
-        Tag tag2 = TagBuilder.anyTag().withName("Tag2").build();
-        Tag tag3 = TagBuilder.anyTag().withName("Tag3").build();
-        Tag tag4 = TagBuilder.anyTag().withName("Tag4").build();
-        Tag tag5 = TagBuilder.anyTag().withName("Tag5").build();
+
+        Tag tag1 = Mockito.mock(Tag.class);
+        Tag tag2 = Mockito.mock(Tag.class);
+        Tag tag3 = Mockito.mock(Tag.class);
+        Tag tag4 = Mockito.mock(Tag.class);
+        Tag tag5 = Mockito.mock(Tag.class);
 
         tags.add(tag1);
         tags.add(tag2);
@@ -38,11 +38,11 @@ public class OutingEventTest {
     public void matchWithTagListFailsWhenCantMatchATagWithOtherInTheOtherList() {
 
         List<Tag> tags = new ArrayList<>();
-        Tag tag1 = TagBuilder.anyTag().withName("Tag1").build();
-        Tag tag2 = TagBuilder.anyTag().withName("Tag2").build();
-        Tag tag3 = TagBuilder.anyTag().withName("Tag3").build();
-        Tag tag4 = TagBuilder.anyTag().withName("Tag4").build();
-        Tag tag5 = TagBuilder.anyTag().withName("Tag5").build();
+        Tag tag1 = Mockito.mock(Tag.class);
+        Tag tag2 = Mockito.mock(Tag.class);
+        Tag tag3 = Mockito.mock(Tag.class);
+        Tag tag4 = Mockito.mock(Tag.class);
+        Tag tag5 = Mockito.mock(Tag.class);
 
         tags.add(tag1);
         tags.add(tag2);
@@ -54,5 +54,4 @@ public class OutingEventTest {
         assertFalse(oe.matchWith(tags));
 
     }
-
 }
