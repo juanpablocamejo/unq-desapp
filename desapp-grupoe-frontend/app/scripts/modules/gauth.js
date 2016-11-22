@@ -33,10 +33,10 @@
     };
 
     this.$get = gauthFactory;
-    gauthFactory.$inject = ['$q'];
+    gauthFactory.$inject = ['$q', '$http'];
 
     //service
-    function gauthFactory($q) {
+    function gauthFactory($q, $http) {
       var service = {
         getGoogleKey: _getGoogleKey,
         getCurrentState: _getCurrentState,
@@ -85,18 +85,30 @@
 
       function _logout() {
         var def = $q.defer();
-        authInstance()
-          .signOut()
-          .then(
-            function (res) {
-              logoutSuccess(res);
-              def.resolve(res);
-            },
-            function (res) {
-              logoutFail(res);
-              def.reject(res);
-            }
-          );
+        //authInstance()
+        var gElement = document.getElementById("gSignout");
+        if (typeof(gElement) != 'undefined' && gElement != null) {
+          gElement.remove();
+        }
+        var d = document;
+        var ref = d.getElementsByTagName('script')[0];
+        var gSignout = d.createElement('script');
+        gSignout.src = "https://accounts.google.com/Logout";
+        gSignout.type = "text/javascript";
+        gSignout.id = "gSignout";
+        ref.parentNode.insertBefore(gSignout, ref);
+        logoutSuccess();
+        def.resolve();
+        // .then(
+        //   function (res) {
+        //     logoutSuccess(res);
+        //     def.resolve(res);
+        //   },
+        //   function (res) {
+        //     logoutFail(res);
+        //     def.reject(res);
+        //   }
+        // );
 
         return def.promise;
       }

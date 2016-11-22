@@ -19,8 +19,7 @@ angular
     'pascalprecht.translate',
     'tmh.dynamicLocale',
     'angular.filter',
-    'adv.gauth',
-    'datatables'
+    'adv.gauth'
   ])
   .config(function ($routeProvider) {
     $routeProvider
