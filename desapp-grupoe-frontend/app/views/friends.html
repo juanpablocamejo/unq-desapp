@@ -3,13 +3,14 @@
   <div class="row section">
     <div input-field class="col s12 m6 l4">
       <label translate>buscar...</label>
-      <input type="text" ng-model="searchText" ng-change="search(searchText)"/>
+      <input type="text" ng-model="searchText" ng-change="search(searchText)"
+             ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1000, 'blur': 0 } }"/>
     </div>
     <div class="col s12 m7 l9">
       <table class="dtable striped">
         <tr ng-repeat="r in results">
           <td>{{r[1]}}</td>
-          <td><a href="" ng-click="addFriend(r[0])" class="btn right">agregar</a></td>
+          <td><a href="" ng-click="addFriend(r)" class="btn right">agregar</a></td>
         </tr>
       </table>
     </div>

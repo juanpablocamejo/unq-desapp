@@ -10,24 +10,24 @@
   <link rel="stylesheet" href="styles/main.3a6b9433.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body ng-controller="AuthCtrl" ng-init="checkLogin()"> <!--[if lte IE 8]>
+<body ng-controller="AuthCtrl" ng-gauth> <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
 <![endif]--> <!-- Add your site or application content here -->
 <header>
   <div class="navbar-fixed opacity-80">
     <nav>
-      <div class="nav-wrapper black"><a href="#/main/" class="brand-logo left" translate="title"></a>
-        <div class="container" ng-show="isUserSignedIn"><a href="#" data-activates="mobile-nav"
+      <div class="nav-wrapper black"><a href="#/" class="brand-logo left" translate="title"></a>
+        <div class="container" ng-show="signedIn.value"><a href="#" data-activates="mobile-nav"
                                                            class="button-collapse right hide-on-med-and-up"><i
           class="material-icons">menu</i></a></div>
-        <ul class="right hide-on-small-only" ng-show="isUserSignedIn">
+        <ul class="right hide-on-small-only" ng-show="signedIn.value">
           <li><a href="#/friends/" class="waves-effect waves-light" translate>friends</a></li>
           <li><a href="#/profile" class="waves-effect waves-light" translate>profile</a></li>
           <li><a href="#" class="waves-effect waves-light" ng-click="logout()" translate>logout</a></li>
         </ul>
-        <ul class="side-nav right" id="mobile-nav" ng-show="isUserSignedIn">
-          <li><a href="#/main/" class="waves-effect waves-light" translate>main</a></li>
+        <ul class="side-nav right" id="mobile-nav" ng-show="signedIn.value">
+          <li><a href="#/" class="waves-effect waves-light" translate>main</a></li>
           <li><a href="#/friends/" class="waves-effect waves-light" translate>friends</a></li>
           <li><a href="#/profile" class="waves-effect waves-light" translate>profile</a></li>
           <li><a href="#" class="waves-effect waves-light" ng-click="logout()" translate>logout</a></li>
@@ -35,14 +35,14 @@
       </div>
     </nav>
   </div>
-</header>
-<div ng-if="!isUserSignedIn" ng-controller="LoginCtrl" class="container center-align" ng-init="checkLogin()">
+</header> <!--<button ng-click="signedIn.value =!signedIn.value; ">toggle LoginState: {{signedIn.value}}</button>-->
+<div ng-if="!signedIn.value" ng-show="!signedIn.value" class="container center-align">
   <div class="row section" style="height:400px" ng-cloak translate-cloak><a class="btn red" style="margin-top:100px"
-                                                                            g-login
-                                                                            style="text-transform:none !important"><i
-    class="fa fa-google left"></i>{{"google_sign_in" | translate}}</a></div>
+                                                                            style="text-transform:none !important"
+                                                                            ng-click="login()"><span
+    translate="google_sign_in"></span><i class="fa fa-google left"></i></a></div>
 </div>
-<div class="container" ng-view="" ng-if="isUserSignedIn"></div>
+<div class="container" ng-view="" ng-if="signedIn.value"></div>
 <div ng-controller="LocaleCtrl" class="fixed-action-btn horizontal txt-shadow"><a
   class="btn-floating btn-large red opacity-80" title="{{'language' | translate}}"> <i
   class="material-icons">language</i> </a>
@@ -68,7 +68,7 @@
 
   ga('create', 'UA-XXXXX-X');
 ga('send', 'pageview');</script>
-<script src="scripts/vendor.b7e08376.js"></script>
-<script src="scripts/scripts.3dd84093.js"></script>
+<script src="scripts/vendor.faaebb2b.js"></script>
+<script src="scripts/scripts.8db54072.js"></script>
 </body>
 </html>

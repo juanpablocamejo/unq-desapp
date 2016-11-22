@@ -46,5 +46,7 @@
   "search": "Search",
   "details": "Details",
   "events": "Sugested Events",
-  "places": "Sugested Places"
+  "places": "Sugested Places",
+  "add_friend_ok": "Friend added successfully",
+  "remove_friend_ok": "Friend removed successfully"
 }

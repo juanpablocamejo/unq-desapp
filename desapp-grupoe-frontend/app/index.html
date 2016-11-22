@@ -24,7 +24,7 @@
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 </head>
 
-<body ng-controller="AuthCtrl" ng-init="checkLogin()">
+<body ng-controller="AuthCtrl" ng-gauth>
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
@@ -36,17 +36,17 @@
     <nav>
       <div class="nav-wrapper black">
 
-        <a href="#/main/" class="brand-logo left" translate="title"></a>
-        <div class="container" ng-show="isUserSignedIn">
+        <a href="#/" class="brand-logo left" translate="title"></a>
+        <div class="container" ng-show="signedIn.value">
       <a href="#" data-activates="mobile-nav" class="button-collapse right hide-on-med-and-up"><i class="material-icons">menu</i></a>
       </div>
-        <ul class="right hide-on-small-only" ng-show="isUserSignedIn">
+        <ul class="right hide-on-small-only" ng-show="signedIn.value">
           <li><a href="#/friends/" class="waves-effect waves-light" translate>friends</a></li>
         <li><a href="#/profile" class="waves-effect waves-light" translate>profile</a></li>
           <li><a href="#" class="waves-effect waves-light" ng-click="logout()" translate>logout</a></li>
       </ul>
-        <ul class="side-nav right" id="mobile-nav" ng-show="isUserSignedIn">
-          <li><a href="#/main/" class="waves-effect waves-light" translate>main</a></li>
+        <ul class="side-nav right" id="mobile-nav" ng-show="signedIn.value">
+          <li><a href="#/" class="waves-effect waves-light" translate>main</a></li>
           <li><a href="#/friends/" class="waves-effect waves-light" translate>friends</a></li>
         <li><a href="#/profile" class="waves-effect waves-light" translate>profile</a></li>
           <li><a href="#" class="waves-effect waves-light" ng-click="logout()" translate>logout</a></li>
@@ -56,13 +56,15 @@
   </nav>
   </div>
 </header>
-<div ng-if="!isUserSignedIn" ng-controller="LoginCtrl" class="container center-align" ng-init="checkLogin()">
+<!--<button ng-click="signedIn.value =!signedIn.value; ">toggle LoginState: {{signedIn.value}}</button>-->
+<div ng-if="!signedIn.value" ng-show="!signedIn.value" class="container center-align">
   <div class="row section" style="height:400px;" ng-cloak translate-cloak>
-    <a class="btn red" style="margin-top:100px;" g-login style="text-transform:none !important"><i
-      class="fa fa-google left"></i>{{"google_sign_in" | translate}}</a>
+
+    <a class="btn red" style="margin-top:100px;" style="text-transform:none !important" ng-click="login()"><span
+      translate="google_sign_in"></span><i class="fa fa-google left"></i></a>
   </div>
 </div>
-<div class="container" ng-view="" ng-if="isUserSignedIn">
+<div class="container" ng-view="" ng-if="signedIn.value">
 </div>
 <div ng-controller="LocaleCtrl" class="fixed-action-btn horizontal txt-shadow ">
   <a class="btn-floating btn-large red opacity-80" title="{{'language' | translate}}">
@@ -113,7 +115,6 @@
 <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
 <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
 <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
-<script src="bower_components/angularjs-social-login/angularjs-social-login.js"></script>
 <script src="bower_components/datatables.net/js/jquery.dataTables.js"></script>
 <script src="bower_components/datatables.net-responsive/js/dataTables.responsive.js"></script>
 <script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
@@ -129,14 +130,14 @@
 <script src="bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js"></script>
 <script src="bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.js"></script>
 <script src="bower_components/angular-datatables/dist/plugins/select/angular-datatables.select.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
-
+<script src="scripts/modules/gauth.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/auth.js"></script>
-<script src="scripts/controllers/login.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/profile.js"></script>
 <script src="scripts/controllers/friends.js"></script>
@@ -144,6 +145,7 @@
 <script src="scripts/controllers/i18n.js"></script>
 <script src="scripts/filters/money.js"></script>
 <script src="scripts/factories/api.js"></script>
+
 
 <!-- endbuild -->
 
