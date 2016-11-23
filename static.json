@@ -6,10 +6,5 @@
     "/api/": {
       "origin": "https://adondevamos.herokuapp.com/api"
     }
-  },
-    "headers": {
-    "/**": {
-      "Access-Control-Allow-Origin": "*"
-    }
   }
 }
