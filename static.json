@@ -1,6 +1,7 @@
 {
   "root": "desapp-grupoe-frontend/dist",
   "clean_urls": true,
+  "https_only": true,
   "proxies": {
     "/api/": {
       "origin": "https://adondevamos.herokuapp.com/api"
