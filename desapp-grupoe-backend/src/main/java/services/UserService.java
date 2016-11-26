@@ -54,9 +54,17 @@ public class UserService extends GenericService<User> implements Initializable {
         User esteban = UserBuilder.anyUser().withName("Esteban").withSurname("Schafir").withEmail("esteban.schafir@gmail.com").withPriceLimit(300).withFriend(tomas).withImage("https://organicthemes.com/demo/profile/files/2012/12/profile_img.png").build();
         User juan = UserBuilder.anyUser().withName("Juan Pablo").withSurname("Camejo").withEmail("jp.came@gmail.com").withPriceLimit(250).withImage("https://organicthemes.com/demo/profile/files/2012/12/profile_img.png").build();
         User lio = UserBuilder.anyUser().withName("Leonel").withSurname("Messi").withEmail("leomessi@gmail.com").withPriceLimit(50000).withFriend(esteban).withFriend(juan).withImage("https://s-media-cache-ak0.pinimg.com/736x/f6/f4/b7/f6f4b7430f8abe6ea809c9312525d5ed.jpg").build();
+        User jose = UserBuilder.anyUser().withName("Jose").withSurname("Gonzalez").withEmail("jgonzalez@gmail.com").withPriceLimit(1000).withFriend(diego).withFriend(tomas).withImage("https://organicthemes.com/demo/profile/files/2012/12/profile_img.png").build();
+        User marcelo = UserBuilder.anyUser().withName("Marcelo").withSurname("Sovich").withEmail("msovich@gmail.com").withPriceLimit(450).withImage("https://organicthemes.com/demo/profile/files/2012/12/profile_img.png").build();
+        User ana = UserBuilder.anyUser().withName("Ana").withSurname("Tamariz").withEmail("atamariz@gmail.com").withPriceLimit(800).withFriend(esteban).withImage("https://organicthemes.com/demo/profile/files/2012/12/profile_img.png").build();
+        User dai = UserBuilder.anyUser().withName("Dai").withSurname("Vernon").withEmail("daivernon@gmail.com").withPriceLimit(1000).withFriend(ana).withImage("https://organicthemes.com/demo/profile/files/2012/12/profile_img.png").build();
         save(esteban);
         save(juan);
         save(lio);
+        save(jose);
+        save(marcelo);
+        save(ana);
+        save(dai);
     }
 
     @Override

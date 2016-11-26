@@ -1,9 +1,10 @@
 package model.outings;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.*;
-import static model.builders.outings.OutingBuilder.anyOuting;
+import static org.mockito.Mockito.when;
 
 public class OutingPackTest {
 
@@ -16,9 +17,12 @@ public class OutingPackTest {
     @Test
     public void testGetPriceCalculateCorrectlyTheTotalPriceOfThePack() {
 
-        Outing outing1 = anyOuting().withPrice(5).build();
-        Outing outing2 = anyOuting().withPrice(6).build();
-        Outing outing3 = anyOuting().withPrice(8).build();
+        Outing outing1 = Mockito.mock(Outing.class);
+        Outing outing2 = Mockito.mock(Outing.class);
+        Outing outing3 = Mockito.mock(Outing.class);
+        when(outing1.getPrice()).thenReturn((double) 5);
+        when(outing2.getPrice()).thenReturn((double) 6);
+        when(outing3.getPrice()).thenReturn((double) 8);
 
         OutingPack packOfOutings = new OutingPack();
         packOfOutings.getOutings().add(outing1);
@@ -30,8 +34,10 @@ public class OutingPackTest {
 
     @Test
     public void testAddAnExistingOutingToTheListOfOutingsDoesntAddIt() {
-        Outing outing1 = anyOuting().build();
-        Outing outing2 = anyOuting().build();
+        Outing outing1 = Mockito.mock(Outing.class);
+        Outing outing2 = Mockito.mock(Outing.class);
+        when(outing1.getId()).thenReturn(1);
+        when(outing2.getId()).thenReturn(2);
 
         OutingPack packOfOutings = new OutingPack();
         packOfOutings.addOuting(outing1);
@@ -43,8 +49,10 @@ public class OutingPackTest {
 
     @Test
     public void testRemoveAnExistingOutingIsOK() {
-        Outing outing1 = anyOuting().build();
-        Outing outing2 = anyOuting().build();
+        Outing outing1 = Mockito.mock(Outing.class);
+        Outing outing2 = Mockito.mock(Outing.class);
+        when(outing1.getId()).thenReturn(1);
+        when(outing2.getId()).thenReturn(2);
 
         OutingPack packOfOutings = new OutingPack();
         packOfOutings.addOuting(outing1);
