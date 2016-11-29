@@ -36,6 +36,8 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         <jaxrs:providers>
             <ref bean="jaxbProvider"/>
             <ref bean="jacksonProvider"/>
+            <ref bean="jSonExceptionHandler"/>
+            <ref bean="requestExceptionHandler"/>
         </jaxrs:providers>
         <jaxrs:features>
             <cxf:logging/>
@@ -86,6 +88,10 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     <bean id="tagRest" class="rest.TagRestService">
         <property name="service" ref="tagService"/>
     </bean>
+
+    <bean id="jSonExceptionHandler" class="rest.errorHandler.JsonMappingExceptionHandler"></bean>
+    <bean id="requestExceptionHandler" class="rest.errorHandler.RequestExceptionHandler"></bean>
+
     <!-- ======== Initialize Services ========= -->
     <bean id="initialize" class="services.initialization.ServiceInitializer">
         <constructor-arg>

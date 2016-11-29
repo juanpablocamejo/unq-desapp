@@ -79,6 +79,9 @@ public class UserDTO extends Entity {
     }
 
     public void setInexpensiveOutingLimit(double inexpensiveOutingLimit) {
+
         this.inexpensiveOutingLimit = inexpensiveOutingLimit;
+
+
     }
 }

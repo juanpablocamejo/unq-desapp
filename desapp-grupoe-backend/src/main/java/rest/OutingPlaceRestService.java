@@ -1,6 +1,5 @@
 package rest;
 
-import exceptions.RequestException;
 import exceptions.ResourceNotFoundException;
 import model.builders.outings.OutingFilterBuilder;
 import model.locations.Address;
@@ -64,16 +63,11 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
     @Path("/{id}")
     @Produces("application/json")
     public Response findPlacesById(@PathParam("id") int id) {
-        OutingPlace place;
-        try {
-            place = super.findById(id);
-            if (place == null) {
-                throw new ResourceNotFoundException("No place with id " + id);
-            }
-            return Response.ok(toDTO(place)).build();
-        } catch (RequestException e) {
-            return e.getHttpResponse();
+        OutingPlace place = super.findById(id);
+        if (place == null) {
+            throw new ResourceNotFoundException("No place with id " + id);
         }
+        return Response.ok(toDTO(place)).build();
     }
 
     @DELETE
@@ -89,12 +83,8 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
     @Produces("application/json")
     public Response createPlace(OutingPlaceDTO dto) {
         OutingPlace place = fromDTO(dto);
-        try {
-            super.create(place);
-            return Response.ok(toDTO(place)).build();
-        } catch (RequestException e) {
-            return e.getHttpResponse();
-        }
+        super.create(place);
+        return Response.ok(toDTO(place)).build();
     }
 
     @PUT
@@ -102,61 +92,43 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
     @Consumes("application/json")
     @Produces("application/json")
     public Response updatePlace(OutingPlaceDTO dto) {
-        OutingPlace place;
-        try {
-            place = fromDTO(dto, service.findById(dto.getId()));
-            service.update(place);
-            return Response.ok(toDTO(place)).build();
-        } catch (RequestException e) {
-            return e.getHttpResponse();
-        }
+        OutingPlace place = fromDTO(dto, service.findById(dto.getId()));
+        service.update(place);
+        return Response.ok(toDTO(place)).build();
     }
 
     @PUT
     @Path("/{idPlace}/addAssistant/{idUser}")
     @Produces("application/json")
     public Response addAssistant(@PathParam("idPlace") int idPlace, @PathParam("idUser") int idUser) {
-        OutingPlace place;
-        User user;
-        try {
-            place = service.findById(idPlace);
-            user = userService.findById(idUser);
-            if (place == null) {
-                throw new ResourceNotFoundException("No outing place found with id " + idPlace);
-            }
-
-            if (user == null) {
-                throw new ResourceNotFoundException("No user found with id " + idUser);
-            }
-            place.addAssistant(user);
-            service.update(place);
-            return Response.ok(toDTO(place)).build();
-        } catch (RequestException e) {
-            return e.getHttpResponse();
+        OutingPlace place = service.findById(idPlace);
+        User user = userService.findById(idUser);
+        if (place == null) {
+            throw new ResourceNotFoundException("No outing place found with id " + idPlace);
         }
+        if (user == null) {
+            throw new ResourceNotFoundException("No user found with id " + idUser);
+        }
+        place.addAssistant(user);
+        service.update(place);
+        return Response.ok(toDTO(place)).build();
     }
 
     @PUT
     @Path("/{idPlace}/removeAssistant/{idUser}")
     @Produces("application/json")
     public Response removeAssistant(@PathParam("idPlace") int idPlace, @PathParam("idUser") int idUser) {
-        OutingPlace place;
-        User user;
-        try {
-            place = service.findById(idPlace);
-            user = userService.findById(idUser);
-            if (place == null) {
-                throw new ResourceNotFoundException("No outing place found with id " + idPlace);
-            }
-            if (user == null) {
-                throw new ResourceNotFoundException("No user found with id " + idUser);
-            }
-            place.removeAssistant(user);
-            service.update(place);
-            return Response.ok(toDTO(place)).build();
-        } catch (RequestException e) {
-            return e.getHttpResponse();
+        OutingPlace place = service.findById(idPlace);
+        User user = userService.findById(idUser);
+        if (place == null) {
+            throw new ResourceNotFoundException("No outing place found with id " + idPlace);
         }
+        if (user == null) {
+            throw new ResourceNotFoundException("No user found with id " + idUser);
+        }
+        place.removeAssistant(user);
+        service.update(place);
+        return Response.ok(toDTO(place)).build();
     }
 
     public OutingPlaceDTO toDTO(OutingPlace op) {

@@ -1,7 +1,6 @@
 package rest;
 
 import exceptions.EntityValidationException;
-import exceptions.RequestException;
 import exceptions.ResourceNotFoundException;
 import services.GenericService;
 
@@ -28,17 +27,12 @@ public class GenericRestService<T> {
     }
 
     public Response deleteById(int id) {
-        T object;
-        try {
-            object = service.findById(id);
-            if (object == null) {
-                throw new ResourceNotFoundException("Non existant entity with id " + id);
-            }
-            service.delete(object);
-            return Response.ok("Se elimino correctamente").build();
-        } catch (RequestException e) {
-            return e.getHttpResponse();
+        T object = service.findById(id);
+        if (object == null) {
+            throw new ResourceNotFoundException("Non existant entity with id " + id);
         }
+        service.delete(object);
+        return Response.ok("Se elimino correctamente").build();
     }
 
     public void create(T object) throws EntityValidationException {

@@ -1,14 +1,11 @@
 package rest;
 
-import exceptions.EntityValidationException;
-import exceptions.RequestException;
 import exceptions.ResourceNotFoundException;
 import model.builders.outings.OutingFilterBuilder;
 import model.locations.Address;
 import model.outings.OutingEvent;
 import model.tags.Tag;
 import model.users.User;
-import org.eclipse.jetty.http.HttpStatus;
 import org.joda.time.LocalDateTime;
 import persistence.strategies.OutingFilter;
 import rest.dto.OutingEventDTO;
@@ -66,16 +63,11 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
     @Path("/{id}")
     @Produces("application/json")
     public Response findEventById(@PathParam("id") int id) {
-        OutingEvent event;
-        try {
-            event = super.findById(id);
-            if (event == null) {
-                throw new ResourceNotFoundException("No event with id " + id);
-            }
-            return Response.ok(toDTO(event)).build();
-        } catch (RequestException e) {
-            return e.getHttpResponse();
+        OutingEvent event = super.findById(id);
+        if (event == null) {
+            throw new ResourceNotFoundException("No event with id " + id);
         }
+        return Response.ok(toDTO(event)).build();
     }
 
     @DELETE
@@ -91,13 +83,8 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
     @Produces("application/json")
     public Response createEvent(OutingEventDTO dto) {
         OutingEvent event = fromDTO(dto);
-        try {
-            super.create(event);
-            return Response.ok(toDTO(event)).build();
-        } catch (EntityValidationException e) {
-            e.printStackTrace();
-            return Response.status(HttpStatus.UNPROCESSABLE_ENTITY_422).entity(e.getMessage()).build();
-        }
+        super.create(event);
+        return Response.ok(toDTO(event)).build();
     }
 
     @PUT
@@ -105,64 +92,47 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
     @Consumes("application/json")
     @Produces("application/json")
     public Response updateEvent(OutingEventDTO dto) {
-        OutingEvent event;
-        try {
-            event = fromDTO(dto, service.findById(dto.getId()));
-            if (event == null) {
-                throw new ResourceNotFoundException("Invalid event...");
-            }
-            service.update(event);
-            return Response.ok(toDTO(event)).build();
-        } catch (RequestException e) {
-            return e.getHttpResponse();
+        OutingEvent event = fromDTO(dto, service.findById(dto.getId()));
+        if (event == null) {
+            throw new ResourceNotFoundException("Invalid event...");
         }
+        service.update(event);
+        return Response.ok(toDTO(event)).build();
     }
 
     @PUT
     @Path("/{idPlace}/addAssistant/{idUser}")
     @Produces("application/json")
     public Response addAssistant(@PathParam("idPlace") int idEvent, @PathParam("idUser") int idUser) {
-        OutingEvent event;
-        User user;
-        try {
-            event = service.findById(idEvent);
-            user = userService.findById(idUser);
-            if (event == null) {
-                throw new ResourceNotFoundException("No outing event found with id " + idEvent);
-            }
-
-            if (user == null) {
-                throw new ResourceNotFoundException("No user found with id " + idUser);
-            }
-            event.addAssistant(user);
-            service.update(event);
-            return Response.ok(toDTO(event)).build();
-        } catch (RequestException e) {
-            return e.getHttpResponse();
+        OutingEvent event = service.findById(idEvent);
+        User user = userService.findById(idUser);
+        if (event == null) {
+            throw new ResourceNotFoundException("No outing event found with id " + idEvent);
         }
+
+        if (user == null) {
+            throw new ResourceNotFoundException("No user found with id " + idUser);
+        }
+        event.addAssistant(user);
+        service.update(event);
+        return Response.ok(toDTO(event)).build();
     }
 
     @PUT
     @Path("/{idPlace}/removeAssistant/{idUser}")
     @Produces("application/json")
     public Response removeAssistant(@PathParam("idPlace") int idEvent, @PathParam("idUser") int idUser) {
-        OutingEvent event;
-        User user;
-        try {
-            event = service.findById(idEvent);
-            user = userService.findById(idUser);
-            if (event == null) {
-                throw new ResourceNotFoundException("No outing place found with id " + idEvent);
-            }
-            if (user == null) {
-                throw new ResourceNotFoundException("No user found with id " + idUser);
-            }
-            event.removeAssistant(user);
-            service.update(event);
-            return Response.ok(toDTO(event)).build();
-        } catch (RequestException e) {
-            return e.getHttpResponse();
+        OutingEvent event = service.findById(idEvent);
+        User user = userService.findById(idUser);
+        if (event == null) {
+            throw new ResourceNotFoundException("No outing place found with id " + idEvent);
         }
+        if (user == null) {
+            throw new ResourceNotFoundException("No user found with id " + idUser);
+        }
+        event.removeAssistant(user);
+        service.update(event);
+        return Response.ok(toDTO(event)).build();
     }
 
     public OutingEventDTO toDTO(OutingEvent oe) {
@@ -221,6 +191,4 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
 
         return o;
     }
-
-
 }
