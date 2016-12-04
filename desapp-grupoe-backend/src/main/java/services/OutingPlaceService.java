@@ -64,7 +64,8 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .build();
         OutingPlace sigalavaca = OutingPlaceBuilder.anOutingPlace()
                 .withName("Siga la vaca")
-                .withDescription("La historia de Siga La Vaca se remonta a 1993, cuando un grupo de emprendedores vinculados a la industria de la carne apostó al proyecto que, en poco más de una década, cambiaría para siempre la gastronomía argentina.").withPrice(100)
+                .withDescription("La historia de Siga La Vaca se remonta a 1993, cuando un grupo de emprendedores vinculados a la industria de la carne apostó al proyecto que, en poco más de una década, cambiaría para siempre la gastronomía argentina.")
+                .withPrice(100)
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
                 .withImage("/images/vaca.jpg")
                 .withAddress(new Address(new Coord(-34.61863, -58.3651501), "Puerto Madero"))
@@ -87,7 +88,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .build();
         OutingPlace luna = OutingPlaceBuilder.anOutingPlace()
                 .withName("Luna Park")
-                .withDescription("El Luna Park es el centro cultural más importante de nuestro país. Los más relevantes acontecimientos de los últimos 80 años pueden contarse repasando la historia de esta sala, actos religiosos, políticos, artísticos, deportivos y sociales forjaron su trayectoria.")
+                .withDescription("El palacio de los deportes.")
                 .withPrice(150)
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
                 .withImage("/images/luna.jpg")
