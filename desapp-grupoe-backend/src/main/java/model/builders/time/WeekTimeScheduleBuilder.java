@@ -1,6 +1,7 @@
 package model.builders.time;
 
 import model.time.DayTimeSchedule;
+import model.time.TimeSlot;
 import model.time.WeekTimeSchedule;
 
 import java.util.ArrayList;
@@ -25,6 +26,11 @@ public class WeekTimeScheduleBuilder {
 
     public WeekTimeScheduleBuilder withSchedules(List<DayTimeSchedule> list) {
         schedules = list;
+        return this;
+    }
+
+    public WeekTimeScheduleBuilder withDayAndTimeSlot(int day, TimeSlot t) {
+        schedules.add(new DayTimeSchedule(day, t));
         return this;
     }
 

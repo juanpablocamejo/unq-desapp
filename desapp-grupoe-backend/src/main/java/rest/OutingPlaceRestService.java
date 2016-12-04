@@ -149,7 +149,7 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
         List<Integer> tags = new ArrayList<>();
         op.getTags().parallelStream().forEach(t -> tags.add(t.getId()));
         dto.setTags(tags);
-        //dto.setWeekTimeSchedule(op.getWeekTimeSchedule().toString());
+        dto.setWeekTimeSchedule(op.getWeekTimeSchedule().toString());
         return dto;
     }
 

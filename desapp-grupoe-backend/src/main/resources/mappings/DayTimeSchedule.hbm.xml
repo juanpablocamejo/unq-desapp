@@ -11,7 +11,7 @@
         <list name="timeSlots" lazy="false">
             <key column="id"/>
             <list-index column="type"></list-index>
-            <one-to-many class="model.time.TimeSlot"/>
+            <many-to-many class="model.time.TimeSlot"/>
         </list>
     </class>
 </hibernate-mapping>
