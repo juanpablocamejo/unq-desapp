@@ -41,7 +41,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withDescription("Una de las pizzerias mas populares de Buenos Aires")
                 .withPrice(200)
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
-                .withImage("http://www.lamejorpizzeria.com/wp-content/uploads/2014/12/lascuartetas-1024x768.jpg")
+                .withImage("/images/cuartetas.jpg")
                 .withAddress(new Address(new Coord(-34.60375, -58.3785746), "Buenos Aires"))
                 .build();
 
@@ -50,7 +50,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withDescription("Restaurant popular de Puerto Madero")
                 .withPrice(600)
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
-                .withImage("https://www.fluidnetwork.co.uk/gfx/venues/22759/tgi_fridays_restaurant_london_westfield_mall_1.jpg")
+                .withImage("/images/tgi.jpg")
                 .withAddress(new Address(new Coord(-34.6095008, -58.3662253), "Buenos Aires"))
                 .build();
 
@@ -59,14 +59,14 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withDescription("Me encanta!")
                 .withPrice(150)
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
-                .withImage("https://yt3.ggpht.com/-avTHbIvvjKY/AAAAAAAAAAI/AAAAAAAAAAA/GtO4B-SrWkA/s900-c-k-no-mo-rj-c0xffffff/photo.jpg")
+                .withImage("/images/mc.jpg")
                 .withAddress(new Address(new Coord(-34.6038946, -58.3807468), "Microcentro"))
                 .build();
         OutingPlace sigalavaca = OutingPlaceBuilder.anOutingPlace()
                 .withName("Siga la vaca")
-                .withDescription("www.sigalavaca.com").withPrice(100)
+                .withDescription("La historia de Siga La Vaca se remonta a 1993, cuando un grupo de emprendedores vinculados a la industria de la carne apostó al proyecto que, en poco más de una década, cambiaría para siempre la gastronomía argentina.").withPrice(100)
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
-                .withImage("http://www.ediciona.com/portafolio/image/7/6/0/7/5_siga_la_vaca_7067.jpg")
+                .withImage("/images/vaca.jpg")
                 .withAddress(new Address(new Coord(-34.61863, -58.3651501), "Puerto Madero"))
                 .build();
         OutingPlace cinemark = OutingPlaceBuilder.anOutingPlace()
@@ -74,7 +74,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withDescription("Cines de Argentina")
                 .withPrice(85)
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
-                .withImage("https://lh4.ggpht.com/Ix-Qx3srvC-cRW6xzvHHpaoYhooj-54rfDGbHtIpaXvly2YK28eB4qNgEnIzyVM7zA=w300")
+                .withImage("/images/cine.png")
                 .withAddress(new Address(new Coord(-34.5864633, -58.410349), "Recoleta"))
                 .build();
         OutingPlace colon = OutingPlaceBuilder.anOutingPlace()
@@ -82,15 +82,15 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withDescription("El teatro mas emblematico de la Argentina")
                 .withPrice(150)
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
-                .withImage("http://disfrutemosba.buenosaires.gob.ar/imagenes/imagegallery/ce05-foto-exterior-nocturna-teatro-colon-copia.jpg")
+                .withImage("/images/colon.jpg")
                 .withAddress(new Address(new Coord(-34.6010406, -58.3830786), "Microcentro"))
                 .build();
         OutingPlace luna = OutingPlaceBuilder.anOutingPlace()
                 .withName("Luna Park")
-                .withDescription("Lugar para todo tipo de shows")
+                .withDescription("El Luna Park es el centro cultural más importante de nuestro país. Los más relevantes acontecimientos de los últimos 80 años pueden contarse repasando la historia de esta sala, actos religiosos, políticos, artísticos, deportivos y sociales forjaron su trayectoria.")
                 .withPrice(150)
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
-                .withImage("https://www.brujulea.net/public/lugares/lugarpkgi58.jpg")
+                .withImage("/images/luna.jpg")
                 .withAddress(new Address(new Coord(-34.6023061, -58.3687473), "Retiro"))
                 .build();
         OutingPlace carrefour = OutingPlaceBuilder.anOutingPlace()
@@ -98,7 +98,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withDescription("El mejor precio garantizado")
                 .withPrice(150)
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
-                .withImage("http://voxpopuli.com.ar/site/wp-content/uploads/2016/04/acaca.png")
+                .withImage("/images/carre4.png")
                 .withAddress(new Address(new Coord(-34.5888012, -58.4005737), "Recoleta"))
                 .build();
         save(cuartetas);
