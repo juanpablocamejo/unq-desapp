@@ -9,6 +9,7 @@ import model.outings.OutingPlace;
 import org.springframework.transaction.annotation.Transactional;
 import persistence.AddressDAO;
 import persistence.OutingPlaceDAO;
+import persistence.WeekTimeScheduleDAO;
 import persistence.strategies.OutingFilter;
 import services.initialization.Initializable;
 
@@ -18,6 +19,7 @@ import java.util.regex.Pattern;
 public class OutingPlaceService extends GenericService<OutingPlace> implements Initializable {
 
     private AddressDAO addressDAO;
+    private WeekTimeScheduleDAO weekTimeScheduleDAO;
 
     public AddressDAO getAddressDAO() {
         return addressDAO;
@@ -27,6 +29,13 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
         this.addressDAO = addressDAO;
     }
 
+    public WeekTimeScheduleDAO getWeekTimeScheduleDAO() {
+        return weekTimeScheduleDAO;
+    }
+
+    public void setWeekTimeScheduleDAO(WeekTimeScheduleDAO weekTimeScheduleDAO) {
+        this.weekTimeScheduleDAO = weekTimeScheduleDAO;
+    }
 
     @Transactional
     public void initialize() throws EntityValidationException {
@@ -116,6 +125,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
         super.save(newOutingPlace);
         place.setId(newOutingPlace.getId());
         addressDAO.save(place.getAddress());
+        weekTimeScheduleDAO.save(place.getWeekTimeSchedule());
         super.update(place);
     }
 

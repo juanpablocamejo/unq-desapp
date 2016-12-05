@@ -30,12 +30,12 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
     public void initialize() throws EntityValidationException {
         OutingEvent indio = OutingEventBuilder.anOutingEvent()
                 .withName("Recital Indio Solari")
-                .withDescription("Misa India en Tandil")
+                .withDescription("Misa India en Olavarria")
                 .withPrice(800)
                 .withMaxAssistants(200000)
                 .withImage("/images/indio.jpg")
-                .withAddress(new Address(new Coord(-37.3021237, -59.1132899), "Tandil"))
-                .withStartDateTime(new LocalDateTime("2016-03-12"))
+                .withAddress(new Address(new Coord(-36.8937167, -60.3233499), "Olavarria"))
+                .withStartDateTime(new LocalDateTime("2017-03-11"))
                 .build();
         OutingEvent ochentoso = OutingEventBuilder.anOutingEvent()
                 .withName("Fiesta Ochentosa")

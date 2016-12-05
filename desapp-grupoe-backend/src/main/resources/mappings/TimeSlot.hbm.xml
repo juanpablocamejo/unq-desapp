@@ -7,7 +7,7 @@
         <id column="ID" name="id">
             <generator class="native"/>
         </id>
-        <property name="start"/>
-        <property name="end"/>
+        <property name="start" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate"/>
+        <property name="end" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate"/>
     </class>
 </hibernate-mapping>
