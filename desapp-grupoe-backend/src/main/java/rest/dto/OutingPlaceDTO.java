@@ -15,7 +15,7 @@ public class OutingPlaceDTO extends Entity {
     private List<String> assistants = new ArrayList<>();
     private int maxAssistants;
     private double price;
-    //private String weekTimeSchedule;
+    private String weekTimeSchedule;
 
     public OutingPlaceDTO() {
     }
@@ -84,11 +84,11 @@ public class OutingPlaceDTO extends Entity {
         this.price = price;
     }
 
-    /*public String getWeekTimeSchedule() {
+    public String getWeekTimeSchedule() {
         return weekTimeSchedule;
     }
 
     public void setWeekTimeSchedule(String weekTimeSchedule) {
         this.weekTimeSchedule = weekTimeSchedule;
-    }*/
+    }
 }

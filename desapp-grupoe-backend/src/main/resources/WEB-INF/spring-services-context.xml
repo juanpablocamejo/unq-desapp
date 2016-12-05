@@ -73,6 +73,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     <bean id="outingPlaceService" class="services.OutingPlaceService">
         <property name="repository" ref="outingPlaceDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
+        <property name="weekTimeScheduleDAO" ref="weekDAO"/>
     </bean>
 
     <bean id="outingPlaceRest" class="rest.OutingPlaceRestService">

@@ -58,4 +58,6 @@ public class OutingPlace extends Outing implements IPlanningResult {
     public void setWeekTimeSchedule(WeekTimeSchedule weekTimeSchedule) {
         this.weekTimeSchedule = weekTimeSchedule;
     }
+
+
 }
