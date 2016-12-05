@@ -48,6 +48,7 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withAddress(new Address(new Coord(-36.8937167, -60.3233499), "Olavarria"))
                 .withStartDateTime(new LocalDateTime("2017-03-11"))
                 .withTag(tagDAO.findById(24))
+                .withTag(tagDAO.findById(23))
                 .build();
         OutingEvent ochentoso = OutingEventBuilder.anOutingEvent()
                 .withName("Fiesta Ochentosa")
@@ -59,6 +60,7 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withStartDateTime(new LocalDateTime("2017-01-07"))
                 .withTag(tagDAO.findById(24))
                 .withTag(tagDAO.findById(23))
+                .withTag(tagDAO.findById(22))
                 .build();
         OutingEvent oktober = OutingEventBuilder.anOutingEvent()
                 .withName("Oktober Fest")
@@ -67,6 +69,8 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withMaxAssistants(300)
                 .withImage("/images/oktober.jpg")
                 .withAddress(new Address(new Coord(-34.570165, -58.396094), "Costa Salguero"))
+                .withTag(tagDAO.findById(23))
+                .withTag(tagDAO.findById(22))
                 .withStartDateTime(new LocalDateTime("2016-10-08"))
                 .build();
         OutingEvent paintBall = OutingEventBuilder.anOutingEvent()
@@ -86,6 +90,8 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withImage("/images/comiccon.png")
                 .withAddress(new Address(new Coord(-34.570165, -58.396094), "Costa Salguero"))
                 .withStartDateTime(new LocalDateTime("2016-12-10"))
+                .withTag(tagDAO.findById(23))
+                .withTag(tagDAO.findById(24))
                 .build();
         OutingEvent gameAwards = OutingEventBuilder.anOutingEvent()
                 .withName("Game Awards 2016")
@@ -94,6 +100,7 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withImage("/images/game.jpg")
                 .withAddress(new Address(new Coord(-34.6065844, -58.4105916), "CABA"))
                 .withStartDateTime(new LocalDateTime("2016-12-27"))
+                .withTag(tagDAO.findById(23))
                 .build();
         OutingEvent chori = OutingEventBuilder.anOutingEvent()
                 .withName("Choripateada UNQ")
@@ -102,6 +109,8 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withImage("/images/chori.jpg")
                 .withAddress(new Address(new Coord(-34.5848217, -58.393176), "Recoleta"))
                 .withStartDateTime(new LocalDateTime("2016-12-28"))
+                .withTag(tagDAO.findById(23))
+                .withTag(tagDAO.findById(24))
                 .build();
         OutingEvent feria = OutingEventBuilder.anOutingEvent()
                 .withName("Feria americana")
@@ -111,6 +120,7 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withImage("/images/feria.jpg")
                 .withAddress(new Address(new Coord(-34.6277849, -58.3806365), "Constitucion"))
                 .withStartDateTime(new LocalDateTime("2017-01-05"))
+                .withTag(tagDAO.findById(23))
                 .build();
         OutingEvent partido = OutingEventBuilder.anOutingEvent()
                 .withName("Partido de futbol")
@@ -137,6 +147,7 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withImage("/images/disfraces.jpg")
                 .withAddress(new Address(new Coord(-34.610465, -58.3636987), "Puerto Madero"))
                 .withStartDateTime(new LocalDateTime("2017-02-15"))
+                .withTag(tagDAO.findById(23))
                 .build();
 
         save(indio);

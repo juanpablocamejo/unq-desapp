@@ -82,6 +82,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
                 .withImage("/images/vaca.jpg")
                 .withAddress(new Address(new Coord(-34.61863, -58.3651501), "Puerto Madero"))
+                .withTag(tagDAO.findById(23))
                 .build();
         OutingPlace cinemark = OutingPlaceBuilder.anOutingPlace()
                 .withName("Cinemark")
@@ -99,6 +100,8 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
                 .withImage("/images/colon.jpg")
                 .withAddress(new Address(new Coord(-34.6010406, -58.3830786), "Microcentro"))
+                .withTag(tagDAO.findById(23))
+                .withTag(tagDAO.findById(22))
                 .build();
         OutingPlace planetario = OutingPlaceBuilder.anOutingPlace()
                 .withName("Planetario")
@@ -107,6 +110,8 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
                 .withImage("/images/planetario.jpg")
                 .withAddress(new Address(new Coord(-34.569722, -58.411667), "Palermo"))
+                .withTag(tagDAO.findById(23))
+                .withTag(tagDAO.findById(22))
                 .build();
         OutingPlace granRex = OutingPlaceBuilder.anOutingPlace()
                 .withName("Gran Rex")
@@ -115,6 +120,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
                 .withImage("/images/rex.jpg")
                 .withAddress(new Address(new Coord(-34.6033, -58.3789), "CABA"))
+                .withTag(tagDAO.findById(22))
                 .build();
         save(cuartetas);
         save(tgiFridays);
