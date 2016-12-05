@@ -32,9 +32,10 @@ public abstract class BasicSearchStrategy implements IPlanningStrategy {
 
     @Override
     public Query getPlacesQuery(OutingFilter filter) {
-        String hql = "select op from OutingPlace op join op.tags tag where tag.name = :tagName and  oe.maxAssistants >= 4 * :assistants";
+        String hql = "select op from OutingPlace op join op.tags tag where tag.name = :tagName and  op.maxAssistants >= 4 * :assistants";
         Query query = dao.getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(hql);
         query.setParameter("tagName", filter.getStrategy());
+        query.setParameter("assistants", filter.getAssistants());
         return query;
     }
 

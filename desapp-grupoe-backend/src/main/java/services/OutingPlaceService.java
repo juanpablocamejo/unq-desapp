@@ -53,6 +53,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withTag(tagDAO.findById(24))
                 .withTag(tagDAO.findById(23))
                 .withTag(tagDAO.findById(12))
+                .withMaxAssistants(200)
                 .build();
 
         OutingPlace tgiFridays = OutingPlaceBuilder.anOutingPlace()
@@ -64,6 +65,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withAddress(new Address(new Coord(-34.6095008, -58.3662253), "Buenos Aires"))
                 .withTag(tagDAO.findById(24))
                 .withTag(tagDAO.findById(23))
+                .withMaxAssistants(200)
                 .build();
 
         OutingPlace mcdonalds = OutingPlaceBuilder.anOutingPlace()
@@ -74,6 +76,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withImage("/images/mc.jpg")
                 .withAddress(new Address(new Coord(-34.6038946, -58.3807468), "Microcentro"))
                 .withTag(tagDAO.findById(23))
+                .withMaxAssistants(200)
                 .build();
         OutingPlace sigalavaca = OutingPlaceBuilder.anOutingPlace()
                 .withName("Siga la vaca")
@@ -83,6 +86,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withImage("/images/vaca.jpg")
                 .withAddress(new Address(new Coord(-34.61863, -58.3651501), "Puerto Madero"))
                 .withTag(tagDAO.findById(23))
+                .withMaxAssistants(200)
                 .build();
         OutingPlace cinemark = OutingPlaceBuilder.anOutingPlace()
                 .withName("Cinemark")
@@ -92,6 +96,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withImage("/images/cine.png")
                 .withAddress(new Address(new Coord(-34.5864633, -58.410349), "Recoleta"))
                 .withTag(tagDAO.findById(22))
+                .withMaxAssistants(100)
                 .build();
         OutingPlace colon = OutingPlaceBuilder.anOutingPlace()
                 .withName("Teatro Colon")
@@ -102,6 +107,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withAddress(new Address(new Coord(-34.6010406, -58.3830786), "Microcentro"))
                 .withTag(tagDAO.findById(23))
                 .withTag(tagDAO.findById(22))
+                .withMaxAssistants(1000)
                 .build();
         OutingPlace planetario = OutingPlaceBuilder.anOutingPlace()
                 .withName("Planetario")
@@ -112,6 +118,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withAddress(new Address(new Coord(-34.569722, -58.411667), "Palermo"))
                 .withTag(tagDAO.findById(23))
                 .withTag(tagDAO.findById(22))
+                .withMaxAssistants(200)
                 .build();
         OutingPlace granRex = OutingPlaceBuilder.anOutingPlace()
                 .withName("Gran Rex")
@@ -121,6 +128,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withImage("/images/rex.jpg")
                 .withAddress(new Address(new Coord(-34.6033, -58.3789), "CABA"))
                 .withTag(tagDAO.findById(22))
+                .withMaxAssistants(500)
                 .build();
         save(cuartetas);
         save(tgiFridays);
