@@ -9,6 +9,7 @@ import model.outings.OutingPlace;
 import org.springframework.transaction.annotation.Transactional;
 import persistence.AddressDAO;
 import persistence.OutingPlaceDAO;
+import persistence.TagDAO;
 import persistence.WeekTimeScheduleDAO;
 import persistence.strategies.OutingFilter;
 import services.initialization.Initializable;
@@ -19,7 +20,15 @@ import java.util.regex.Pattern;
 public class OutingPlaceService extends GenericService<OutingPlace> implements Initializable {
 
     private AddressDAO addressDAO;
-    private WeekTimeScheduleDAO weekTimeScheduleDAO;
+    private TagDAO tagDAO;
+
+    public TagDAO getTagDAO() {
+        return tagDAO;
+    }
+
+    public void setTagDAO(TagDAO tagDAO) {
+        this.tagDAO = tagDAO;
+    }
 
     public AddressDAO getAddressDAO() {
         return addressDAO;
@@ -29,13 +38,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
         this.addressDAO = addressDAO;
     }
 
-    public WeekTimeScheduleDAO getWeekTimeScheduleDAO() {
-        return weekTimeScheduleDAO;
-    }
 
-    public void setWeekTimeScheduleDAO(WeekTimeScheduleDAO weekTimeScheduleDAO) {
-        this.weekTimeScheduleDAO = weekTimeScheduleDAO;
-    }
 
     @Transactional
     public void initialize() throws EntityValidationException {
@@ -47,7 +50,9 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
                 .withImage("/images/cuartetas.jpg")
                 .withAddress(new Address(new Coord(-34.60375, -58.3785746), "Buenos Aires"))
-                //.withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().withDayAndTimeSlot(1, TimeSlotBuilder.anyTimeSlot().withStart(LocalTime.MIDNIGHT).build()).build())
+                .withTag(tagDAO.findById(24))
+                .withTag(tagDAO.findById(23))
+                .withTag(tagDAO.findById(12))
                 .build();
 
         OutingPlace tgiFridays = OutingPlaceBuilder.anOutingPlace()
@@ -57,6 +62,8 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
                 .withImage("/images/tgi.jpg")
                 .withAddress(new Address(new Coord(-34.6095008, -58.3662253), "Buenos Aires"))
+                .withTag(tagDAO.findById(24))
+                .withTag(tagDAO.findById(23))
                 .build();
 
         OutingPlace mcdonalds = OutingPlaceBuilder.anOutingPlace()
@@ -66,6 +73,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
                 .withImage("/images/mc.jpg")
                 .withAddress(new Address(new Coord(-34.6038946, -58.3807468), "Microcentro"))
+                .withTag(tagDAO.findById(23))
                 .build();
         OutingPlace sigalavaca = OutingPlaceBuilder.anOutingPlace()
                 .withName("Siga la vaca")
@@ -82,6 +90,7 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
                 .withWeekTimeSchedule(WeekTimeScheduleBuilder.anyWeekTimeSchedule().build())
                 .withImage("/images/cine.png")
                 .withAddress(new Address(new Coord(-34.5864633, -58.410349), "Recoleta"))
+                .withTag(tagDAO.findById(22))
                 .build();
         OutingPlace colon = OutingPlaceBuilder.anOutingPlace()
                 .withName("Teatro Colon")
@@ -125,7 +134,6 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
         super.save(newOutingPlace);
         place.setId(newOutingPlace.getId());
         addressDAO.save(place.getAddress());
-        weekTimeScheduleDAO.save(place.getWeekTimeSchedule());
         super.update(place);
     }
 

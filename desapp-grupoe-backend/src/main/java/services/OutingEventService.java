@@ -5,10 +5,12 @@ import model.builders.outings.OutingEventBuilder;
 import model.locations.Address;
 import model.locations.Coord;
 import model.outings.OutingEvent;
+import model.tags.Tag;
 import org.joda.time.LocalDateTime;
 import org.springframework.transaction.annotation.Transactional;
 import persistence.AddressDAO;
 import persistence.OutingEventDAO;
+import persistence.TagDAO;
 import persistence.strategies.OutingFilter;
 import services.initialization.Initializable;
 
@@ -17,6 +19,15 @@ import java.util.List;
 public class OutingEventService extends GenericService<OutingEvent> implements Initializable {
 
     private AddressDAO addressDAO;
+    private TagDAO tagDAO;
+
+    public TagDAO getTagDAO() {
+        return tagDAO;
+    }
+
+    public void setTagDAO(TagDAO tagDAO) {
+        this.tagDAO = tagDAO;
+    }
 
     public AddressDAO getAddressDAO() {
         return addressDAO;
@@ -36,6 +47,7 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withImage("/images/indio.jpg")
                 .withAddress(new Address(new Coord(-36.8937167, -60.3233499), "Olavarria"))
                 .withStartDateTime(new LocalDateTime("2017-03-11"))
+                .withTag(tagDAO.findById(24))
                 .build();
         OutingEvent ochentoso = OutingEventBuilder.anOutingEvent()
                 .withName("Fiesta Ochentosa")
@@ -45,6 +57,8 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withImage("/images/ochentoso.jpg")
                 .withAddress(new Address(new Coord(-34.585951, -58.434559), "Palermo"))
                 .withStartDateTime(new LocalDateTime("2017-01-07"))
+                .withTag(tagDAO.findById(24))
+                .withTag(tagDAO.findById(23))
                 .build();
         OutingEvent oktober = OutingEventBuilder.anOutingEvent()
                 .withName("Oktober Fest")
@@ -62,6 +76,8 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
                 .withImage("/images/paintball.jpg")
                 .withAddress(new Address(new Coord(-34.5343855, -58.4510147), "Ezeiza"))
                 .withStartDateTime(new LocalDateTime("2016-12-12"))
+                .withTag(tagDAO.findById(24))
+                .withTag(tagDAO.findById(23))
                 .build();
         OutingEvent comicCon = OutingEventBuilder.anOutingEvent()
                 .withName("ComicCon 2016")
@@ -143,6 +159,7 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
         super.save(newOutingEvent);
         object.setId(newOutingEvent.getId());
         addressDAO.save(object.getAddress());
+
         super.update(object);
     }
 

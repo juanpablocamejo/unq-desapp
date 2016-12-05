@@ -61,6 +61,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     <bean id="outingEventService" class="services.OutingEventService">
         <property name="repository" ref="outingEventDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
+        <property name="tagDAO" ref="tagDAO"/>
     </bean>
 
     <bean id="outingEventRest" class="rest.OutingEventRestService">
@@ -73,7 +74,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     <bean id="outingPlaceService" class="services.OutingPlaceService">
         <property name="repository" ref="outingPlaceDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
-        <property name="weekTimeScheduleDAO" ref="weekDAO"/>
+        <property name="tagDAO" ref="tagDAO"/>
     </bean>
 
     <bean id="outingPlaceRest" class="rest.OutingPlaceRestService">
@@ -97,10 +98,10 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     <bean id="initialize" class="services.initialization.ServiceInitializer">
         <constructor-arg>
             <list>
+                <ref bean="tagService"></ref>
                 <ref bean="userService"></ref>
                 <ref bean="outingEventService"></ref>
                 <ref bean="outingPlaceService"></ref>
-                <ref bean="tagService"></ref>
             </list>
         </constructor-arg>
     </bean>
