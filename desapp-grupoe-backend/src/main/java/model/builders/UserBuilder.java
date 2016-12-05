@@ -1,6 +1,7 @@
 package model.builders;
 
 import model.locations.Address;
+import model.tags.Tag;
 import model.users.Profile;
 import model.users.User;
 
@@ -68,6 +69,11 @@ public class UserBuilder {
 
     public UserBuilder withFriend(User f) {
         friends.add(f);
+        return this;
+    }
+
+    public UserBuilder withTag(Tag t) {
+        profile.addTag(t);
         return this;
     }
 

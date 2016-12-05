@@ -50,6 +50,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
         <property name="repository" ref="userDAO"/>
         <property name="addressDAO" ref="addressDAO"/>
         <property name="profileDAO" ref="profileDAO"/>
+        <property name="tagDAO" ref="tagDAO"/>
     </bean>
 
     <bean id="userRest" class="rest.UserRestService">
