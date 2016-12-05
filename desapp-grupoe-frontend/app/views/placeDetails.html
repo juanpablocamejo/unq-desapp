@@ -1,0 +1,38 @@
+<div class="card-panel">
+  <div class="row">
+    <div class="col s12 ">
+      <a href="" ng-click="backToSearch()" class="black-text"><i class="material-icons right">close</i></a>
+    </div>
+    <div class="col s12 m8 l9">
+
+      <h5>
+        <i class="fa fa-map-marker left" aria-hidden="true"></i>
+        <strong>{{place.name}}</strong></h5>
+    </div>
+    <div class="col s12 m4 l3" style="margin-top:10px">
+      <div class="flow-text">
+        <input id="assistance" type="checkbox" ng-model="is_assistant" ng-change="toggleAssistance()"/>
+        <label for="assistance">Asistiré</label>
+      </div>
+    </div>
+
+  </div>
+  <div class="row section">
+    <div class="col s12 m6">
+      <p class="flow-text">{{place.description}}</p>
+    </div>
+    <div class="col s12 m6" style="height:300px">
+      <img class="responsive-img outingImage" src="{{place.image}}" style="width:450px"/>
+    </div>
+  </div>
+  <div class="row section">
+    <div class="col s12">
+      <div map-lazy-load map-lazy-load-params="{{gmaps.url}}">
+        <ng-map zoom="{{gmaps.zoom}}" class="map" center="{{getCoords(place)}}">
+          <marker position="{{getCoords(place)}}" title="{{event.name}}">
+          </marker>
+        </ng-map>
+      </div>
+    </div>
+  </div>
+</div>

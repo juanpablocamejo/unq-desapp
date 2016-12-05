@@ -19,7 +19,10 @@ angular
     'pascalprecht.translate',
     'tmh.dynamicLocale',
     'angular.filter',
-    'adv.gauth'
+    'adv.gauth',
+    'angularUtils.directives.dirPagination',
+    'psResponsive',
+    'ngMap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -48,6 +51,16 @@ angular
         controller: 'FriendsCtrl',
         controllerAs: 'friends'
       })
+      .when('/event_details', {
+        templateUrl: 'views/eventDetails.html',
+        controller: 'eventDetailsCtrl',
+        controllerAs: 'friends'
+      })
+      .when('/place_details', {
+        templateUrl: 'views/placeDetails.html',
+        controller: 'placeDetailsCtrl',
+        controllerAs: 'friends'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -64,13 +77,19 @@ angular
   })
   .config(function (gauthProvider) {
     gauthProvider.setGoogleKey("1012008431025-usfsjk7vqtbe1qgksj60tuh7g32ntv31.apps.googleusercontent.com");
-  });
+  })
+  .config(function ($httpProvider) {
+    $httpProvider.interceptors.push('httpinterceptor');
+  }).run(function ($rootScope) {
+  $rootScope.currentStrategy = 'surprise_me';
+});
 
 /*global $*/
 $(function () {
   $('.button-collapse').sideNav({
-    menuWidth: 300, // Default is 240
+    menuWidth: 240, // Default is 240
     edge: 'right', // Choose the horizontal origin
     closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
   });
 });
+

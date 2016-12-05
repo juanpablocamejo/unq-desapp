@@ -1,8 +1,10 @@
 (function () {
   'use strict';
-
-  function factory($resource, $rootScope, $location, current, $q) {
-    factory.$inject = ['$resource', '$rootScope', '$location', 'current', '$q'];
+  angular
+    .module('advApp')
+    .factory('API', APIfactory);
+  function APIfactory($resource, $rootScope, $location, current, $q, gauth) {
+    APIfactory.$inject = ['$resource', '$rootScope', '$location', 'current', '$q', 'gauth'];
 
     var service = {
       resource: getResource,
@@ -13,13 +15,15 @@
     return service;
 
     function getCurrUser() {
-      return getResource('/users/:id').get({id: current.user.id}).$promise;
+      var _email = gauth.getCurrentState().user.email;
+      return getResource('/users/:filter/:email').get({filter: 'byEmail', email: _email}).$promise;
     }
 
     function getResource(path) {
       var host = $location.host();
-      var apiPath = (host === 'localhost') ? ':8080/api' : '/api';
-      return $resource('http://' + host + apiPath + path, null, {
+      var isLocal = host === 'localhost';
+      var apiPath = isLocal ? ':8080/api' : '/api';
+      return $resource((isLocal ? 'http://' : 'https://') + host + apiPath + path, null, {
           'get': {method: 'GET'},
           'save': {method: 'POST'},
           'update': {method: 'PUT'},
@@ -33,8 +37,8 @@
     function getOrCreate(googleUser) {
       var def = $q.defer();
 
-      getResource("/users/byEmail/" + googleUser.email)
-        .get()
+      getResource("/users/:filter/:email/")
+        .get({filter: 'byEmail', email: googleUser.email})
         .$promise
         .then(getSuccess, getFail);
 
@@ -66,8 +70,4 @@
     }
 
   }
-
-  angular
-    .module('advApp')
-    .factory('API', factory);
 })();

@@ -1,39 +1,75 @@
 <div class="card-panel">
+  <div class="center-align"><h5 translate="{{strategy}}.title"></h5></div>
+  <div class="row section">
 
-  <div class="row section">
-    <div><h5 translate="{{strategy}}.title"></h5></div>
-  </div>
-  <div class="row section">
     <div class="input-field col s12 m6 l6">
       <label translate>assistants</label>
       <input type="number" ng-model="cnt"/>
     </div>
+    <div class="col s12 m6 l6">
+      <a class="waves-effect waves-light btn" style="margin-top:14px" ng-click="searchAll()"><i
+        class="material-icons left">search</i>{{'search' |
+        translate}}</a>
+    </div>
 
-    <a class="waves-effect waves-light btn" ng-click="searchAll()"><i class="material-icons left">search</i>{{'search' |
-      translate}}</a>
   </div>
   <div class="divider"></div>
 
   <div class="row section">
-    <h6 translate="events"></h6>
+    <div class="center-align"><h6 translate="events"></h6></div>
     <table class="dtable striped">
-      <tr ng-repeat="e in events">
+      <tr dir-paginate="e in events | itemsPerPage: eventsPageSize" pagination-id="eventsPager">
         <td>{{e.startDateTime | date}}</td>
         <td>{{e.name}}</td>
-        <td><a href="" ng-click="viewEvent(e)" class="btn right">{{'details' | translate}}</a></td>
+        <td><a href="" ng-click="viewEvent(e)" class="btn-details btn waves-effect waves-light center-align right">{{'details'
+          | translate}}</a>
+        </td>
       </tr>
     </table>
+    <div class="row center-align">
+      <div class="col s6">
+        <dir-pagination-controls auto-hide="false" boundary-links="true"
+                                 pagination-id="eventsPager"></dir-pagination-controls>
+      </div>
+      <div class="col s6">
+        <ul class="pagination">
+          <li class="hide-on-med-and-down"><a translate="page_size"></a></li>
+          <li ng-class="{active:isEventsPageSize(5)}"><a href="" ng-click="setEventsPageSize(5)">5</a></li>
+          <li ng-class="{active:isEventsPageSize(10)}"><a href="" ng-click="setEventsPageSize(10)">10</a></li>
+          <li ng-class="{active:isEventsPageSize(20)}"><a href="" ng-click="setEventsPageSize(20)">20</a></li>
+        </ul>
+      </div>
+    </div>
+
   </div>
   <div class="row section">
-    <h6 translate="places"></h6>
+    <div class="center-align">
+      <h6 translate="places"></h6>
+      <select></select>
+    </div>
     <table class="dtable striped">
-      <tr ng-repeat="p in places">
-        <td>{{p.name}}</td>
+      <tr dir-paginate="p in places | itemsPerPage: placesPageSize" pagination-id="placesPager">
+        <td style="width:20%">{{p.name}}</td>
         <td>{{p.description}}</td>
-        <td><a href="" ng-click="viewPlace(p)" class="btn right">{{'details' | translate}}</a></td>
+        <td><a href="" ng-click="viewPlace(p)" class="btn-details btn waves-effect waves-light center-align right">{{'details'
+          | translate}}</a>
+        </td>
+        <!--{{'details' | translate}}-->
       </tr>
     </table>
+    <div class="center-align">
+      <div class="col s6">
+        <dir-pagination-controls auto-hide="false" boundary-links="true"
+                                 pagination-id="placesPager"></dir-pagination-controls>
+      </div>
+      <div class="col s6">
+        <ul class="pagination">
+          <li class="hide-on-med-and-down"><a translate="page_size"></a></li>
+          <li ng-class="{active:isPlacesPageSize(5)}"><a href="" ng-click="setPlacesPageSize(5)">5</a></li>
+          <li ng-class="{active:isPlacesPageSize(10)}"><a href="" ng-click="setPlacesPageSize(10)">10</a></li>
+          <li ng-class="{active:isPlacesPageSize(20)}"><a href="" ng-click="setPlacesPageSize(20)">20</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
-
-
 </div>

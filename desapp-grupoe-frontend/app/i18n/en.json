@@ -48,5 +48,6 @@
   "events": "Sugested Events",
   "places": "Sugested Places",
   "add_friend_ok": "Friend added successfully",
-  "remove_friend_ok": "Friend removed successfully"
+  "remove_friend_ok": "Friend removed successfully",
+  "page_size": "results per page"
 }
