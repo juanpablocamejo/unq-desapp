@@ -91,3 +91,27 @@ NOTES:
 KNOWN ISSUES:
 * The applications takes some time to brind the profile information when you logon.
 * Logging out does not work properly.
+
+---------------------------------------------------------------------
+TAG ENTREGA 4.0
+---------------------------------------------------------------------
+NEW FEATURES:
+
+BACKEND
+* Validations: user name, surname, inexpensiveOutingLimit, email, etc.
+* Test modifications, including mocks.
+
+FRONTEND:
+* Pagination
+* Google Maps integration
+* Outing Details
+* Assist on outings
+* Auth0 Logout
+* Search events and places with Strategies implemented on backend.
+* Add/remove friend.
+
+NOTES:
+* Consuming from BADB not implemented
+* Create own outings not implemented
+
+
