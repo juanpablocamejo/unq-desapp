@@ -139,8 +139,8 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
         dto.setImage(op.getImage());
         dto.setAddress(op.getAddress().toArray());
 
-        List<String> assistants = new ArrayList<>();
-        op.getAssistants().parallelStream().forEach(a -> assistants.add(a.toString()));
+        List<Integer> assistants = new ArrayList<>();
+        op.getAssistants().parallelStream().forEach(a -> assistants.add(a.getId()));
         dto.setAssistants(assistants);
 
         dto.setMaxAssistants(op.getMaxAssistants());
@@ -173,7 +173,7 @@ public class OutingPlaceRestService extends GenericRestService<OutingPlace> {
         o.setTags(tags);
 
         List<User> assistants = new ArrayList<>();
-        dto.getAssistants().parallelStream().forEach(f -> assistants.add(userService.findById(Integer.parseInt(f.split(",")[0]))));
+        dto.getAssistants().parallelStream().forEach(f -> assistants.add(userService.findById(f)));
         o.setAssistants(assistants);
 
         o.setMaxAssistants(dto.getMaxAssistants());

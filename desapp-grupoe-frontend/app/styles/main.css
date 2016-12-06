@@ -70,24 +70,70 @@ a.btn-floating {
 .outingImage {
   display: block;
   margin: auto;
-
-  height: auto;
-  max-height: 100%;
-
-  width: auto;
-  max-width: 100%;
+  width: 100%;
 }
 
 #assistance[type="checkbox"] + label {
   font-size: 1.5rem !important;
 }
 
+@media screen and (max-width: 600px ) {
+  .view-overlay {
+    height: calc(100% - 60px);
+    top: 60px;
+  }
+
+  .progress {
+    top: 56px;
+  }
+
+  .pagination li a {
+    padding: 0 5px;
+  }
+
+  .row .col {
+    padding: 0 0.5rem;
+  }
+
+  .btn-details {
+    padding: 0 10px 0 10px;
+  }
+
+  .view-panel {
+    width: 96% !important;
+  }
+
+  .btn-search {
+    padding: 0 10px;
+  }
+
+  .btn-search i {
+    margin-right: 5px !important;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .view-overlay {
+    height: calc(100% - 68px);
+    top: 68px;
+  }
+
+  .progress {
+    top: 64px;
+  }
+
+}
+
+.pagination li a {
+  font-size: 1rem !important;
+
+}
+
 .view-overlay {
   width: 100%;
-  height: calc(100% - 68px);
   display: block;
   position: fixed;
-  top: 68px;
+
   background-color: black;
   opacity: 0.1;
   z-index: 999999999;
@@ -95,7 +141,6 @@ a.btn-floating {
 
 .progress {
   position: fixed;
-  top: 64px;
 }
 
 html, body {

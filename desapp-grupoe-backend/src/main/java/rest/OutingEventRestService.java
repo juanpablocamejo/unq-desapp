@@ -148,8 +148,8 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
         oe.getTags().parallelStream().forEach(o -> tags.add(o.getId()));
         dto.setTags(tags);
 
-        List<String> assistants = new ArrayList<>();
-        oe.getAssistants().parallelStream().forEach(a -> assistants.add(a.toString()));
+        List<Integer> assistants = new ArrayList<>();
+        oe.getAssistants().parallelStream().forEach(a -> assistants.add(a.getId()));
         dto.setAssistants(assistants);
 
         dto.setMaxAssistants(oe.getMaxAssistants());
@@ -181,7 +181,7 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
         o.setTags(tags);
 
         List<User> assistants = new ArrayList<>();
-        dto.getAssistants().parallelStream().forEach(f -> assistants.add(userService.findById(Integer.parseInt(f.split(",")[0]))));
+        dto.getAssistants().parallelStream().forEach(f -> assistants.add(userService.findById(f)));
         o.setAssistants(assistants);
 
         o.setMaxAssistants(dto.getMaxAssistants());

@@ -12,7 +12,7 @@ public class OutingEventDTO extends Entity {
     private String image;
     private String[] address;
     private List<Integer> tags = new ArrayList<>();
-    private List<String> assistants = new ArrayList<>();
+    private List<Integer> assistants = new ArrayList<>();
     private int maxAssistants;
     private double price;
     private String startDateTime;
@@ -61,11 +61,11 @@ public class OutingEventDTO extends Entity {
         this.tags = tags;
     }
 
-    public List<String> getAssistants() {
+    public List<Integer> getAssistants() {
         return assistants;
     }
 
-    public void setAssistants(List<String> assistants) {
+    public void setAssistants(List<Integer> assistants) {
         this.assistants = assistants;
     }
 

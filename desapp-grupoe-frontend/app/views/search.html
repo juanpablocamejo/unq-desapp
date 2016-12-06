@@ -2,14 +2,13 @@
   <div class="center-align"><h5 translate="{{strategy}}.title"></h5></div>
   <div class="row section">
 
-    <div class="input-field col s12 m6 l6">
+    <div class="input-field col s6 m6 l6">
       <label translate>assistants</label>
       <input type="number" ng-model="cnt"/>
     </div>
-    <div class="col s12 m6 l6">
-      <a class="waves-effect waves-light btn" style="margin-top:14px" ng-click="searchAll()"><i
-        class="material-icons left">search</i>{{'search' |
-        translate}}</a>
+    <div class="col s6 m6 l6">
+      <a class="waves-effect waves-light btn btn-search" style="margin-top:14px" ng-click="searchAll()"><i
+        class="material-icons left">search</i>{{'search' | translate}}</a>
     </div>
 
   </div>
@@ -21,8 +20,10 @@
       <tr dir-paginate="e in events | itemsPerPage: eventsPageSize" pagination-id="eventsPager">
         <td>{{e.startDateTime | date}}</td>
         <td>{{e.name}}</td>
-        <td><a href="" ng-click="viewEvent(e)" class="btn-details btn waves-effect waves-light center-align right">{{'details'
-          | translate}}</a>
+        <td><a href="" ng-click="viewEvent(e)" class="btn-details btn waves-effect waves-light center-align right">
+          <span class="hide-on-small-and-down">{{'details' | translate}}</span>
+          <span class="hide-on-med-and-up"><i class="material-icons">arrow_forward</i></span>
+        </a>
         </td>
       </tr>
     </table>
@@ -33,7 +34,7 @@
       </div>
       <div class="col s6">
         <ul class="pagination">
-          <li class="hide-on-med-and-down"><a translate="page_size"></a></li>
+          <li class="hide-on-small-and-down"><a translate="page_size"></a></li>
           <li ng-class="{active:isEventsPageSize(5)}"><a href="" ng-click="setEventsPageSize(5)">5</a></li>
           <li ng-class="{active:isEventsPageSize(10)}"><a href="" ng-click="setEventsPageSize(10)">10</a></li>
           <li ng-class="{active:isEventsPageSize(20)}"><a href="" ng-click="setEventsPageSize(20)">20</a></li>
@@ -51,8 +52,10 @@
       <tr dir-paginate="p in places | itemsPerPage: placesPageSize" pagination-id="placesPager">
         <td style="width:20%">{{p.name}}</td>
         <td>{{p.description}}</td>
-        <td><a href="" ng-click="viewPlace(p)" class="btn-details btn waves-effect waves-light center-align right">{{'details'
-          | translate}}</a>
+        <td><a href="" ng-click="viewPlace(p)" class="btn-details btn waves-effect waves-light center-align right">
+          <span class="hide-on-small-and-down">{{'details' | translate}}</span>
+          <span class="hide-on-med-and-up"><i class="material-icons">arrow_forward</i></span>
+        </a>
         </td>
         <!--{{'details' | translate}}-->
       </tr>
@@ -64,7 +67,7 @@
       </div>
       <div class="col s6">
         <ul class="pagination">
-          <li class="hide-on-med-and-down"><a translate="page_size"></a></li>
+          <li class="hide-on-small-and-down" style="font-size:12px"><a translate="page_size"></a></li>
           <li ng-class="{active:isPlacesPageSize(5)}"><a href="" ng-click="setPlacesPageSize(5)">5</a></li>
           <li ng-class="{active:isPlacesPageSize(10)}"><a href="" ng-click="setPlacesPageSize(10)">10</a></li>
           <li ng-class="{active:isPlacesPageSize(20)}"><a href="" ng-click="setPlacesPageSize(20)">20</a></li>

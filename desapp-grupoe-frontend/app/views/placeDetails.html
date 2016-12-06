@@ -4,9 +4,8 @@
       <a href="" ng-click="backToSearch()" class="black-text"><i class="material-icons right">close</i></a>
     </div>
     <div class="col s12 m8 l9">
-
       <h5>
-        <i class="fa fa-map-marker left" aria-hidden="true"></i>
+        <i class="material-icons">room</i>
         <strong>{{place.name}}</strong></h5>
     </div>
     <div class="col s12 m4 l3" style="margin-top:10px">
@@ -19,10 +18,11 @@
   </div>
   <div class="row section">
     <div class="col s12 m6">
+      <p></p>
       <p class="flow-text">{{place.description}}</p>
     </div>
-    <div class="col s12 m6" style="height:300px">
-      <img class="responsive-img outingImage" src="{{place.image}}" style="width:450px"/>
+    <div class="col s12 m6">
+      <img class="responsive-img outingImage" src="{{place.image}}"/>
     </div>
   </div>
   <div class="row section">
