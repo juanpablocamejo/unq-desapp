@@ -14,6 +14,7 @@ import persistence.WeekTimeScheduleDAO;
 import persistence.strategies.OutingFilter;
 import services.initialization.Initializable;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -164,24 +165,19 @@ public class OutingPlaceService extends GenericService<OutingPlace> implements I
         return repo.findPlaces(filter);
     }
 
-    private void validate(OutingPlace place) {
-        if (!lettersOnly(place.getName())) {
-            throw new EntityValidationException("Invalid name...");
+    private void validate(OutingPlace outing) {
+        if (outing.getName().length()>50) {
+            throw new EntityValidationException("name_too_long");
         }
-        if (!validNumber(place.getPrice())) {
-            throw new EntityValidationException("Invalid price...");
+        if (outing.getDescription().length()>500) {
+            throw new EntityValidationException("description_too_long");
+        }
+        if (outing.getPrice()<0 && outing.getPrice()>500000) {
+            throw new EntityValidationException("invalid_price");
         }
 
-        if (!validNumber(place.getMaxAssistants())) {
-            throw new EntityValidationException("Invalid maxAssistants...");
+        if (outing.getMaxAssistants()>1000000000) {
+            throw new EntityValidationException("invalid_max_assistants");
         }
-    }
-
-    private boolean validNumber(double price) {
-        return (price >= 0);
-    }
-
-    private boolean lettersOnly(String text) {
-        return (Pattern.matches("^[A-Za-z\\s]+$", text.trim()));
     }
 }

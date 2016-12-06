@@ -15,26 +15,22 @@
 
     return {
       request: function (config) {
-
         numLoadings++;
 
-        // Show loader
         $rootScope.$broadcast("loader_show");
         return config || $q.when(config)
 
       },
       requestError: function (rejection) {
         if ((--numLoadings) === 0) {
-          // Hide loader
-          hide();//$rootScope.$broadcast("loader_hide");
+          hide();
         }
         return rejection || $q.when(rejection);
       },
       response: function (response) {
 
         if ((--numLoadings) === 0) {
-          // Hide loader
-          hide();//$rootScope.$broadcast("loader_hide");
+          hide();
         }
 
         return response || $q.when(response);
@@ -43,8 +39,13 @@
       responseError: function (response) {
 
         if ((--numLoadings) === 0) {
-          // Hide loader
-          hide();//$rootScope.$broadcast("loader_hide");
+          hide();
+          if (response.status == 400) {
+            $rootScope.error_message = response.data.message;
+            $timeout(function () {
+              $rootScope.error_message = null;
+            }, 2000);
+          }
         }
 
         return $q.reject(response);

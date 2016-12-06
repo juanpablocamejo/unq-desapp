@@ -15,6 +15,7 @@ import persistence.strategies.OutingFilter;
 import services.initialization.Initializable;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class OutingEventService extends GenericService<OutingEvent> implements Initializable {
 
@@ -165,18 +166,34 @@ public class OutingEventService extends GenericService<OutingEvent> implements I
 
     @Override
     @Transactional
-    public void save(OutingEvent object) throws EntityValidationException {
+    public void save(OutingEvent event) throws EntityValidationException {
+        validate(event);
         OutingEvent newOutingEvent = OutingEventBuilder.anOutingEvent().build();
         super.save(newOutingEvent);
-        object.setId(newOutingEvent.getId());
-        addressDAO.save(object.getAddress());
+        event.setId(newOutingEvent.getId());
+        addressDAO.save(event.getAddress());
 
-        super.update(object);
+        super.update(event);
     }
 
     @Transactional
     public List<OutingEvent> searchEvents(OutingFilter filter) {
         OutingEventDAO repo = (OutingEventDAO) getRepository();
         return repo.findEvents(filter);
+    }
+    private void validate(OutingEvent outing) {
+        if (outing.getName().length()>50) {
+            throw new EntityValidationException("name_too_long");
+        }
+        if (outing.getDescription().length()>500) {
+            throw new EntityValidationException("description_too_long");
+        }
+        if (outing.getPrice()<0 && outing.getPrice()>500000) {
+            throw new EntityValidationException("invalid_price");
+        }
+
+        if (outing.getMaxAssistants()>1000000000) {
+            throw new EntityValidationException("invalid_max_assistants");
+        }
     }
 }

@@ -49,5 +49,11 @@
   "places": "Sugested Places",
   "add_friend_ok": "Friend added successfully",
   "remove_friend_ok": "Friend removed successfully",
-  "page_size": "results per page"
+  "page_size": "results per page",
+  "error_messages": {
+    "invalid_name": "Invalid name",
+    "invalid_surname": "Invalid surname",
+    "invalid_email": "Invalid email",
+    "invalid_outing_limit": "Invalid price limit"
+  }
 }

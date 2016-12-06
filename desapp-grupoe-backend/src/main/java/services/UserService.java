@@ -77,7 +77,7 @@ public class UserService extends GenericService<User> implements Initializable {
     @Transactional
     public void save(User user) {
         if (!(findByEmail(user.getEmail()) == null)) {
-            throw new EntityValidationException("User already exists with email " + user.getEmail());
+            throw new EntityValidationException("duplicated_user");
         }
         validate(user);
         Profile newProfile = ProfileBuilder.anyProfile().build();
@@ -101,7 +101,7 @@ public class UserService extends GenericService<User> implements Initializable {
     @Transactional
     public User findByEmail(String email) {
         if (!isMail(email)) {
-            throw new EntityValidationException("Invalid email...");
+            throw new EntityValidationException("invalid_email");
         }
         UserDAO repo = (UserDAO) getRepository();
         return repo.findByEmail(email);
@@ -110,27 +110,26 @@ public class UserService extends GenericService<User> implements Initializable {
     @Transactional
     public List<String> findByName(String name) {
         if (!lettersOnly(name)) {
-            throw new EntityValidationException("Invalid name...");
+            throw new EntityValidationException("invalid_name");
         }
         UserDAO repo = (UserDAO) getRepository();
         return repo.findByName(name);
     }
 
     private void validate(User user) {
-
-        if (!lettersOnly(user.getName())) {
-            throw new EntityValidationException("Invalid name...");
+        if (!lettersOnly(user.getName()) || user.getName().length() > 50) {
+            throw new EntityValidationException("invalid_name");
         }
-        if (!lettersOnly(user.getSurname())) {
-            throw new EntityValidationException("Invalid surname...");
+        if (!lettersOnly(user.getSurname()) || user.getSurname().length() > 50) {
+            throw new EntityValidationException("invalid_surname");
         }
 
         if (!isMail(user.getEmail())) {
-            throw new EntityValidationException("Invalid email...");
+            throw new EntityValidationException("invalid_email");
         }
 
-        if (user.getProfile().getInexpensiveOutingLimit() < 0) {
-            throw new EntityValidationException("Invalid outing limit price...");
+        if (user.getProfile().getInexpensiveOutingLimit() < 0 || user.getProfile().getInexpensiveOutingLimit() > 50000) {
+            throw new EntityValidationException("invalid_outing_limit");
         }
     }
 

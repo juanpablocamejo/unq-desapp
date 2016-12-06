@@ -94,7 +94,7 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
     public Response updateEvent(OutingEventDTO dto) {
         OutingEvent event = fromDTO(dto, service.findById(dto.getId()));
         if (event == null) {
-            throw new ResourceNotFoundException("Invalid event...");
+            throw new ResourceNotFoundException("event_not_found");
         }
         service.update(event);
         return Response.ok(toDTO(event)).build();
@@ -107,11 +107,11 @@ public class OutingEventRestService extends GenericRestService<OutingEvent> {
         OutingEvent event = service.findById(idEvent);
         User user = userService.findById(idUser);
         if (event == null) {
-            throw new ResourceNotFoundException("No outing event found with id " + idEvent);
+            throw new ResourceNotFoundException("event_not_found");
         }
 
         if (user == null) {
-            throw new ResourceNotFoundException("No user found with id " + idUser);
+            throw new ResourceNotFoundException("user_not_found");
         }
         event.addAssistant(user);
         service.update(event);

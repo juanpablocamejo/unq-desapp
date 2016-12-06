@@ -83,7 +83,7 @@ a.btn-floating {
     top: 60px;
   }
 
-  .progress {
+  .progress, .error-message {
     top: 56px;
   }
 
@@ -118,7 +118,7 @@ a.btn-floating {
     top: 68px;
   }
 
-  .progress {
+  .progress, .error-message {
     top: 64px;
   }
 
@@ -145,4 +145,14 @@ a.btn-floating {
 
 html, body {
   height: 100%
+}
+
+.error-message {
+  position: fixed;
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  background-color: red;
+  opacity: 0.7;
+  z-index: 100000;
 }

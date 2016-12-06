@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <link rel="stylesheet" href="styles/vendor.df864ff2.css">
-  <link rel="stylesheet" href="styles/main.918ae38b.css">
+  <link rel="stylesheet" href="styles/main.3dec8fe2.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body ng-controller="AuthCtrl" ng-gauth> <!--[if lte IE 8]>
@@ -50,7 +50,7 @@
                                                                             ng-click="login()"><span
     translate="google_sign_in"></span><i class="fa fa-google left"></i></a></div>
 </div>
-<div class="container" ng-view="" ng-if="signedIn.value"></div>
+<div class="container view-panel" ng-view="" ng-if="signedIn.value"></div>
 <div ng-controller="LocaleCtrl" class="fixed-action-btn horizontal txt-shadow"><a
   class="btn-floating btn-large red opacity-80" title="{{'language' | translate}}"> <i
   class="material-icons">language</i> </a>
@@ -61,6 +61,8 @@
       style="margin-right:10px">EN</span></a></li>
   </ul>
 </div>
+<div ng-if="error_message" class="error-message white-text center-align"
+     translate="error_messages.{{error_message}}"></div>
 <div class="footer">
   <div class="container"><p class="center-align white-text txt-shadow"><a
     href="http://www.unq.edu.ar/carreras/32-tecnicatura-universitaria-en-programaci%C3%B3n-inform%C3%A1tica.php"
@@ -77,6 +79,6 @@
   ga('create', 'UA-XXXXX-X');
 ga('send', 'pageview');</script>
 <script src="scripts/vendor.cce95bc7.js"></script>
-<script src="scripts/scripts.fafcb2cb.js"></script>
+<script src="scripts/scripts.3df6db06.js"></script>
 </body>
 </html>
