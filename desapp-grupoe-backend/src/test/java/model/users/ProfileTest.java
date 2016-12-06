@@ -49,8 +49,11 @@ public class ProfileTest {
     @Test
     public void testMergeProfilesInexpensiveLimitAverageIsOK() {
 
-        Profile p1 = anyProfile().withInexpensiveOutingLimit(20).build();
-        Profile p2 = anyProfile().withInexpensiveOutingLimit(60).build();
+        Profile p1 = mock(Profile.class);
+        Profile p2 = mock(Profile.class);
+        when(p1.getInexpensiveOutingLimit()).thenReturn(20.0);
+        when(p2.getInexpensiveOutingLimit()).thenReturn(60.0);
+
         ArrayList<Profile> listProfiles = new ArrayList<>();
         listProfiles.add(p1);
         listProfiles.add(p2);
