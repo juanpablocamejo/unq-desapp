@@ -8,6 +8,7 @@
   function eventDetailsController($window, $scope, API, current) {
     if (current.selectedEvent) {
       $scope.event = current.selectedEvent;
+      $scope.is_assistant = is_assistant();
     }
     else {
       current.fromDetails = true;
@@ -32,7 +33,7 @@
     $scope.toggleAssistance = function () {
       var action = $scope.is_assistant ? 'addAssistant' : 'removeAssistant';
 
-      API.resource('/places/' + $scope.event.id + '/' + action + '/' + current.user.id).update()
+      API.resource('/events/' + $scope.event.id + '/' + action + '/' + current.user.id).update()
         .$promise.then(
         function (res) {
           $scope.event.assistants = res.assistants;
